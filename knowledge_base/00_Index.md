@@ -1,8 +1,14 @@
 # AI Learning Index
 
 ## 🎯 Current Focus
+- [ ] **[NEW]** Master Tech Fundamentals: [Language & Scripts Map](file:///c:\Pm_Workspace\knowledge_base\coding_fundamentals\01_Language_Map_and_Scripts.md)
 - [ ] Deep Dive into DRM & Streaming Logic
 - [ ] Understand AI Agent Architecture
+
+## 💻 Coding Fundamentals (The Map)
+- [01_Language_Map_and_Scripts](file:///c:\Pm_Workspace\knowledge_base\coding_fundamentals\01_Language_Map_and_Scripts.md) - **(Start Here)** 语言应用场景、脚本与兼容性解析
+- [02_Script_Deployment_Landscape](file:///c:\Pm_Workspace\knowledge_base\coding_fundamentals\02_Script_Deployment_Landscape.md) - 脚本栖息地：本地、云端与工程化部署全景
+- [03_Free_Task_Platforms](file:///c:\Pm_Workspace\knowledge_base\coding_fundamentals\03_Free_Task_Platforms.md) - **(New!)** 零成本方案：GitHub Actions, Cloudflare 与避坑指南
 
 ## 🏛️ Architecture & Specs (System Design)
 - [Universal_DRM_Strategy_Router](file:///c:\Pm_Workspace\docs\arch\Universal_DRM_Strategy_Router.md) - 通用 DRM 策略路由架构

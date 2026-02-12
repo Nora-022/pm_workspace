@@ -8,3 +8,12 @@ Thumbs.db
 # Python
 __pycache__/
 *.py[cod]
+
+# Logs
+*.log
+bot_history.log
+
+# Temporary & Playground
+temp/
+learning_playground/renaming_task/
+
