@@ -1,0 +1,1082 @@
+
+
+===== PAGE 1 =====
+
+[StreamFab 浏览器插件] - [NetFlix] - 需求文档​
+🤖Netflix 插件在整体产品架构上复用既有 ytdlp 插件，核心授权机制、下载流程及 UI 风格保持
+一致。
+本文档仅聚焦 Netflix 插件的差异化设计与新增需求，通用能力将统一标记，不再重复说明。​
+原型链接：http://axcloud.dvdfab.me/96EHKE?id=qtcn1h&g=14​
+需求地址：​
+[需求]StreamFab 浏览器插件-Netflix​
+文档更新记录
+1. 产品定位​
+StreamFab Netflix Downloader for Browser 是跟之前做的 StreamFab Video Downloader for 
+Browser 同级的、独立的插件产品，都是 StreamFab 的独立子品牌，具备独立的产品形象与售卖体
+系。
+文档更新记录
+
+
+===== PAGE 2 =====
+
+2. 功能与分发渠道​
+产品功能：支持 NetFlix 视频下载​
+分发渠道：
+◦
+独立网站包：
+▪
+StreamFab 主站​
+▪
+StreamFab 独立站​
+◦
+商店包：
+▪
+Chrome Web Store​
+▪
+Edge Addons​
+3. 产品信息​
+3.1 产品信息​
+​
+[StreamFab] - [Netflix 浏览器插件] - [Win] - 安装程序checklist​
+3.2 Mlink 链接​
+网站离线包
+•
+主站：https://www.dvdfab.cn/mlink/download.php?
+g=StreamFab_Netflix_Downloader_for_Browser​
+•
+独立站：https://streamfab.com/mlink?p=StreamFab_Netflix_Downloader_for_Browser​
+CoApp​
+系统​
+场景​
+Mlink​
+Win​
+主站​
+https://www.dvdfab.cn/mlink/download.php?g=StreamFab_Netflix_Coapp​
+独立站​
+https://streamfab.com/mlink?p=StreamFab_Netflix_Coapp​
+Mac​
+主站​
+https://www.dvdfab.cn/mlink/download.php?
+g=StreamFab_Netflix_Coapp_for_Mac​
+独立站​
+https://streamfab.com/mlink?p=StreamFab_Netflix_Coapp_for_Mac​
+
+
+===== PAGE 3 =====
+
+StreamFab 客户端​
+系统​
+场景​
+Mlink​
+Win​
+主站​
+https://www.dvdfab.cn/mlink/download.php?g=StreamFab_Online​
+独立站​
+https://streamfab.com/mlink?p=StreamFab​
+Mac​
+主站​
+https://www.dvdfab.cn/mlink/download.php?g=StreamFab_for_Mac​
+独立站​
+https://streamfab.com/mlink?p=StreamFab_for_Mac​
+对应关系为：
+Chrome、Edge 商店插件包、主站离线包  ——> StreamFab 客户端 主站​
+独立站插件离线包 ——> StreamFab独立站包​
+3.3 插件安装成功页​
+主站跳转至：https://streamfab.dvdfab.cn/thankyou.htm?s=streamfab-for-browser​
+包含chrome、edge、主站的离线包​
+独立站跳转至：https://streamfab.com/thankyou.htm?s=streamfab-for-browser​
+只有独立站的离线包
+4. 相关文档​
+​
+【SF 插件】Common 逻辑规范​
+​
+【SF 插件】能力声明表 — Netflix​
+​
+[StreamFab 浏览器插件] - [Netflix] - UI 需求说明​
+BDD 文档等需求文档确认完毕后输出​
+5. 模块说明​
+Netflix 插件整体遵循 ytdlp 插件的产品架构，部分逻辑需做差异化。​
+一级模块​
+二级模块​
+变更点​
+登录&授权​
+/​
+与 ytdlp 一致​
+
+
+===== PAGE 4 =====
+
+用户权益​
+试用​
+试用限制 3 个视频​
+付费​
+每日限制 100 个视频​
+视频分析​
+/​
+整体逻辑与 ytdlp 一致， 部分细节需要针对 Netflix 做差异化​
+视频检测​
+/​
+视频下载​
+/​
+Dashboard​
+dashborad​
+与 ytdlp 信息结构一致，部分信息需调整​
+setting​
+需要针对 Netflix 做差异化​
+6. 各协作方关注​
+协作方​
+重点关注​
+底层​
+确认接口是否提供完整，需规范接口文档（还会用于反重力实现代码）​
+界面​
+关注界面和逻辑差异​
+Coapp​
+客户端checklist 文档，替换新的 client id、设计资源​
+授权​
+确认试用体系，是否需要做额外维护​
+UI​
+UI 需求文档​
+7. 逻辑及流程​
+7.1 核心逻辑​
+7.1.1 用户权益&任务扣减​
+Fab365 用户可享受所有插件的付费权益（订阅有效期内）​
+试用用户​
+付费用户​
+用户权益​
+3 次试用机会​
+单日 100 个视频下载机会​
+
+
+===== PAGE 5 =====
+
+任务扣减​
+发起即扣减（预扣减）​
+任务成功扣除​
+任务失败不扣​
+7.1.2 中途退出 Netflix 账号​
+任务状态​
+是否允许继续下载​
+说明​
+用户提示​
+Detected​
+有已检测到的视频​
+是​
+否​
+视频区域已识别，下载任务可以
+继续创建和执行​
+启动任务需申请密钥，无登录态
+鉴权失败。​
+/​
+Detected​
+无已检测到的视频​
+否​
+用户退出登录或刷新导致无法识
+别视频​
+界面提示用户登录​
+下载中​
+是​
+任务已进入下载执行阶段，不受
+登录状态影响​
+/​
+下载失败​
+否​
+不允许重试，统一定义一个错误
+码（用户退出账号导致）​
+/​
+下载完成​
+无影响​
+已完成任务不受登录状态影响​
+显示完成状态​
+暂定该方案，如有其它建议可再修改。
+7.2 关键流程​
+7.2.1 Netflix 插件使用前提​
+3个重要前提：netflix 站点、登录 netflix、播放视频​
+
+
+===== PAGE 6 =====
+
+登录&授权流程复用 ytdlp 插件的流程，见 4.3登录&授权流程 ​
+[StreamFab 浏览器插件] - 核心逻辑
+与流程概要​
+7.2.2 任务扣减&队列管理​
+
+
+===== PAGE 7 =====
+
+否
+是
+是
+否
+用户发起下载任务
+是否有可用试用额度
+拦截任务
+提示试用次数已用完
+扣减 1 次试用额度
+创建下载任务
+并发任务数是否超过上限
+进入等待队列
+进入下载中状态
+开始下载
+Views
+
+
+===== PAGE 8 =====
+
+成功
+失败
+是
+否
+下载结果
+任务完成
+任务失败结束
+提示失败原因
+支持手动重试
+不额外消耗额度
+是否仍有可用试用额度
+允许继续发起下载
+禁止继续下载
+提示试用次数已用完
+引导购买正式授权
+7.2.3  试用弹窗触发逻辑​
+试用用户发起下载任务的时候有两个拦截弹窗，分别是 试用弹窗（包含试用提示和试用过期） 和 反盗
+版限制弹窗，判断逻辑如下。
+
+
+===== PAGE 9 =====
+
+否
+是
+是
+用户发起下载行为
+是否为试用用户?
+不在本流程内
+试用是否已过期?
+30天超期 或 3次用完
+弹试用过期弹窗
+Views
+注：实际是判断视频缓存key是否为最近两个月内，但新视频在netflix上架到我们拿到缓存key大概
+是1-2天，所以可以大概计为视频上架时间，总之，按照客户端的判断逻辑执行即可，不需要额外做
+判断。
+8. 原型地址​
+http://axcloud.dvdfab.me/96EHKE?id=qtcn1h&g=14​
+
+
+===== PAGE 10 =====
+
+9. 原型讲解​
+9.1 弹窗结构​
+原型​
+说明​
+弹窗​
+侧边栏​
+插件结构跟 ytdlp 保持一致​
+•
+产品页-Official Site、用户中心-Member 
+Center、Contact Us、What's New 入口​
+◦
+产品页​
+▪
+主站​
+https://streamfab.dvdfab.cn/streamfab
+-for-browser.htm​
+▪
+独立站​
+https://streamfab.com/streamfab-for-
+browser.htm​
+◦
+用户中心​
+▪
+主站​
+https://www.dvdfab.cn/member.htm​
+▪
+独立站​
+https://streamfab.com/member.htm​
+◦
+contact us​
+▪
+主站​
+https://www.dvdfab.cn/contact.htm​
+▪
+独立站​
+https://streamfab.com/contact.htm​
+◦
+what's new ​
+▪
+主站​
+https://streamfab.dvdfab.cn/streamfab
+-for-browser-new.htm​
+▪
+独立站​
+https://streamfab.com/streamfab-for-
+browser-new.htm​
+▪
+主站：
+https://streamfab.dvdfab.cn/streamfab-
+for-browser-new.htm?pid=netflix-
+downloader​
+
+
+===== PAGE 11 =====
+
+▪
+独立站：
+https://streamfab.com/streamfab-for-
+browser-new.htm?pid=netflix-
+downloader​
+9.2 登录&授权​
+原型​
+说明​
+未登录未安装coapp-默认弹窗​
+•
+仅修改产品名，修改后内容为：​
+◦
+EN​
+▪
+Access your account to start 
+downloading videos with StreamFab 
+Netflix Downloader for Browser.​
+◦
+ZH​
+
+
+===== PAGE 12 =====
+
+▪
+登录您的账户，开始使用 StreamFab 
+Netflix 浏览器下载器下载视频。​
+已登录未安装coapp​
+无改动​
+登录弹窗​
+无改动​
+
+
+===== PAGE 13 =====
+
+特殊页面登录​
+无改动​
+授权成功​
+授权失败​
+无改动​
+
+
+===== PAGE 14 =====
+
+授权失败-授权上限​
+无改动​
+授权失败-网络原因​
+授权失败-其它原因​
+无改动​
+
+
+===== PAGE 15 =====
+
+授权中​
+授权成功-开始检测页面视频​
+
+
+===== PAGE 16 =====
+
+安装器​
+•
+需做以下调整，其余保持一致：​
+◦
+安装器资源：www.figma.com​
+◦
+调整安装目录：​
+[StreamFab 浏览器插件] - 
+Coapp目录结构设计​
+•
+安装器跳转链接​
+◦
+用户协议​
+▪
+主站：https://www.dvdfab.cn/u-
+experience.htm​
+▪
+独立站：https://streamfab.com/terms-
+of-use.htm​
+◦
+体验改善计划​
+▪
+主站：https://www.dvdfab.cn/dvdfab-
+user-license-agreement.htm​
+▪
+独立站：
+https://streamfab.com/privacy.htm​
+Netflix 登录提示​
+•
+登录 Netflix 网站是插件检测视频的重要前提条件​
+•
+触发时机：用户登录&授权成功后​
+•
+提示内容：​
+◦
+EN​
+Netflix Login Required​
+Please log in to Netflix and play a video.
+
+
+===== PAGE 17 =====
+
+◦
+ZH​
+需要登录Netflix​
+请登录Netflix并播放视频。​
+顶部用户信息​
+Netflix 试用用户有 3 次下载机会，付费用户每日 100 
+个视频限额，顶部信息结构需调整​
+•
+未登录/未授权：不变​
+•
+已授权：​
+◦
+试用​
+▪
+Email.Trial​
+Email 需控制长度，给订阅方案留出展
+示空间​
+▪
+Daily Downloads：剩余数量/3​
+◦
+订阅​
+▪
+Email.订阅方案​
+▪
+Daily Downloads：剩余数量/100​
+•
+授权过期：​
+◦
+试用​
+▪
+Email.Trial​
+▪
+Daily Downloads：0/3​
+◦
+订阅​
+▪
+email.Expired​
+▪
+Daily Downloads：0/100​
+
+
+===== PAGE 18 =====
+
+9.3 视频检测​
+🏕️差异
+1. 没有预分析流程，Meta 分析完界面展示信息。​
+2. 没有跨 Origin 概念，所有视频都累计在插件弹窗展示（限额50）​
+原型​
+说明​
+检测视频​
+无改动​
+Netflix 站内未检测到​
+Netflix 站点内未检测到视频引导用户播放视频或刷新
+页面​
+•
+提示内容为：​
+◦
+EN​
+No Videos Detected​
+Ensure the video is playing or refresh the 
+page.​
+Force Fresh​
+
+
+===== PAGE 19 =====
+
+◦
+ZH​
+未检测到视频​
+请保证视频播放或刷新页面​
+强制刷新​
+非 Netflix​
+插件只支持netflix，此外所有网站都引导 StreamFab 
+客户端​
+跟 ytdlp 插件的 drm 视频逻辑一致，安装就引导启
+动，未安装就引导下载​
+•
+文案调整​
+◦
+已安装：Launch StreamFab ​
+◦
+未安装：Download StreamFab ​
+视频检测结果页​
+检测结果页展示 netflix 网站内检测到的所有视频​
+都在同一个 origin，没有跨 origin 的概念​
+
+
+===== PAGE 20 =====
+
+•
+展示规则：视频列表设置 50 条展示上限。超过上
+限时，采用 FIFO（先检测先移除）策略，自动移
+除最早检测的视频并加入新检测视频，确保列表容
+量恒定。​
+下载中途退出 Netflix 账号​
+账号登出停止检测视频，Detected tab 提示用户登
+录，对下载任务的影响策略如下：​
+•
+待下载 ​
+◦
+策略：禁止启动。清空 Detected 列表并提示
+登录，左侧图示。​
+◦
+原因：启动任务需申请 DRM 密钥，无登录态
+鉴权失败。​
+•
+下载中​
+◦
+策略：允许继续。​
+◦
+原因： 密钥已在启动时缓存，后续数据传输通
+常不依赖实时登录态（动态秘钥除外）。​
+•
+下载失败 ​
+◦
+策略：禁止重试。点击重试跳转 Detected 
+tab 提示登录。​
+◦
+原因： 重试即新任务，需重新鉴权。​
+•
+下载完成​
+◦
+策略：正常展示。不影响​
+
+
+===== PAGE 21 =====
+
+有视频下载时检测视频​
+背景：​
+为保证下载成功率，streamfab客户端有任务下载
+时，不支持检测新视频，插件逻辑保持一致。​
+问题：​
+未作出任何提示，用户不清楚状况，且视频下载速
+度较慢，在此期间用户需要一直等待任务完成，再
+检测新视频。​
+方案：​
+在 * Videos Found 右侧新增一个常态化（只要 * 
+Videos Found 出现，提示就出现）注释icon​
+内容为：​
+En​
+Video detection runs only when no 
+downloading tasks exist to ensure stability.​
+ZH​
+视频检测仅在没有下载中任务时运行，以确保
+系统稳定性。​
+9.4 视频下载​
+原型​
+说明​
+配置参数-单个视频​
+配置参数-Playlist​
+配置项取决于取决于视频 metadata分析结果，配置项
+如下：​
+◦
+Video Codec​
+Codec 和 Profile、HDR 在客户端里是级联
+选项，插件受限于空间，将级联选项组合成
+为扁平化的编码能力组合。​
+▪
+H264 - High Profile​
+▪
+H264 - Main Profile​
+▪
+H265 - HDR10​
+▪
+H265 - Dolby Vision​
+▪
+VP9​
+▪
+AV1​
+
+
+===== PAGE 22 =====
+
+◦
+Resolution​
+◦
+Audio Codec​
+◦
+Language-支持多选​
+◦
+Subtitles-支持多选​
+切换codec加载态​
+切换codec时需向coapp重新发起请求，新增加载状态​
+•
+加载icon 在处理 ytdlp playlist 加载时提供过，适
+当缩小 icon 尺寸即可。​
+Playlist 弹窗-分析成功​
+剧集配置参数与单视频没有差别，点击 “select 
+episodes” 打开 playlist 弹窗，剧集结构有差异：​
+•
+新增 Season 的层级概念​
+•
+默认选中第一季的第一集视频​
+•
+剧集内的视频只展示时长，去掉文件大小（相较于
+ytdlp）​
+•
+下载中的 Playlist 任务不做额外标记（如下图），
+跟 ytdlp single Video 逻辑保持一致：支持重复发
+起任务，但任务不覆盖、不更新，只是界面层面跳
+转到 Downloads tab下。​
+
+
+===== PAGE 23 =====
+
+Playlist 弹窗-分析中​
+无改动​
+Playlist 弹窗-分析失败​
+无改动​
+下载中&下载完成​
+•
+以 Season 为单位展示下载任务​
+◦
+若某视频有 3 个 Season，则将各 Season 拆
+分并独立展示​
+
+
+===== PAGE 24 =====
+
+•
+错误码：复用 Streamfab 客户端的错误码体系​
+•
+失败重试扣次：​
+◦
+有剩余次数：点击重试 icon 时立即扣减​
+◦
+无剩余次数：点击重试 icon 时触发试用结束
+弹窗​
+9.5 界面弹窗​
+包含下载过程中的所有弹窗，试用弹窗、下载成功界面通知弹窗
+原型​
+说明​
+反盗版试用限制-skip​
+StreamFab 客户端逻辑​
+•
+背景：Netflix 为了打击盗版，限制从未购买过 
+streamfab 客户端的试用用户下载最近 2 个月的视
+频。​
+•
+触发时机：打开 Netflix 网站时​
+插件需做适配，逻辑如下​
+•
+去掉 “2个月视频限制下载” 提示弹窗​
+•
+对应错误码（330）正常上报​
+◦
+遵循客户端的错误码：​
+Error code 330: This video is restricted for 
+trial users and is available for paid users 
+only.​
+◦
+内容超出直接截断，hover展示全部。​
+失败不扣次，不影响用户试用次数​
+•
+触发对象：未订阅过 Streamfab 客户端任何产品
+的插件试用用户​
+
+
+===== PAGE 25 =====
+
+•
+触发时机：视频两个月内、试用有效期内，点击最
+近2个月视频下载按钮时。​
+◦
+Playlist 只判断最外层的视频，内部视频不判
+断，如果放行了就在下载时报错​
+遵循客户端的错误码：Error code 330: 
+This video is restricted for trial users and 
+is available for paid users only. Upgrade 
+to paid version.​
+内容超出直接阶段，hover展示全部。​
+▪
+误放行的视频也扣减次数​
+•
+弹窗分类：插件内嵌弹窗​
+•
+弹窗内容​
+◦
+EN​
+Netflix Downloader​
+Videos released in the last 2 months 
+cannot be downloaded in the trial version.​
+Upgrade to the paid version (14-Day Money 
+Back Guarantee) or try videos older than 2 
+months.​
+Buy Now​
+Try Older Videos​
+◦
+ZH​
+Netflix下载器​
+试用版无法下载过去两个月内发布的视频。​
+请升级至付费版本（14天退款保证）或尝试下
+载超过两个月的视频。​
+立即购买​
+尝试下载旧视频​
+单日超限提示​
+•
+单日下载额度控制规则​
+◦
+系统为每个用户提供每日 100 次下载额度。​
+◦
+创建新下载任务时需校验当日剩余下载额度：​
+▪
+若剩余额度为 0，则所有新发起的下载任
+务均被拦截；​
+▪
+若剩余额度大于 0，则仅允许创建不超过
+剩余额度数量的下载任务，超出部分不予
+创建。​
+•
+弹窗触发时机：用户发起单日第 101 个下载时​
+
+
+===== PAGE 26 =====
+
+•
+弹窗分类：插件内嵌弹窗​
+•
+弹窗内容：​
+◦
+EN​
+Daily Download Limit​
+You’ve reached today’s download limit 
+(100).​
+Downloads will be available again 
+tomorrow.​
+Got It​
+◦
+ZH​
+已达到今日下载上限​
+您已达到今日下载限额（100次）。​
+明日将恢复下载功能。​
+知道了​
+试用弹窗​
+试用消耗完毕​
+订阅失效​
+•
+标题-只修改了试用次数（5->3）​
+Free Trial Activated​
+You have 3 premium downloads to experience 
+all powerful feeatures​
+Upgrade anytime to get unlimited access 
+immediately!​
+免费试用已激活​
+您拥有 3 次高级下载机会，可体验所有强大功能​
+随时升级即可立即获得无限访问权限！​
+•
+Benefits of Paid Version 内容改为​
+EN​
+◦
+Access to all features​
+◦
+High speed batch processing​
+◦
+Lossless video quality​
+◦
+Professional technical support​
+◦
+Lossless audio quality
+◦
+Free updates within period of validity​
+ZH​
+◦
+畅享全部功能​
+◦
+高速批量处理​
+◦
+无损视频画质​
+
+
+===== PAGE 27 =====
+
+◦
+专业技术支持​
+◦
+无损音频品质​
+◦
+有效期内免费更新​
+•
+按钮​
+◦
+Upgrade ​
+▪
+主站：
+https://streamfab.dvdfab.cn/streamfab-
+for-browser.htm?open=654​
+▪
+独立站：
+https://streamfab.com/streamfab-for-
+browser.htm?open=654​
+◦
+Continue：继续​
+下载成功界面通知弹窗​
+界面通知改动如下​
+•
+已订阅用户通知弹窗未做改动​
+•
+试用用户​
+◦
+次数由 5 次改为 3 次​
+▪
+EN​
+Download complete​
+Video saved · 1 left of 3 downloads.​
+Unlock Premium Features ​
+▪
+ZH​
+视频下载完成​
+视频已保存 · 剩余 1 次下载（共 3 次）。​
+按钮：解锁付费功能​
+◦
+订阅按钮​
+▪
+主站：
+https://streamfab.dvdfab.cn/streamfab-
+for-browser.htm?open=654​
+▪
+独立站：
+https://streamfab.com/streamfab-for-
+browser.htm?open=654​
+9.6 插件&Coapp更新​
+
+
+===== PAGE 28 =====
+
+原型​
+说明​
+Coapp 更新提示​
+•
+逻辑无改动，弹窗内的按钮改为​
+◦
+右侧主按钮:Update Now​
+◦
+左侧文字按钮形式：What's New​
+•
+弹窗标题中的版本号改为 V1.0.0.0的形式​
+插件更新提示​
+逻辑同上​
+
+
+===== PAGE 29 =====
+
+9.7 Dashboard​
+原型​
+说明​
+License Info-Trial​
+License Info-Annual​
+License Info-LeftTime​
+页面结构跟 ytdlp 插件一致，信息差异如下​
+•
+顶部 Banner 文案改为：​
+◦
+EN​
+Pro Quality. One Click.​
+The simplest way to download Netflix in 
+1080p & multi-track audio.​
+◦
+ZH​
+专业品质下载，一键搞定。​
+以最简单的方式下载 Netflix 的 1080p 视频及
+多音轨音频。​
+•
+License Info 产品名改为：​
+StreamFab Netflix Downloader for Browser​
+•
+Benefits of Paid Version 内容有修改​
+◦
+详情查看 界面弹窗-试用弹窗说明​
+
+
+===== PAGE 30 =====
+
+License Info-Fab365​
+License Info-Expired​
+Setting-Extension​
+
+
+===== PAGE 31 =====
+
+Setting结构不变，分为 Extension 和 Coapp，
+Extension 在 ytdlp 的基础上增加了配置项。​
+Streamfab 客户端内配置项路径分别为：​
+VIP Services->Preferred Settings​
+和VIP Services->Preferred Settings-Netflix​
+•
+Ytdlp 的配置项​
+◦
+Language-不变​
+◦
+Video Format-修改选项​
+◦
+Video Resolution-修改选项​
+◦
+Audio Quality-去掉​
+◦
+Preferred subtitle language-修改​
+▪
+下拉框下方新增一行默认选中的内容：​
+Always download the forced subtitle​
+•
+变更后的全部配置项如下（按顺序）：​
+◦
+Language ​
+◦
+Video Format​
+▪
+MP4​
+▪
+MKV (FFmpeg)​
+▪
+MKV (MKVToolNix)​
+◦
+Video Codec​
+▪
+H264​
+▪
+H265 - HDR10​
+▪
+H265 - Dolby Vision​
+▪
+VP9​
+▪
+AV1​
+◦
+H264 Profile​
+▪
+High​
+▪
+Main​
+注：H264 Profile 在下载配置项的下拉框里的
+展示形式为 h 264 - Profile，如 H264 - High 
+Profile​
+◦
+Video Resolution​
+▪
+Full HD - 1080p​
+▪
+HD - 720p​
+
+
+===== PAGE 32 =====
+
+◦
+Audio Codec​
+▪
+Atmos​
+▪
+EAC3​
+▪
+AAC​
+◦
+Pre-select Audio Language​
+▪
+Same as Ul Language​
+▪
+其它语言复用客户端的27个选项，不赘述​
+Pre-select Description Audio if available-默
+认不选​
+◦
+Audio Channel​
+▪
+Stereo (AAC)​
+▪
+Multi-Channel 5.1 (EAC3 / AC3)​
+Pre-select both 5.1 and 2.0 audios-默认不选​
+◦
+Pre-select Subtitle Language​
+▪
+Same as Ul Language​
+▪
+其它语言复用客户端的27个选项，不赘述​
+Always download the forced subtitle-默认选
+中​
+◦
+Subtitle Action​
+▪
+Remux Into File​
+▪
+Extract to SRT File​
+▪
+Extract Original Format​
+具体的语言选项：​
+Same as UI Language，​
+​,"ة ي برعل ا)ة ي دوعسل ا ة ي برعل ا ةكلممل ا("
+"Български",​
+"Català(Espanya)",​
+"简体中文",​
+"繁體中文",​
+"Čeština",​
+"Dansk",​
+"Nederlands(Nederland)",​
+"Nederlands(Belgian)",​
+"English (United States)",​
+
+
+===== PAGE 33 =====
+
+"Suomi",​
+"Français",​
+"Deutsch",​
+"Eλληνικά",​
+"Hrvatski(Hrvatska)",​
+"Magyar",​
+"Italiano(Italia)",​
+"日本語",​
+"한국어",​
+"Norsk",​
+"Polski(Polska)",​
+"Português(Brasil)",​
+"Português(Portugal)",​
+"Romanian",​
+"Pусский",​
+"Slovenčina",​
+"Español",​
+"Svenska",​
+"Türkçe"​
+Setting-Coapp​
+Coapp 更新​
+无改动​
+
+
+===== PAGE 34 =====
+
+数据上报
+数据上报逻辑跟 ytdlp 一致，需标记清楚应用到的索引以及上报的事件类型（便于统计分析数据）​
+上报方​
+索引​
+Elk 空间​
+上报事件类型/定位 Netflix 插件的策略​
+插件​
+•
+dev_common_web
+ext_install​
+•
+dev_common_web
+ext_log​
+•
+dev_fab_webext_li
+fecycle_streamfab​
+•
+dev_fab_webext_o
+perate_streamfab​
+me集群的默
+认空间
+http://elk.dv
+dfab.me:560
+1/spaces/sp
+ace_selector​
+和​
+[streamfab浏览器插件]数据上报提测文档完全
+一样，通过插件id区分​
+coapp​
+fab_soft_work_drm_st
+reamfabvideocoapp​
+​
+[streamfab coapp vip 服务]数据上报提测文档​
+使用 work.website_str.keywrod: Netflix 搜索相关
+内容​
+
+
+===== PAGE 35 =====
+
