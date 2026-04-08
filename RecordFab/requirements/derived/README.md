@@ -6,8 +6,7 @@
 - 方案稿
 
 写文档前先读：
-- `../../00_planning_context.md`
-- `../../00_decision_log.md`
+- `../../00_product_context.md`
 - `../../01_product_brief.md`
 - `../../02_functional_architecture.md`
 - `../../06_business_rules.md`
