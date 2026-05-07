@@ -1,0 +1,27 @@
+# Requirements Index
+
+## Document List
+1. `plugin_requirement.md`
+   - Status: initialized from shared template and partially prefilled for TVer
+   - Purpose: functional requirement working document
+
+2. `plugin_ui_requirement.md`
+   - Status: initialized from shared template and partially prefilled for TVer
+   - Purpose: UI requirement working document
+
+## Raw Inputs
+- `requirements/raw/`
+  - Current status: empty
+
+## Derived Outputs
+- `requirements/derived/`
+  - Current status: empty
+
+## 文件结构
+```text
+requirements/
+├── plugin_requirement.md      ## 主需求文档，作为当前插件需求定义的正式入口
+├── plugin_ui_requirement.md   ## UI 需求文档，作为界面与交互说明的正式入口
+├── raw/                       ## 原始输入资料目录，存放历史文档、会议纪要与原始材料
+└── derived/                   ## 整理输出资料目录，存放摘要、归纳与整理结果
+```

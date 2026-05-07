@@ -1,0 +1,216 @@
+===== L14 =====
+12: 文档更新记录
+13: 1. 产品定位
+14: StreamFab Netflix Downloader for Browser 是跟之前做的 StreamFab Video Downloader for
+15: Browser 同级的、独立的插件产品，都是 StreamFab 的独立子品牌，具备独立的产品形象与售卖体
+16: 系。
+
+===== L23 =====
+21: 
+22: 2. 功能与分发渠道
+23: 产品功能：支持 NetFlix 视频下载
+24: 分发渠道：
+25: -
+
+===== L95 =====
+93: 【SF 插件】能力声明表 — Netflix
+94: 
+95: [StreamFab 浏览器插件] - [Netflix] - UI 需求说明
+96: BDD 文档等需求文档确认完毕后输出
+97: 5. 模块说明
+
+===== L98 =====
+96: BDD 文档等需求文档确认完毕后输出
+97: 5. 模块说明
+98: Netflix 插件整体遵循 ytdlp 插件的产品架构，部分逻辑需做差异化。
+99: 一级模块
+100: 二级模块
+
+===== L116 =====
+114: 视频分析
+115: /
+116: 整体逻辑与 ytdlp 一致， 部分细节需要针对 Netflix 做差异化
+117: 视频检测
+118: /
+
+===== L125 =====
+123: 与 ytdlp 信息结构一致，部分信息需调整
+124: setting
+125: 需要针对 Netflix 做差异化
+126: 6. 各协作方关注
+127: 协作方
+
+===== L192 =====
+190: 暂定该方案，如有其它建议可再修改。
+191: 7.2 关键流程
+192: 7.2.1 Netflix 插件使用前提
+193: 3个重要前提：netflix 站点、登录 netflix、播放视频
+194: 
+
+===== L193 =====
+191: 7.2 关键流程
+192: 7.2.1 Netflix 插件使用前提
+193: 3个重要前提：netflix 站点、登录 netflix、播放视频
+194: 
+195: 
+
+===== L406 =====
+404: 独立站：
+405: https://streamfab.com/privacy.htm
+406: Netflix 登录提示
+407: •
+408: 登录 Netflix 网站是插件检测视频的重要前提条件
+
+===== L415 =====
+413: -
+414: EN
+415: Netflix Login Required
+416: Please log in to Netflix and play a video.
+417: 
+
+===== L426 =====
+424: 请登录Netflix并播放视频。
+425: 顶部用户信息
+426: Netflix 试用用户有 3 次下载机会，付费用户每日 100
+427: 个视频限额，顶部信息结构需调整
+428: •
+
+===== L472 =====
+470: 检测视频
+471: 无改动
+472: Netflix 站内未检测到
+473: Netflix 站点内未检测到视频引导用户播放视频或刷新
+474: 页面
+
+===== L492 =====
+490: 请保证视频播放或刷新页面
+491: 强制刷新
+492: 非 Netflix
+493: 插件只支持netflix，此外所有网站都引导 StreamFab
+494: 客户端
+
+===== L504 =====
+502: 未安装：Download StreamFab
+503: 视频检测结果页
+504: 检测结果页展示 netflix 网站内检测到的所有视频
+505: 都在同一个 origin，没有跨 origin 的概念
+506: 
+
+===== L515 =====
+513: 除最早检测的视频并加入新检测视频，确保列表容
+514: 量恒定。
+515: 下载中途退出 Netflix 账号
+516: 账号登出停止检测视频，Detected tab 提示用户登
+517: 录，对下载任务的影响策略如下：
+
+===== L521 =====
+519: 待下载
+520: -
+521: 策略：禁止启动。清空 Detected 列表并提示
+522: 登录，左侧图示。
+523: -
+
+===== L536 =====
+534: 下载失败
+535: -
+536: 策略：禁止重试。点击重试跳转 Detected
+537: tab 提示登录。
+538: -
+
+===== L656 =====
+654: StreamFab 客户端逻辑
+655: •
+656: 背景：Netflix 为了打击盗版，限制从未购买过
+657: streamfab 客户端的试用用户下载最近 2 个月的视
+658: 频。
+
+===== L669 =====
+667: 遵循客户端的错误码：
+668: Error code 330: This video is restricted for
+669: trial users and is available for paid users
+670: only.
+671: -
+
+===== L688 =====
+686: 断，如果放行了就在下载时报错
+687: 遵循客户端的错误码：Error code 330:
+688: This video is restricted for trial users and
+689: is available for paid users only. Upgrade
+690: to paid version.
+
+===== L742 =====
+740: -
+741: EN
+742: Daily Download Limit
+743: You’ve reached today’s download limit
+744: (100).
+
+===== L759 =====
+757: •
+758: 标题-只修改了试用次数（5->3）
+759: Free Trial Activated
+760: You have 3 premium downloads to experience
+761: all powerful feeatures
+
+===== L824 =====
+822: EN
+823: Download complete
+824: Video saved · 1 left of 3 downloads.
+825: Unlock Premium Features
+826: ▪
+
+===== L866 =====
+864: 原型
+865: 说明
+866: License Info-Trial
+867: License Info-Annual
+868: License Info-LeftTime
+
+===== L875 =====
+873: EN
+874: Pro Quality. One Click.
+875: The simplest way to download Netflix in
+876: 1080p & multi-track audio.
+877: -
+
+===== L883 =====
+881: 多音轨音频。
+882: •
+883: License Info 产品名改为：
+884: StreamFab Netflix Downloader for Browser
+885: •
+
+===== L900 =====
+898: ===== PAGE 31 =====
+899: 
+900: Setting结构不变，分为 Extension 和 Coapp，
+901: Extension 在 ytdlp 的基础上增加了配置项。
+902: Streamfab 客户端内配置项路径分别为：
+
+===== L914 =====
+912: Video Resolution-修改选项
+913: -
+914: Audio Quality-去掉
+915: -
+916: Preferred subtitle language-修改
+
+===== L956 =====
+954: Video Resolution
+955: ▪
+956: Full HD - 1080p
+957: ▪
+958: HD - 720p
+
+===== L972 =====
+970: AAC
+971: -
+972: Pre-select Audio Language
+973: ▪
+974: Same as Ul Language
+
+===== L987 =====
+985: Pre-select both 5.1 and 2.0 audios-默认不选
+986: -
+987: Pre-select Subtitle Language
+988: ▪
+989: Same as Ul Language

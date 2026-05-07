@@ -1,0 +1,23 @@
+无法完成这三项提取，因为当前会话里的 Figma MCP 没有成功认证。
+
+我已按 Figma skill 的要求先检查了 MCP 配置和服务状态。当前 `~/.codex/config.toml` 里确实有 `mcp_servers.figma`，但实际调用时返回的是：
+
+```text
+Auth required, when send initialize request
+```
+
+同时，这个会话里 `FIGMA_OAUTH_TOKEN` 也是缺失的。也就是说，现在不是“设计稿太大”，而是“Figma MCP 根本没连上”，所以我不能可靠地读取 `metadata`、定位 `streamfab_video_downloader_for_browser` 相关 frame/node，更不能输出基于真实节点值的结构化 Markdown。
+
+你这边处理后我就能继续：
+1. 修复 Figma MCP 认证。
+2. 最稳妥的方式是按 skill 文档把配置改成：
+   - `bearer_token_env_var = "FIGMA_OAUTH_TOKEN"`
+   - 保留 `rmcp_client = true`
+3. 重新启动 Codex 会话。
+4. 然后我会按这个顺序执行：
+   - `get_metadata`：先缩小到 `streamfab_video_downloader_for_browser` 相关 frame/node
+   - `get_design_context`：提取布局、尺寸、颜色、字体、圆角、阴影、组件 token
+   - `get_screenshot`：补视觉校验
+   - 最后输出你要的结构化 Markdown
+
+如果你修好后继续发同一句需求，我会直接接着做，不写代码，只产出设计分析文档。

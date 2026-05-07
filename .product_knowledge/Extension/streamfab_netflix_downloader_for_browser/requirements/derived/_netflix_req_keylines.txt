@@ -1,0 +1,118 @@
+5: [StreamFab 浏览器插件] - [NetFlix] - 需求文档
+6: 🤖Netflix 插件在整体产品架构上复用既有 ytdlp 插件，核心授权机制、下载流程及 UI 风格保持
+8: 本文档仅聚焦 Netflix 插件的差异化设计与新增需求，通用能力将统一标记，不再重复说明。
+11: [需求]StreamFab 浏览器插件-Netflix
+14: StreamFab Netflix Downloader for Browser 是跟之前做的 StreamFab Video Downloader for
+23: 产品功能：支持 NetFlix 视频下载
+34: Chrome Web Store
+36: Edge Addons
+40: [StreamFab] - [Netflix 浏览器插件] - [Win] - 安装程序checklist
+45: g=StreamFab_Netflix_Downloader_for_Browser
+47: 独立站：https://streamfab.com/mlink?p=StreamFab_Netflix_Downloader_for_Browser
+48: CoApp
+54: https://www.dvdfab.cn/mlink/download.php?g=StreamFab_Netflix_Coapp
+56: https://streamfab.com/mlink?p=StreamFab_Netflix_Coapp
+60: g=StreamFab_Netflix_Coapp_for_Mac
+62: https://streamfab.com/mlink?p=StreamFab_Netflix_Coapp_for_Mac
+82: Chrome、Edge 商店插件包、主站离线包  ——> StreamFab 客户端 主站
+86: 包含chrome、edge、主站的离线包
+93: 【SF 插件】能力声明表 — Netflix
+95: [StreamFab 浏览器插件] - [Netflix] - UI 需求说明
+98: Netflix 插件整体遵循 ytdlp 插件的产品架构，部分逻辑需做差异化。
+116: 整体逻辑与 ytdlp 一致， 部分细节需要针对 Netflix 做差异化
+125: 需要针对 Netflix 做差异化
+133: Coapp
+156: 7.1.2 中途退出 Netflix 账号
+161: Detected
+170: Detected
+192: 7.2.1 Netflix 插件使用前提
+193: 3个重要前提：netflix 站点、登录 netflix、播放视频
+257: 注：实际是判断视频缓存key是否为最近两个月内，但新视频在netflix上架到我们拿到缓存key大概
+315: for-browser-new.htm?pid=netflix-
+324: browser-new.htm?pid=netflix-
+329: 未登录未安装coapp-默认弹窗
+337: Netflix Downloader for Browser.
+346: Netflix 浏览器下载器下载视频。
+347: 已登录未安装coapp
+387: Coapp目录结构设计
+402: user-license-agreement.htm
+406: Netflix 登录提示
+408: 登录 Netflix 网站是插件检测视频的重要前提条件
+415: Netflix Login Required
+416: Please log in to Netflix and play a video.
+423: 需要登录Netflix
+424: 请登录Netflix并播放视频。
+426: Netflix 试用用户有 3 次下载机会，付费用户每日 100
+435: Email.Trial
+439: Daily Downloads：剩余数量/3
+445: Daily Downloads：剩余数量/100
+451: Email.Trial
+453: Daily Downloads：0/3
+459: Daily Downloads：0/100
+472: Netflix 站内未检测到
+473: Netflix 站点内未检测到视频引导用户播放视频或刷新
+479: No Videos Detected
+492: 非 Netflix
+493: 插件只支持netflix，此外所有网站都引导 StreamFab
+495: 跟 ytdlp 插件的 drm 视频逻辑一致，安装就引导启
+504: 检测结果页展示 netflix 网站内检测到的所有视频
+515: 下载中途退出 Netflix 账号
+516: 账号登出停止检测视频，Detected tab 提示用户登
+521: 策略：禁止启动。清空 Detected 列表并提示
+524: 原因：启动任务需申请 DRM 密钥，无登录态
+536: 策略：禁止重试。点击重试跳转 Detected
+597: Audio Codec
+601: Subtitles-支持多选
+603: 切换codec时需向coapp重新发起请求，新增加载状态
+621: 转到 Downloads tab下。
+656: 背景：Netflix 为了打击盗版，限制从未购买过
+660: 触发时机：打开 Netflix 网站时
+669: trial users and is available for paid users
+688: This video is restricted for trial users and
+700: Netflix Downloader
+702: cannot be downloaded in the trial version.
+710: Netflix下载器
+742: Daily Download Limit
+743: You’ve reached today’s download limit
+745: Downloads will be available again
+759: Free Trial Activated
+760: You have 3 premium downloads to experience
+762: Upgrade anytime to get unlimited access
+773: High speed batch processing
+779: Lossless audio quality
+824: Video saved · 1 left of 3 downloads.
+825: Unlock Premium Features
+841: 9.6 插件&Coapp更新
+848: Coapp 更新提示
+866: License Info-Trial
+867: License Info-Annual
+868: License Info-LeftTime
+875: The simplest way to download Netflix in
+876: 1080p & multi-track audio.
+880: 以最简单的方式下载 Netflix 的 1080p 视频及
+883: License Info 产品名改为：
+884: StreamFab Netflix Downloader for Browser
+893: License Info-Fab365
+894: License Info-Expired
+900: Setting结构不变，分为 Extension 和 Coapp，
+904: 和VIP Services->Preferred Settings-Netflix
+914: Audio Quality-去掉
+916: Preferred subtitle language-修改
+919: Always download the forced subtitle
+956: Full HD - 1080p
+964: Audio Codec
+972: Pre-select Audio Language
+977: Pre-select Description Audio if available-默
+980: Audio Channel
+985: Pre-select both 5.1 and 2.0 audios-默认不选
+987: Pre-select Subtitle Language
+992: Always download the forced subtitle-默认选
+995: Subtitle Action
+1037: Setting-Coapp
+1038: Coapp 更新
+1049: 上报事件类型/定位 Netflix 插件的策略
+1072: coapp
+1073: fab_soft_work_drm_st
+1074: reamfabvideocoapp
+1076: [streamfab coapp vip 服务]数据上报提测文档
+1077: 使用 work.website_str.keywrod: Netflix 搜索相关

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(lark-cli docs *)",
+      "WebSearch",
+      "Bash(npm update *)",
+      "Bash(npx skills *)"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "as": "user",
+  "folder_token": "KJPNfENnalPMKJdPjm3c6qCwnxd",
+  "templates": [
+    {
+      "key": "requirement",
+      "token": "Y3amdJcMuoiNJXxIrFpc1PmInVc",
+      "title_template": "[StreamFab 浏览器插件] - [{display_name}] - 需求文档"
+    },
+    {
+      "key": "ui_requirement",
+      "token": "I441d6BThosrxlx1RmIcxoQ3nWU",
+      "title_template": "[StreamFab 浏览器插件] - [{display_name}] - UI 需求说明"
+    },
+    {
+      "key": "client_plan",
+      "token": "KEledkZ7Po2OFNxCtaccq1B9nsf",
+      "title_template": "[StreamFab 浏览器插件] - [{display_name}] - 客户端方案拆解"
+    }
+  ]
+}

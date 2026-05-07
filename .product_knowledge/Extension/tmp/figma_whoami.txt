@@ -1,0 +1,1 @@
+Authentication does not work: no Figma MCP server is available in this session, so no account email is available.

@@ -1,0 +1,64 @@
+# 01 产品简介（Product Brief）
+
+## 产品名称
+- RecordFab
+
+## 官方定位文案（来源：官网首页，2026-04-17）
+
+**Tagline（官方标语）：**
+> "A Powerful Video Stream Recorder - More Than Just Desktop Screen Recorder"
+
+**官方一句话描述：**
+> "Record streaming videos, live broadcasts, and online courses in 720p or 1080p quality. Preserve both video and audio with clarity, and save recordings permanently on your device in MP4 format for offline viewing anytime without needing an internet connection."
+
+**官方差异化定位（与桌面录屏的区别）：**
+> "Stands apart from conventional desktop screen recorders, RecordFab is tailored specifically for streaming services."
+
+## 一句话定位（内部简述）
+- 专为流媒体设计的视频录制客户端，区别于通用桌面录屏工具，自动检测视频流，支持高速录制并保存到本地。
+
+## 产品线关系
+- RecordFab 是 StreamFab 的补充产品。
+- 原规划中，StreamFab 下载失败时应引导到 RecordFab。
+- 当前两者尚未打通，且为独立售卖关系。
+
+## 套餐说明
+- RecordFab 当前套餐为 `1-Year License` 和 `Lifetime License`。
+- 两种套餐在产品能力上无差异，仅有效期不同。
+
+## 核心用户
+1. 希望长期留存流媒体内容的普通用户
+2. 需要反复回看在线课程内容的学习型用户
+3. 在平台不提供下载能力时，仍希望稳定保存内容的用户
+
+## 核心痛点（最多 3 条）
+1. 许多流媒体内容无法直接下载，或下载条件受限。
+2. 普通录屏工具需要手动框选区域，容易录入弹窗、边框和系统干扰。
+3. 长视频录制耗时长，用户希望以更高速度完成保存。
+
+## 核心战略价值
+- 作为下载方案的补足，RecordFab 的核心优势之一是直播流保存。
+- 在直播类网站场景中，录制比传统下载链路更具适配价值。
+
+## 核心功能清单（已确认）
+1. 录制流媒体视频、社媒内容、在线课程、直播。
+2. 自动检测视频流，减少手动框选操作。
+3. 通过集成浏览器完成站内访问和录制。
+4. 支持 720p / 1080p 输出。
+5. 支持 1x, 1.5x, 2x, 3x, 4x, 5x 录制速度。
+6. 输出支持 MP4 / MKV，保存到本地设备。
+7. 当前录制前配置弹窗参数为输出分辨率、录制速度和自定义录制时间。
+8. 当前正式版本主流程为手动录制，用户控制开始与结束。
+9. 当前正式版本支持历史记录和文件列表。
+10. `My Files` 当前定位偏文件管理。
+11. 站点支持范围按 `yt-dlp` 开源工程支持的网站集合展开，覆盖 `1000+` 网站。
+12. 重点方向包括 `TVer`、`ABEMA`、`YouTube` 及直播类网站。
+
+## 产品红线（当前知识库约束）
+1. 不把产品描述为“通用桌面录屏软件”。
+2. 不把“自动检测视频流”写成“解析 URL 后直接下载视频源文件”。
+3. 不在没有依据的情况下声明其支持后台静默录制、定时录制、批量并发录制。
+4. 不在没有依据的情况下编造会员权益、试用次数或价格体系。
+
+## 事实来源
+- 官方首页：`https://recordfab.dvdfab.cn/`
