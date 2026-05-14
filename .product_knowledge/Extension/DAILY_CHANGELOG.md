@@ -1,5 +1,35 @@
 # 知识库每日更新记录
 
+## 2026-05-13
+
+### 新增
+- streamfab_hulu_downloader_for_browser/constraints/
+- streamfab_hulu_downloader_for_browser/context/
+- streamfab_hulu_downloader_for_browser/patterns/error_handling.md
+- streamfab_hulu_downloader_for_browser/patterns/settings_configuration_matrix.md
+- streamfab_hulu_downloader_for_browser/patterns/user_flows.md
+
+### 修改
+- common_plugin_rules.md
+- common_templates/plugin_requirement_template.md
+- scripts/scaffold_plugin.py
+- skills/streamfab-extension-init-skill/SKILL.md
+- skills/streamfab-extension-workflow-skill/SKILL.md
+- skills/streamfab-extension-workflow-skill/references/checklist_gap_check.md
+- streamfab_fanza_downloader_for_browser/requirements/plugin_requirement.md
+- streamfab_hulu_downloader_for_browser/02_functional_architecture.md
+- streamfab_hulu_downloader_for_browser/03_page_structure.md
+- streamfab_hulu_downloader_for_browser/04_interaction_details.md
+- streamfab_hulu_downloader_for_browser/06_business_rules.md
+- streamfab_hulu_downloader_for_browser/07_technical_constraints.md
+- streamfab_mpd_downloader_for_browser/requirements/plugin_requirement.md
+- streamfab_myfans_downloader_for_browser/requirements/plugin_requirement.md
+- streamfab_myfans_downloader_for_browser/requirements/plugin_ui_requirement.md
+- streamfab_u_next_downloader_for_browser/requirements/plugin_requirement.md
+- streamfab_u_next_downloader_for_browser/requirements/plugin_ui_requirement.md
+
+---
+
 ## 2026-05-06
 
 ### 新增

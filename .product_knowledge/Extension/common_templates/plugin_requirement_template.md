@@ -4,10 +4,16 @@
 >
 > | 变量 | 用途 | 格式要求 |
 > |---|---|---|
-> | `{SiteName}` | 服务展示名称（用于产品名、文案） | 多词用连字符，如 `U-Next`、`Disney-Plus` |
-> | `{sitename}` | 服务标识（用于 app id、URL） | 小写 + 连字符，如 `u-next`、`disney-plus` |
+> | `{SiteName}` | 流媒体服务名（原始大小写，用于产品名、文案、mlink） | 按需求文档「流媒体服务名」填写，如 `FANZA`、`U-Next`、`Disney-Plus` |
+> | `{sitename}` | 小写服务标识（用于 app id、URL slug / pid） | 小写 + 连字符，如 `fanza`、`u-next`、`disney-plus` |
 > | `{BannerContentEN}` | Dashboard License Info 顶部 Banner 英文文案 | 英文 |
 > | `{BannerContentZH}` | Dashboard License Info 顶部 Banner 中文文案 | 中文 |
+>
+> **插件名大小写规则**
+>
+> - app id、产品页 URL、What's New、订阅 / 升级付费等跳转链接统一使用 `{sitename}` 小写服务标识。
+> - 插件产品名、CoApp 安装程序名、mlink 链接中的服务名片段统一使用 `{SiteName}`，即「流媒体服务名」的原始大小写。
+> - 示例：流媒体服务名为 `FANZA` 时，安装程序和 mlink 写 `StreamFab_FANZA_Downloader_for_Browser` / `StreamFab_FANZA_Coapp`，app id 和跳转链接写 `streamfab_for_browser_fanza` / `fanza-downloader-for-browser.htm` / `pid=fanza-downloader`。
 
 - 原型链接：
 - 需求地址：
@@ -112,7 +118,7 @@
 ### 安装器
 
 参见 UI 需求说明文档。调整项：
-- 安装器资源：参见 Figma 设计文件
+- 安装器资源：(https://www.figma.com/design/71aG2GlU1BF5VDxKTbfSwd/%E3%80%90StreamFab%E3%80%91-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6?node-id=21-6761&p=f&m=dev)
 - 安装目录结构：参见「[StreamFab 浏览器插件] - CoApp 目录结构设计」
 
 ### 视频下载 — 配置参数
@@ -183,4 +189,3 @@ Setting 结构不变，分为 Extension 和 CoApp。
 - Extract Original Format
 
 > 如站点有差异化配置项，在上方列表后追加，并注明默认值。
-

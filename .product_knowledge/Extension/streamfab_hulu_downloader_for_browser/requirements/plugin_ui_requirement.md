@@ -1,34 +1,47 @@
-# [StreamFab 浏览器插件] - [HULU] - UI 需求说明
+# [StreamFab 浏览器插件] - [Hulu] - UI 需求说明
 
-## 全局变量
-| 变量 | 当前值 |
+- 原型链接：http://axcloud.dvdfab.me/AFZKNR?id=n01130&g=14
+- 需求地址：[Feature 新品 SF 插件 - Hulu](https://project.feishu.cn/streamfab_browser_extension/story/detail/6928970573)
+- 相关文档：[StreamFab 浏览器插件 - Hulu - 需求文档](https://i6a1sqw3p2.feishu.cn/docx/JTY7dXRNuoNysUxvdRpcCQW3ng4)
+
+---
+
+## CoApp 安装器资源
+
+需提供对应的 Logo 及各尺寸规格。
+
+---
+
+## 应用商店素材
+
+### 产品截图
+
+#### 顺序
+
+| 序号 | 标题 |
 |---|---|
-| {SiteName} | HULU |
-| {BannerContentZH} | Hulu 视频，一键下载，轻松离线观看。 |
-| {BannerContentEN} | Hulu in Up to 4K. One Click. |
-| {ThirdStoreProductImageCaption} | Download Hulu shows and movies in up to 4K |
-| {VideoDownloadConfigurationParametersScreenshot} | Hulu video-quality-only configuration |
+| 第一张 | StreamFab Hulu Downloader |
+| 第二张 | See All Videos, Instantly |
+| 第三张 | Your Video, Your Rules |
+| 第四张 | Full Series, One Click |
+| 第五张 | Total Control, Total Clarity |
 
-- 原型链接：
-- 需求地址：
-- 相关文档：`requirements/plugin_requirement.md`、`references/client_product_page_notes.md`、`references/site_research_notes.md`
-- 初始化说明：本文件基于 `common_templates/plugin_ui_requirement_template.md` 创建，并按 `streamfab-plugin-init` repair 流程回填。
+#### 统一调整元素（所有图适用）
 
-## 1. 当前 UI 基线
-- License Info banner 使用 Hulu 产品页提炼文案。
-- 下载弹窗左侧为内容树，右侧为视频清晰度配置。
-- 当前不设计独立音频和字幕配置控件。
+- **产品名**：StreamFab Hulu Downloader for Browser
+- **浏览器背景截图**：使用 Hulu 官网截图
+- **视频封面截图**：从 Hulu 网站选取
 
-## 2. 当前已确认树形场景
-- 纯 `season` 结构
-- 带 `subtitle-version / dubbed-version` 的版本结构
-- 含 `extras` 的结构
+#### 特殊调整元素
 
-## 3. Banner 基线文案
-- EN Title: `Hulu in Up to 4K. One Click.`
-- EN Subtitle: `The simplest way to download Hulu shows and movies for offline viewing`
-- ZH Candidate: `Hulu 视频，一键下载，轻松离线观看。`
+**第三张图**（在统一调整基础上额外处理）：
 
-## 4. 站点对 UI 的启示
-- `hulu.com` 需要关注订阅与地区限制文案边界。
-- `hulu.jp` 需要关注字幕/吹替、本地化命名和可能的 store/TVOD 入口区分。
+- 副标题改为：`Experience the highest quality 4k video. Full control in your hands.`
+- 下载配置项截图需替换为当前站点的实际配置项及选项示例
+  - 示例：`Video：1920 × 1080 (Bitrate 4000 kbps)`
+
+### Small Promo Tile
+
+- 产品名：`StreamFab Hulu Downloader for Browser`
+- 尺寸：440 × 280 px
+- 展示内容：Logo + 产品名

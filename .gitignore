@@ -2,3 +2,7 @@
 Thumbs.db
 Desktop.ini
 .git.bak/
+.vercel/
+.claude/settings.local.json
+.product_knowledge/.git.outer_bak/
+.product_knowledge/.claude/

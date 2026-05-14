@@ -17,13 +17,14 @@ StreamFab 浏览器扩展是面向主流流媒体平台的下载插件产品线�
 | Amazon | Amazon Prime Video | 全球 | 已上线 |
 | Disney+ | Disney+ | 全球 | 已上线 |
 | M3U8 | M3U8 / DRM 流 | 全球 | 已上线 |
-| OnlyFans | OnlyFans | 全球 | 集成中 |
+| OnlyFans | OnlyFans | 全球 | 已上线 |
 | U-NEXT | U-NEXT | 日本 | 集成中 |
+| FANZA | FANZA | 日本 | 集成中 |
+| myfans | myfans | 日本 | 集成中 |
 | Hulu | Hulu | 美国 | 待研发 |
 | TVer | TVer | 日本 | 待研发 |
-| FANZA | FANZA | 日本 | 待研发 |
 | Fandango at Home | Fandango at Home | 美国 | 待研发 |
-| MyFans | MyFans | 日本 | 待研发 |
+| DRM MPD | MPEG-DASH / DRM 流 | 全球 | 待研发 |
 
 ---
 
@@ -57,6 +58,6 @@ StreamFab 浏览器扩展是面向主流流媒体平台的下载插件产品线�
 
 | 日期 | 更新内容 |
 |---|---|
-| 2026-05-06 | 新增 3 项，修改 20 项，删除 6 项 |
+| 2026-05-13 | 新增 5 项，修改 17 项 |
 
 > 完整更新记录见 [DAILY_CHANGELOG.md](DAILY_CHANGELOG.md)

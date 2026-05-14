@@ -1,4 +1,6 @@
-# MPD 插件知识库
+# DRM MPD 插件知识库
+
+> 展示名：DRM MPD｜技术包名：StreamFab MPD Downloader for Browser
 
 ## 主入口
 - `00_overview.md`

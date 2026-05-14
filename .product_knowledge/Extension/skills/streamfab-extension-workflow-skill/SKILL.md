@@ -127,7 +127,7 @@ allowed-tools:
 
 使用规则：
 
-- 只收集客户端拆解文档链接，需求文档和 UI 文档使用本地 MD 文件（`requirements/plugin_requirement_feishu.md`、`requirements/plugin_ui_requirement_feishu.md`）
+- 只收集客户端拆解文档链接，需求文档和 UI 文档使用本地 MD 文件（`requirements/plugin_requirement.md`、`requirements/plugin_ui_requirement.md`，由 init skill 从 common_templates 生成）
 - 收到链接后立即用 `lark-cli docs +fetch` 读取
 
 ### 模板 C：客户端拆解回填补问
@@ -282,6 +282,20 @@ allowed-tools:
    - 商店素材要求
 3. 回填到对应知识库文件
 
+**回填 plugin_requirement.md / plugin_ui_requirement.md 的硬约束（强制）：**
+
+写入这两个文件前必须先 Read `Extension/common_templates/plugin_requirement_template.md` 和 `Extension/common_templates/plugin_ui_requirement_template.md`，按其章节结构填值：
+
+- 模板已有的章节必须保留（如需求模板的 `### 网站信息` 是必填节）
+- 不增加模板没有的章节（如 `## 数据上报`、`## 全局变量`、`## 相关文档`、`## 文档目的`、`## 设计需求拆分` 等都不属于模板章节，即使飞书原文有，也不在正式文档里另立节，而是并入模板已有节或不写入）
+- 不删除模板的必填节
+- 占位符（`{SiteName}` / `{sitename}` / `{BannerContentEN}` / `{ThirdStoreProductImageCaption}` 等）替换为飞书定稿值
+- `{SiteName}` 按需求文档「流媒体服务名」原始大小写填写，用于插件产品名、CoApp 安装程序名、mlink 链接中的服务名片段；例如流媒体服务名为 `FANZA` 时写 `StreamFab_FANZA_Downloader_for_Browser`、`StreamFab_FANZA_Coapp`
+- `{sitename}` 一律小写，用于 app id 和跳转链接（产品页 URL、What's New、订阅 / 升级付费链接）；例如 `streamfab_for_browser_fanza`、`fanza-downloader-for-browser.htm`、`pid=fanza-downloader`，不是 `pid=FANZA-downloader`
+- 飞书未提供的字段对应单元格留空，不写"待确认"等兜底句
+- markdown 链接禁用嵌套方括号语法（如 `[[Feature][新品]X](url)` 会导致渲染器跳错），改用单层文本
+- Setting 配置项严格按模板顺序，站点差异化项（如 Hulu 的 Video Codec）追加到模板末尾，不插入中间
+
 如果某字段在飞书里仍为空，不编造，只在对话里指出缺口。
 
 **节点 3 附加步骤：从 pid 表格自动读取并回填 Client ID 和 pid**
@@ -295,21 +309,26 @@ allowed-tools:
 
 2. 按产品名定位对应行组（每组 4 行）：
    - 第 1 行：`[产品名] Coapp - win` → B 列 = pid (Win)，C 列 = Option ID (Win)，F 列 = 主站 CoApp Win x64 Client ID，I 列 = 品牌站 CoApp Win x64 Client ID
-   - 第 2 行：`[产品名] Coapp - macos` → 无需读取
+   - 第 2 行：`[产品名] Coapp - macos` → B 列 = pid (Mac)，C 列 = Option ID (Mac)，F 列、I 列的 x86 数据当前不入需求文档
    - 第 3 行：null（macOS Client ID 行）→ F 列 = 主站 CoApp Mac Client ID，I 列 = 品牌站 CoApp Mac Client ID
    - 第 4 行：`[产品名] Downloader for Browser` → F 列 = 主站插件（发布）Client ID，I 列 = 品牌站插件（发布）Client ID
 
-3. 将读取结果回填到 `requirements/plugin_requirement.md` 的两处：
-   - **Client ID 表格**（6 行 待补充）：
+3. 将读取结果回填到 `requirements/plugin_requirement.md` 的三处：
+   - **pid / Option ID 字段**（4 行）：
+     - `pid | Win` → 第 1 行 B 列
+     - `pid | Mac` → 第 2 行 B 列
+     - `option id | Win` → 第 1 行 C 列
+     - `option id | Mac` → 第 2 行 C 列
+   - **Client ID 表格**（6 行）：
      - `client id — 主站 | 插件（发布）` → 第 4 行 F 列
      - `client id — 主站 | CoApp Win x64` → 第 1 行 F 列
      - `client id — 主站 | CoApp Mac` → 第 3 行 F 列
      - `client id — 品牌站 | 插件（发布）` → 第 4 行 I 列
      - `client id — 品牌站 | CoApp Win x64` → 第 1 行 I 列
      - `client id — 品牌站 | CoApp Mac` → 第 3 行 I 列
-   - **付费 / Upgrade 跳转链接**：将链接末尾的 `{pid}（pid 待补充）` 替换为第 1 行 B 列的 Win pid
+   - **付费 / Upgrade 跳转链接**：将链接末尾的 `{pid}` 替换为第 1 行 B 列的 Win pid
 
-4. 如果表格中对应行不存在或值为空：在对话中告知用户哪项缺失，不编造数据，保留"（待补充）"。
+4. 如果表格中对应行不存在或值为空：在对话中告知用户哪项缺失，不编造数据，对应单元格留空。
 
 如果缺飞书入口，优先通过一次 `AskUserQuestion` 收集：
 

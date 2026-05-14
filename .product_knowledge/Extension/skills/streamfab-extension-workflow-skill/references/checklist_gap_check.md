@@ -11,7 +11,7 @@
 | 5 | 下载配置 | 可选字段（Resolution/Language/Subtitles 等）已确认 | |
 | 6 | 任务状态 | 下载调度、Retry 规则、状态流转已记录 | |
 | 7 | 授权与配额 | 配额扣减机制、登录中断各状态处理已记录 | |
-| 8 | 跳转链接 | mlink、Contact us、CoApp 下载链接已补全 | |
+| 8 | 跳转链接 | mlink、Contact us、CoApp 下载链接已补全，且 mlink 使用流媒体服务名原始大小写，appid / 产品页 / What's New 等跳转链接使用小写服务标识 | |
 | 9 | Banner / 商店素材 | Banner 文案、商店截图要求已确认 | |
 | 10 | 技术参数 | 平台支持、CoApp 依赖、加密/协议边界已记录 | |
 

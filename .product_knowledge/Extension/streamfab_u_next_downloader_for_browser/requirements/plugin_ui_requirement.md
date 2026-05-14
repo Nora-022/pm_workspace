@@ -19,7 +19,7 @@
 
 | 序号 | 标题 |
 |---|---|
-| 第一张 | StreamFab U-Next Downloader |
+| 第一张 | StreamFab U-NEXT Downloader |
 | 第二张 | See All Videos, Instantly |
 | 第三张 | Your Video, Your Rules |
 | 第四张 | Full Series, One Click |
@@ -27,7 +27,7 @@
 
 #### 统一调整元素（所有图适用）
 
-- **产品名**：StreamFab U-Next Downloader for Browser
+- **产品名**：StreamFab U-NEXT Downloader for Browser
 - **浏览器背景截图**：使用 U-NEXT 官网截图（video.unext.jp）
 - **视频封面截图**：从 U-NEXT 网站选取代表性封面
 - **右上角插件 Logo**：替换为 U-NEXT 插件 Logo
@@ -44,6 +44,6 @@
 
 ### Small Promo Tile
 
-- 产品名：`StreamFab U-Next Downloader for Browser`
+- 产品名：`StreamFab U-NEXT Downloader for Browser`
 - 尺寸：440 × 280 px
 - 展示内容：Logo + 产品名

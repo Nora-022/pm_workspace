@@ -131,12 +131,12 @@ allowed-tools:
 
 ## 需求文档与 UI 需求文档规则
 
-需求文档和 UI 需求文档不再创建飞书文档，改为从 common_templates 复制 MD 模版：
+需求文档和 UI 需求文档不再创建飞书文档，改为由 `scaffold_plugin.py` 在初始化时从 common_templates 复制 MD 模版：
 
-- `common_templates/plugin_requirement_template.md` → `requirements/plugin_requirement_feishu.md`
-- `common_templates/plugin_ui_requirement_template.md` → `requirements/plugin_ui_requirement_feishu.md`
+- `common_templates/plugin_requirement_template.md` → `requirements/plugin_requirement.md`
+- `common_templates/plugin_ui_requirement_template.md` → `requirements/plugin_ui_requirement.md`
 
-复制后将模版中的 `{SiteName}` 和 `{sitename}` 替换为实际值。
+脚本会自动将模版中的 `{SiteName}` 替换为 `display_name`、`{sitename}` 替换为 service_name 的连字符小写形式。`{SiteName}` 必须理解为需求文档中的「流媒体服务名」原始大小写，用于插件产品名、CoApp 安装程序名和 mlink；`{sitename}` 用于 app id、产品页 URL、What's New、订阅 / 升级付费等跳转链接。其他占位符（`{BannerContentEN}`、`{ThirdStoreProductImageCaption}` 等）保留，留待 workflow 阶段从飞书定稿填入。
 
 ## 执行流程
 
@@ -186,16 +186,9 @@ python Extension/scripts/scaffold_plugin.py \
 
 先用 `--dry-run` 预览，确认无误后去掉参数正式执行。
 
-### Phase 4：生成需求文档 MD + 创建飞书客户端拆解文档
+### Phase 4：创建飞书客户端拆解文档
 
-**Step 1：从 common_templates 复制 MD 模版**
-
-读取以下文件，将 `{SiteName}` 替换为 `display_name`，`{sitename}` 替换为 `service_name`（连字符格式），写入插件目录：
-
-- `common_templates/plugin_requirement_template.md` → `requirements/plugin_requirement_feishu.md`
-- `common_templates/plugin_ui_requirement_template.md` → `requirements/plugin_ui_requirement_feishu.md`
-
-**Step 2：创建飞书客户端拆解文档**
+需求文档和 UI 需求文档已由 `scaffold_plugin.py` 在 Phase 2 & 3 自动从 `common_templates/` 复制并替换 `{SiteName}` / `{sitename}` 占位符，无需手工 Read + Write。
 
 调用：
 
@@ -218,7 +211,7 @@ python Extension/scripts/create_feishu_plugin_docs.py \
 
 - 插件路径
 - 模式：`create mode` / `repair mode`
-- 本地生成的 MD 文件：`requirements/plugin_requirement_feishu.md`、`requirements/plugin_ui_requirement_feishu.md`
+- 本地生成的 MD 文件：`requirements/plugin_requirement.md`、`requirements/plugin_ui_requirement.md`（从 common_templates 复制）
 - 飞书客户端拆解文档标题和链接（1份）
 - 明确交接语：
   - `初始化完成，后续进入 streamfab-extension-workflow`
@@ -232,7 +225,7 @@ python Extension/scripts/create_feishu_plugin_docs.py \
 
 - 插件目录已创建或修复
 - 核心骨架文件齐全
-- `requirements/plugin_requirement_feishu.md` 和 `requirements/plugin_ui_requirement_feishu.md` 已从 common_templates 生成，占位符已替换
+- `requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md` 已从 common_templates 生成，`{SiteName}` / `{sitename}` 占位符已替换
 - 飞书客户端拆解文档（1份）已成功创建，标题替换正确，无中文乱码
 - 已明确交接到 `streamfab-extension-workflow`
 

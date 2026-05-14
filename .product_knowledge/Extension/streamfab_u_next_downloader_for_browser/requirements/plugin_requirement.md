@@ -1,4 +1,4 @@
-# [StreamFab 浏览器插件] - [U-Next] - 需求文档
+# [StreamFab 浏览器插件] - [U-NEXT] - 需求文档
 
 - 原型链接：http://axcloud.dvdfab.me/96EHKE?id=h1sujc&g=14
 - 需求地址：https://project.feishu.cn/streamfab_browser_extension/story/detail/6922953725
@@ -20,8 +20,8 @@
 
 | 信息 | 子项 | 值 |
 |---|---|---|
-| 插件产品名 | — | StreamFab U-Next Downloader for Browser |
-| CoApp 安装程序名 | — | StreamFab U-Next Coapp |
+| 插件产品名 | — | StreamFab U-NEXT Downloader for Browser |
+| CoApp 安装程序名 | — | StreamFab U-NEXT Coapp |
 | app id | — | streamfab_for_browser_u-next |
 | pid | Win | 659 |
 | pid | Mac | 1659 |
@@ -38,12 +38,12 @@
 
 | 类型 | 平台 | 渠道 | 链接 |
 |---|---|---|---|
-| 插件包 | — | 主站 | https://www.dvdfab.cn/mlink/download.php?g=StreamFab_U-Next_Downloader_for_Browser |
-| 插件包 | — | 独立站 | https://streamfab.com/mlink?p=StreamFab_U-Next_Downloader_for_Browser |
-| CoApp | Win | 主站 | https://www.dvdfab.cn/mlink/download.php?g=StreamFab_U-Next_Coapp |
-| CoApp | Win | 独立站 | https://streamfab.com/mlink?p=StreamFab_U-Next_Coapp |
-| CoApp | Mac | 主站 | https://www.dvdfab.cn/mlink/download.php?g=StreamFab_U-Next_Coapp_for_Mac |
-| CoApp | Mac | 独立站 | https://streamfab.com/mlink?p=StreamFab_U-Next_Coapp_for_Mac |
+| 插件包 | — | 主站 | https://www.dvdfab.cn/mlink/download.php?g=StreamFab_U-NEXT_Downloader_for_Browser |
+| 插件包 | — | 独立站 | https://streamfab.com/mlink?p=StreamFab_U-NEXT_Downloader_for_Browser |
+| CoApp | Win | 主站 | https://www.dvdfab.cn/mlink/download.php?g=StreamFab_U-NEXT_Coapp |
+| CoApp | Win | 独立站 | https://streamfab.com/mlink?p=StreamFab_U-NEXT_Coapp |
+| CoApp | Mac | 主站 | https://www.dvdfab.cn/mlink/download.php?g=StreamFab_U-NEXT_Coapp_for_Mac |
+| CoApp | Mac | 独立站 | https://streamfab.com/mlink?p=StreamFab_U-NEXT_Coapp_for_Mac |
 
 ### 网站信息
 
@@ -63,9 +63,9 @@
 
 | 一级模块 | 变更点 |
 |---|---|
-| 产品名 | StreamFab U-Next Downloader for Browser |
+| 产品名 | StreamFab U-NEXT Downloader for Browser |
 | 安装器 | 界面 UI、替换 Logo |
-| 流媒体服务名 | U-Next |
+| 流媒体服务名 | U-NEXT |
 | 跳转链接 | 产品页、What's New、订阅/升级付费链接 |
 
 ### 模块变更
@@ -117,11 +117,11 @@
 | EN | Download U-NEXT DRM Videos, Made Simple.<br>Save U-NEXT and H-NEXT videos offline in up to 4K with EAC3 5.1 or AAC 2.0 audio. |
 | ZH | 轻松下载 U-NEXT DRM 视频。<br>将 U-NEXT 和 H-NEXT 视频以最高 4K 分辨率下载到本地，并支持 EAC3 5.1 或 AAC 2.0 音频格式。 |
 
-License Info 产品名：`StreamFab U-Next Downloader for Browser`
+License Info 产品名：`StreamFab U-NEXT Downloader for Browser`
 
 ### Setting — Extension 配置项
 
-Setting 结构不变，分为 Extension 和 CoApp。U-Next 无特殊配置项，按照 Common 配置来。
+Setting 结构不变，分为 Extension 和 CoApp。U-NEXT 无特殊配置项，按照 Common 配置来。
 
 通用配置项（按顺序）：
 

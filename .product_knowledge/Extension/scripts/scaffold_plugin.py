@@ -19,6 +19,7 @@ from pathlib import Path
 SKILLS_DIR = Path(__file__).resolve().parents[1] / "skills" / "streamfab-extension-init-skill"
 REFERENCES_DIR = SKILLS_DIR / "references"
 EXTENSION_DIR = Path(__file__).resolve().parents[1]
+COMMON_TEMPLATES_DIR = EXTENSION_DIR / "common_templates"
 
 SKELETON_FILES = [
     ("skeleton_readme.md",              "README.md"),
@@ -34,9 +35,15 @@ SKELETON_FILES = [
     ("skeleton_requirements_index.md",  "requirements/index.md"),
 ]
 
-EMPTY_FILES = [
-    "requirements/plugin_requirement.md",
-    "requirements/plugin_ui_requirement.md",
+# Files copied from common_templates with {SiteName}/{sitename} placeholders replaced.
+# {SiteName} is the streaming service name with its original casing for product
+# display names, installer names, and mlink package names. {sitename} is the
+# lowercase service slug for app id and URL jump links.
+# Other placeholders ({BannerContentEN}, {ThirdStoreProductImageCaption}, etc.) are
+# left intact for the workflow stage to fill from feishu requirement docs.
+TEMPLATE_FILES = [
+    ("plugin_requirement_template.md",     "requirements/plugin_requirement.md"),
+    ("plugin_ui_requirement_template.md",  "requirements/plugin_ui_requirement.md"),
 ]
 
 SUBDIRS = [
@@ -58,6 +65,16 @@ def parse_args() -> argparse.Namespace:
 
 def apply_placeholders(content: str, display_name: str, service_name: str) -> str:
     return content.replace("{display_name}", display_name).replace("{service_name}", service_name)
+
+
+def apply_template_placeholders(content: str, display_name: str, service_name: str) -> str:
+    """Replace {SiteName} and {sitename} placeholders in common_templates content.
+
+    {SiteName} → display_name, preserving the streaming service name casing
+    {sitename} → hyphenated lowercase service name (snake_case → kebab-case)
+    """
+    sitename = service_name.replace("_", "-")
+    return content.replace("{SiteName}", display_name).replace("{sitename}", sitename)
 
 
 def main() -> int:
@@ -104,16 +121,29 @@ def main() -> int:
             target_path.write_text(content, encoding="utf-8")
         created_files.append(target_name)
 
-    # Create empty placeholder files
-    for empty_name in EMPTY_FILES:
-        target_path = plugin_dir / empty_name
+    # Create requirement files from common_templates (with {SiteName}/{sitename} replaced)
+    for template_name, target_name in TEMPLATE_FILES:
+        template_path = COMMON_TEMPLATES_DIR / template_name
+        target_path = plugin_dir / target_name
+
         if target_path.exists():
-            skipped_files.append(empty_name)
+            skipped_files.append(target_name)
             continue
+
+        if not template_path.exists():
+            print(f"WARNING: template not found: {template_path}", file=sys.stderr)
+            continue
+
+        content = apply_template_placeholders(
+            template_path.read_text(encoding="utf-8"),
+            display_name,
+            service_name,
+        )
+
         if not args.dry_run:
             target_path.parent.mkdir(parents=True, exist_ok=True)
-            target_path.write_text("", encoding="utf-8")
-        created_files.append(empty_name)
+            target_path.write_text(content, encoding="utf-8")
+        created_files.append(target_name)
 
     result = {
         "service_name": service_name,
