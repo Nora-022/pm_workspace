@@ -37,6 +37,14 @@ export type BrowserHistoryItem = {
   visitedAt: number
 }
 
+export type MessageCenterItem = {
+  id: string
+  title: string
+  body: string
+  createdAt: number
+  read: boolean
+}
+
 export type LicenseSubscriptionType = 'trial' | 'subscription' | 'lifetime'
 
 export type LicenseInfoView =
@@ -80,6 +88,8 @@ type RecordingState = {
   authorizeDialogOpen: boolean
   licenseInfoDialogOpen: boolean
   licenseInfoView: LicenseInfoView
+  messageCenterDialogOpen: boolean
+  messages: MessageCenterItem[]
 
   openWelcomeOnce: () => void
   closeWelcome: () => void
@@ -120,6 +130,11 @@ type RecordingState = {
   closeAuthorizeDialog: () => void
   openLicenseInfoDialog: (view?: LicenseInfoView) => void
   closeLicenseInfoDialog: () => void
+
+  openMessageCenterDialog: () => void
+  closeMessageCenterDialog: () => void
+  markAllMessagesRead: () => void
+  markMessageRead: (id: string) => void
 }
 
 let detectionTimerHandle: ReturnType<typeof setTimeout> | null = null
@@ -181,6 +196,14 @@ const INITIAL_BROWSER_HISTORY: BrowserHistoryItem[] = [
   },
 ]
 
+const INITIAL_MESSAGES: MessageCenterItem[] = Array.from({ length: 12 }).map((_, idx) => ({
+  id: `m-${idx + 1}`,
+  title: 'Easter Specials Surprise! Save up to $220!',
+  body: 'Easter Specials Surprise! Save up to $220 on All-In-One products! Act now! Online...',
+  createdAt: new Date('2025-03-05T09:12:00Z').getTime(),
+  read: idx >= 2,
+}))
+
 const INITIAL_FILES: SavedFile[] = [
   {
     id: 'file-1',
@@ -239,6 +262,8 @@ export const useRecording = create<RecordingState>((set, get) => ({
   authorizeDialogOpen: false,
   licenseInfoDialogOpen: false,
   licenseInfoView: { mode: 'success', email: 'Nora@gmail.com', subscription: 'lifetime' },
+  messageCenterDialogOpen: false,
+  messages: INITIAL_MESSAGES,
 
   openWelcomeOnce: () => {
     const state = get()
@@ -481,6 +506,15 @@ export const useRecording = create<RecordingState>((set, get) => ({
       licenseInfoView: view ?? { mode: 'success', email: 'Nora@gmail.com', subscription: 'lifetime' },
     }),
   closeLicenseInfoDialog: () => set({ licenseInfoDialogOpen: false }),
+
+  openMessageCenterDialog: () => set({ messageCenterDialogOpen: true }),
+  closeMessageCenterDialog: () => set({ messageCenterDialogOpen: false }),
+  markAllMessagesRead: () =>
+    set((state) => ({ messages: state.messages.map((m) => ({ ...m, read: true })) })),
+  markMessageRead: (id) =>
+    set((state) => ({
+      messages: state.messages.map((m) => (m.id === id ? { ...m, read: true } : m)),
+    })),
 }))
 
 export function formatRecordingTime(totalSeconds: number) {

@@ -1,0 +1,291 @@
+<style>
+  .mc-overlay {
+    display: grid;
+    place-items: center;
+    padding: 40px;
+    min-height: 72vh;
+  }
+
+  .mc-modal {
+    width: 624px;
+    height: 634px;
+    background: #202020;
+    border-radius: 12px;
+    box-shadow: 0 24px 72px rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px 0 18px;
+  }
+
+  .mc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(238, 238, 238, 0.92);
+    letter-spacing: 0.2px;
+  }
+
+  .mc-close {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    color: rgba(174, 177, 182, 0.85);
+    cursor: default;
+    user-select: none;
+  }
+
+  .mc-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px 0 18px;
+    margin-top: 32px;
+    color: rgba(174, 177, 182, 0.85);
+    font-size: 12px;
+  }
+
+  .mc-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    color: rgba(174, 177, 182, 0.85);
+    user-select: none;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .mc-action:hover {
+    color: #4162fb;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .mc-action:active {
+    opacity: 0.9;
+  }
+
+  .mc-action-icon {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    opacity: 0.9;
+  }
+
+  .mc-list {
+    padding: 12px 32px 14px 32px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+    box-sizing: border-box;
+  }
+
+  .mc-item {
+    height: 76px;
+    border-radius: 10px;
+    padding: 0 14px 0 14px;
+    display: flex;
+    align-items: center;
+    width: 560px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    margin-bottom: 8px;
+  }
+
+  .mc-item.read {
+    background: rgba(255, 255, 255, 0.01);
+    border-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .mc-item.hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .mc-body {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .mc-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .mc-title-group {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .mc-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 99px;
+    background: #ff3b30;
+    flex: none;
+    transform: translateY(-1px);
+  }
+
+  .mc-item-title {
+    min-width: 0;
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(238, 238, 238, 0.92);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mc-date {
+    flex: none;
+    font-size: 12px;
+    color: rgba(174, 177, 182, 0.7);
+  }
+
+  .mc-desc {
+    margin-top: 6px;
+    font-size: 12px;
+    color: rgba(174, 177, 182, 0.8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mc-item.unread .mc-desc {
+    padding-left: 16px;
+  }
+</style>
+
+<h2>Message Center 弹窗（未读红点与标题同一行）</h2>
+<p class="subtitle">未读：红点在标题行；已读：红点消失，标题与正文左对齐</p>
+
+<div class="mc-overlay">
+  <div class="mc-modal">
+    <div class="mc-header">
+      <div class="mc-title">Message Center</div>
+      <div class="mc-close">×</div>
+    </div>
+
+    <div class="mc-meta">
+      <div>12 messages / 2 unread</div>
+      <div class="mc-action" role="button" aria-label="Mark All as Read">
+        <svg class="mc-action-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M4 7.5C4 6.11929 5.11929 5 6.5 5H17.5C18.8807 5 20 6.11929 20 7.5V16.5C20 17.8807 18.8807 19 17.5 19H6.5C5.11929 19 4 17.8807 4 16.5V7.5Z"
+            stroke="currentColor"
+            stroke-width="1.6"
+          />
+          <path
+            d="M5.2 7.2L12 12.2L18.8 7.2"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M14.3 15.2L15.6 16.5L18.2 13.9"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span>Mark All as Read</span>
+      </div>
+    </div>
+
+    <div class="mc-list">
+      <div class="mc-item unread">
+        <div class="mc-body">
+          <div class="mc-row">
+            <div class="mc-title-group">
+              <div class="mc-dot"></div>
+              <div class="mc-item-title">Easter Specials Surprise! Save up to $220!</div>
+            </div>
+            <div class="mc-date">2025-03-05</div>
+          </div>
+          <div class="mc-desc">Easter Specials Surprise! Save up to $220 on All-In-One products! Act now! Online...</div>
+        </div>
+      </div>
+
+      <div class="mc-item read">
+        <div class="mc-body">
+          <div class="mc-row">
+            <div class="mc-title-group">
+              <div class="mc-item-title">Easter Specials Surprise! Save up to $220!</div>
+            </div>
+            <div class="mc-date">2025-03-05</div>
+          </div>
+          <div class="mc-desc">Easter Specials Surprise! Save up to $220 on All-In-One products! Act now! Online...</div>
+        </div>
+      </div>
+
+      <div class="mc-item unread hover">
+        <div class="mc-body">
+          <div class="mc-row">
+            <div class="mc-title-group">
+              <div class="mc-dot"></div>
+              <div class="mc-item-title">Easter Specials Surprise! Save up to $220!</div>
+            </div>
+            <div class="mc-date">2025-03-05</div>
+          </div>
+          <div class="mc-desc">Easter Specials Surprise! Save up to $220 on All-In-One products! Act now! Online...</div>
+        </div>
+      </div>
+
+      <div class="mc-item read">
+        <div class="mc-body">
+          <div class="mc-row">
+            <div class="mc-title-group">
+              <div class="mc-item-title">Easter Specials Surprise! Save up to $220!</div>
+            </div>
+            <div class="mc-date">2025-03-05</div>
+          </div>
+          <div class="mc-desc">Easter Specials Surprise! Save up to $220 on All-In-One products! Act now! Online...</div>
+        </div>
+      </div>
+
+      <div class="mc-item read">
+        <div class="mc-body">
+          <div class="mc-row">
+            <div class="mc-title-group">
+              <div class="mc-item-title">Easter Specials Surprise! Save up to $220!</div>
+            </div>
+            <div class="mc-date">2025-03-05</div>
+          </div>
+          <div class="mc-desc">Easter Specials Surprise! Save up to $220 on All-In-One products! Act now! Online...</div>
+        </div>
+      </div>
+
+      <div class="mc-item read">
+        <div class="mc-body">
+          <div class="mc-row">
+            <div class="mc-title-group">
+              <div class="mc-item-title">Easter Specials Surprise! Save up to $220!</div>
+            </div>
+            <div class="mc-date">2025-03-05</div>
+          </div>
+          <div class="mc-desc">Easter Specials Surprise! Save up to $220 on All-In-One products! Act now! Online...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

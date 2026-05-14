@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { Clock, Menu, Minus, Shirt, Square, X } from 'lucide-react'
+import { Clock, Mail, Menu, Minus, Shirt, Square, X } from 'lucide-react'
 import { PURCHASE_URL } from '../constants/urls'
 import SettingsMenu from './SettingsMenu'
 import AuthorizeDialog from './AuthorizeDialog'
@@ -9,6 +9,10 @@ import { useRecording } from '../stores/recording'
 export default function WindowTitleBar() {
   const [settingsOpen, setSettingsOpen] = useState(false)
   const closeSettings = useCallback(() => setSettingsOpen(false), [])
+  const openMessageCenterDialog = useRecording((s) => s.openMessageCenterDialog)
+  const messageUnreadCount = useRecording((s) => s.messages.reduce((acc, m) => acc + (m.read ? 0 : 1), 0))
+  const messageBadge =
+    messageUnreadCount > 99 ? '99+' : messageUnreadCount > 0 ? String(messageUnreadCount) : undefined
   const openHistoryDialog = useRecording((s) => s.openHistoryDialog)
   const historyCount = useRecording((s) => s.browserHistory.length)
   const historyBadge = historyCount > 99 ? '99+' : historyCount > 0 ? String(historyCount) : undefined
@@ -36,6 +40,9 @@ export default function WindowTitleBar() {
         <img src="/figma/icon_buy.svg" alt="" className="size-3.5" />
         Buy Now
       </button>
+      <TitleActionButton label="messages" badge={messageBadge} onClick={openMessageCenterDialog}>
+        <Mail size={16} strokeWidth={1.7} className="text-[#6f757d]" />
+      </TitleActionButton>
       <TitleActionButton label="history" badge={historyBadge} onClick={openHistoryDialog}>
         <Clock size={16} strokeWidth={1.7} className="text-[#6f757d]" />
       </TitleActionButton>

@@ -1,5 +1,26 @@
 # 知识库每日更新记录
 
+## 2026-05-14
+
+### 新增
+- .product_knowledge/RecordFab/recordfab-prototype/.superpowers/
+- .product_knowledge/RecordFab/recordfab-prototype/.vite/
+- .product_knowledge/RecordFab/recordfab-prototype/docs/superpowers/
+- .product_knowledge/RecordFab/recordfab-prototype/src/components/MessageCenterDialog.test.tsx
+- .product_knowledge/RecordFab/recordfab-prototype/src/components/MessageCenterDialog.tsx
+- .product_knowledge/RecordFab/recordfab-prototype/tailwind.config.ts
+- .superpowers/
+- docs/superpowers/plans/2026-05-14-my-files-tag-pill.md
+
+### 修改
+- .product_knowledge/RecordFab/recordfab-prototype/src/components/Layout.tsx
+- .product_knowledge/RecordFab/recordfab-prototype/src/components/WindowTitleBar.test.tsx
+- .product_knowledge/RecordFab/recordfab-prototype/src/components/WindowTitleBar.tsx
+- .product_knowledge/RecordFab/recordfab-prototype/src/pages/FilesPage.tsx
+- .product_knowledge/RecordFab/recordfab-prototype/src/stores/recording.ts
+
+---
+
 ## 2026-05-13
 
 ### 新增

@@ -6,6 +6,7 @@ import ExitRecordingDialog from './ExitRecordingDialog'
 import HistoryDialog from './HistoryDialog'
 import ClearHistoryConfirmDialog from './ClearHistoryConfirmDialog'
 import WelcomeDialog from './WelcomeDialog'
+import MessageCenterDialog from './MessageCenterDialog'
 
 export default function Layout() {
   const navigate = useNavigate()
@@ -61,6 +62,7 @@ export default function Layout() {
         />
         <WelcomeDialog />
         <HistoryDialog />
+        <MessageCenterDialog />
         <ClearHistoryConfirmDialog />
       </div>
     </div>

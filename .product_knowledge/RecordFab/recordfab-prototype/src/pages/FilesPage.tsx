@@ -51,7 +51,7 @@ export default function FilesPage() {
               {files.map((f, idx) => (
                 <li key={f.id} className="px-4">
                   <div
-                    className={`flex h-24 items-center justify-between rounded-lg px-4 ${
+                    className={`flex h-[104px] items-center justify-between rounded-lg px-4 ${
                       idx % 2 === 1 ? 'bg-[#2a2a2c]' : 'bg-[#242426]'
                     }`}
                   >
@@ -59,7 +59,7 @@ export default function FilesPage() {
                       <img
                         src="/figma/default_cover.png"
                         alt=""
-                        className="mr-4 h-[72px] w-32 shrink-0 rounded-lg object-cover bg-[#323234]"
+                        className="mr-4 h-[88px] w-[158px] shrink-0 rounded-lg object-cover bg-[#323234]"
                       />
                       <div className="flex flex-col justify-center min-w-0">
                         <div className="flex items-center gap-[10px] min-w-0">
@@ -108,7 +108,7 @@ export default function FilesPage() {
 
 function TagPill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-[12px] border border-[rgba(250,138,3,0.3)] px-2.5 py-[3px] text-[12px] leading-[18px] text-[#fa8a03]">
+    <span className="inline-flex h-[20px] min-w-[56px] items-center justify-center rounded-[12px] border border-[rgba(250,138,3,0.3)] px-2 text-[12px] leading-[20px] text-[#fa8a03]">
       {children}
     </span>
   )

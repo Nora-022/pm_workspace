@@ -8,6 +8,8 @@ describe('WindowTitleBar', () => {
     cleanup()
     useRecording.setState({
       browserHistory: [],
+      messageCenterDialogOpen: false,
+      messages: [],
       authorizeDialogOpen: false,
       licenseInfoDialogOpen: false,
       licenseInfoView: { mode: 'success', email: 'Nora@gmail.com', subscription: 'lifetime' },
@@ -17,6 +19,8 @@ describe('WindowTitleBar', () => {
   it('sets title for window control icons only', () => {
     useRecording.setState({
       browserHistory: [],
+      messageCenterDialogOpen: false,
+      messages: [],
       authorizeDialogOpen: false,
       licenseInfoDialogOpen: false,
     })
@@ -32,12 +36,30 @@ describe('WindowTitleBar', () => {
     expect(exit.getAttribute('title')).toBe('Exit')
 
     const history = screen.getByLabelText('history')
+    const messages = screen.getByLabelText('messages')
     const theme = screen.getByLabelText('theme')
     const menu = screen.getByLabelText('menu')
 
     expect(history.getAttribute('title')).toBe(null)
+    expect(messages.getAttribute('title')).toBe(null)
     expect(theme.getAttribute('title')).toBe(null)
     expect(menu.getAttribute('title')).toBe(null)
+  })
+
+  it('opens message center dialog when clicking messages icon', () => {
+    useRecording.setState({
+      messageCenterDialogOpen: false,
+      messages: [{ id: 'm-1', title: 't', body: 'b', createdAt: Date.now(), read: false }],
+    })
+
+    render(<WindowTitleBar />)
+
+    const btn = screen.getByLabelText('messages')
+    expect(screen.getByText('1')).toBeTruthy()
+
+    btn.click()
+
+    expect(useRecording.getState().messageCenterDialogOpen).toBe(true)
   })
 })
 
