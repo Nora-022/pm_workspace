@@ -1,9 +1,10 @@
 import { useCallback, useState } from 'react'
-import { Clock, Mail, Menu, Minus, Shirt, Square, X } from 'lucide-react'
+import { Mail, Menu, Minus, Shirt, Square, X } from 'lucide-react'
 import { PURCHASE_URL } from '../constants/urls'
 import SettingsMenu from './SettingsMenu'
 import AuthorizeDialog from './AuthorizeDialog'
 import LicenseInfoDialog from './LicenseInfoDialog'
+import SettingDialog from './SettingDialog'
 import { useRecording } from '../stores/recording'
 
 export default function WindowTitleBar() {
@@ -13,9 +14,6 @@ export default function WindowTitleBar() {
   const messageUnreadCount = useRecording((s) => s.messages.reduce((acc, m) => acc + (m.read ? 0 : 1), 0))
   const messageBadge =
     messageUnreadCount > 99 ? '99+' : messageUnreadCount > 0 ? String(messageUnreadCount) : undefined
-  const openHistoryDialog = useRecording((s) => s.openHistoryDialog)
-  const historyCount = useRecording((s) => s.browserHistory.length)
-  const historyBadge = historyCount > 99 ? '99+' : historyCount > 0 ? String(historyCount) : undefined
   const authorizeOpen = useRecording((s) => s.authorizeDialogOpen)
   const openAuthorize = useRecording((s) => s.openAuthorizeDialog)
   const closeAuthorize = useRecording((s) => s.closeAuthorizeDialog)
@@ -42,9 +40,6 @@ export default function WindowTitleBar() {
       </button>
       <TitleActionButton label="messages" badge={messageBadge} onClick={openMessageCenterDialog}>
         <Mail size={16} strokeWidth={1.7} className="text-[#6f757d]" />
-      </TitleActionButton>
-      <TitleActionButton label="history" badge={historyBadge} onClick={openHistoryDialog}>
-        <Clock size={16} strokeWidth={1.7} className="text-[#6f757d]" />
       </TitleActionButton>
       <TitleActionButton label="theme">
         <Shirt size={15} strokeWidth={1.7} className="text-[#6f757d]" />
@@ -73,6 +68,7 @@ export default function WindowTitleBar() {
       />
       <AuthorizeDialog open={authorizeOpen} onClose={closeAuthorize} />
       <LicenseInfoDialog open={licenseOpen} onClose={closeLicense} view={licenseView} />
+      <SettingDialog />
     </div>
   )
 }

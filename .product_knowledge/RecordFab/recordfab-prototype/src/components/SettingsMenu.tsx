@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useRecording } from '../stores/recording'
 
 type Props = {
   open: boolean
@@ -9,6 +10,7 @@ type Props = {
 
 export default function SettingsMenu({ open, onClose, onOpenAuthorize, onOpenLicenseInfo }: Props) {
   const ref = useRef<HTMLDivElement>(null)
+  const openSettingDialog = useRecording((s) => s.openSettingDialog)
 
   useEffect(() => {
     if (!open) return
@@ -59,6 +61,14 @@ export default function SettingsMenu({ open, onClose, onOpenAuthorize, onOpenLic
         }}
       >
         License Info
+      </MenuItem>
+      <MenuItem
+        onClick={() => {
+          onClose()
+          openSettingDialog('proxy')
+        }}
+      >
+        Setting
       </MenuItem>
       <MenuItem onClick={onClose}>Member Center</MenuItem>
 

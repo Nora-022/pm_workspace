@@ -108,7 +108,7 @@ export default function FilesPage() {
 
 function TagPill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex h-[20px] min-w-[56px] items-center justify-center rounded-[12px] border border-[rgba(250,138,3,0.3)] px-2 text-[12px] leading-[20px] text-[#fa8a03]">
+    <span className="inline-flex h-[20px] items-center whitespace-nowrap rounded-[12px] border border-[rgba(250,138,3,0.3)] px-2 text-[12px] leading-[20px] text-[#fa8a03]">
       {children}
     </span>
   )

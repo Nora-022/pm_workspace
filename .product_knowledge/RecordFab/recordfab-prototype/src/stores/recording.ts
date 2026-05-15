@@ -57,6 +57,9 @@ export type LicenseInfoView =
       mode: 'failure'
     }
 
+export type SettingPage = 'general' | 'preferences' | 'proxy' | 'media-library' | 'post-processing'
+export type ProxyProtocol = 'HTTP' | 'HTTPS' | 'SOCKS5'
+
 type RecordingState = {
   detectionState: DetectionState
   currentSiteSlug: string | null
@@ -90,6 +93,14 @@ type RecordingState = {
   licenseInfoView: LicenseInfoView
   messageCenterDialogOpen: boolean
   messages: MessageCenterItem[]
+
+  settingDialogOpen: boolean
+  settingActivePage: SettingPage
+  proxyProtocol: ProxyProtocol
+  proxyHost: string
+  proxyPort: string
+  proxyUsername: string
+  proxyPassword: string
 
   openWelcomeOnce: () => void
   closeWelcome: () => void
@@ -135,6 +146,15 @@ type RecordingState = {
   closeMessageCenterDialog: () => void
   markAllMessagesRead: () => void
   markMessageRead: (id: string) => void
+
+  openSettingDialog: (page?: SettingPage) => void
+  closeSettingDialog: () => void
+  setSettingActivePage: (page: SettingPage) => void
+  setProxyProtocol: (value: ProxyProtocol) => void
+  setProxyHost: (value: string) => void
+  setProxyPort: (value: string) => void
+  setProxyUsername: (value: string) => void
+  setProxyPassword: (value: string) => void
 }
 
 let detectionTimerHandle: ReturnType<typeof setTimeout> | null = null
@@ -264,6 +284,14 @@ export const useRecording = create<RecordingState>((set, get) => ({
   licenseInfoView: { mode: 'success', email: 'Nora@gmail.com', subscription: 'lifetime' },
   messageCenterDialogOpen: false,
   messages: INITIAL_MESSAGES,
+
+  settingDialogOpen: false,
+  settingActivePage: 'proxy',
+  proxyProtocol: 'HTTP',
+  proxyHost: '',
+  proxyPort: '',
+  proxyUsername: '',
+  proxyPassword: '',
 
   openWelcomeOnce: () => {
     const state = get()
@@ -515,6 +543,15 @@ export const useRecording = create<RecordingState>((set, get) => ({
     set((state) => ({
       messages: state.messages.map((m) => (m.id === id ? { ...m, read: true } : m)),
     })),
+
+  openSettingDialog: (page) => set({ settingDialogOpen: true, settingActivePage: page ?? 'proxy' }),
+  closeSettingDialog: () => set({ settingDialogOpen: false }),
+  setSettingActivePage: (page) => set({ settingActivePage: page }),
+  setProxyProtocol: (value) => set({ proxyProtocol: value }),
+  setProxyHost: (value) => set({ proxyHost: value }),
+  setProxyPort: (value) => set({ proxyPort: value.replace(/[^\d]/g, '') }),
+  setProxyUsername: (value) => set({ proxyUsername: value }),
+  setProxyPassword: (value) => set({ proxyPassword: value }),
 }))
 
 export function formatRecordingTime(totalSeconds: number) {

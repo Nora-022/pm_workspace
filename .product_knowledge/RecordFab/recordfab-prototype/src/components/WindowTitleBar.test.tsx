@@ -35,12 +35,10 @@ describe('WindowTitleBar', () => {
     expect(maximize.getAttribute('title')).toBe('Maximize')
     expect(exit.getAttribute('title')).toBe('Exit')
 
-    const history = screen.getByLabelText('history')
     const messages = screen.getByLabelText('messages')
     const theme = screen.getByLabelText('theme')
     const menu = screen.getByLabelText('menu')
 
-    expect(history.getAttribute('title')).toBe(null)
     expect(messages.getAttribute('title')).toBe(null)
     expect(theme.getAttribute('title')).toBe(null)
     expect(menu.getAttribute('title')).toBe(null)
