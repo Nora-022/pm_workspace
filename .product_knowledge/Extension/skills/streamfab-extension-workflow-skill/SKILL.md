@@ -1,6 +1,6 @@
 ---
 name: streamfab-extension-workflow
-description: 把已初始化的 StreamFab 插件知识库从 L0 推进到 L5 已上线，覆盖产品页提取、飞书同步、客户端拆解、缺口检查和上线收尾，不重复做初始化。
+description: 把已初始化的 StreamFab 插件知识库从 L0 推进到 L5 已上线，覆盖产品页提取、本地 Markdown 定稿同步、客户端拆解、缺口检查和上线收尾，不重复做初始化。
 allowed-tools:
   - Bash
   - Read
@@ -22,7 +22,7 @@ allowed-tools:
 
 1. 初始化状态确认
 2. 产品页事实提取
-3. 飞书定稿同步
+3. 本地 MD 定稿同步
 4. 客户端拆解回填
 4.5. context / patterns / constraints 回填
 5. 缺口检查
@@ -37,16 +37,16 @@ allowed-tools:
 
 - 本地插件目录已存在
 - 核心骨架文档已存在
-- 飞书客户端拆解文档已创建（1份）
-- 用户开始提供产品页、飞书定稿信息或客户端拆解信息
+- 本地 Markdown 工作文档已创建（需求文档、UI 需求说明、客户端方案拆解）
+- 用户确认客户端方案拆解 MD 已填写完成，或开始提供产品页 / 本地 MD 定稿信息 / 客户端拆解信息
 
 ### workflow 接管后的第一优先级
 
 默认优先进入：
 
-- `节点 2：产品页事实提取`
+- `节点 3：本地 MD 定稿同步`（当用户已填完客户端方案拆解 MD）
 
-如果用户不是先给产品页，而是先说“飞书文档已补完”或直接给客户端拆解信息，则允许跳过前序节点，直接进入对应节点。
+如果用户先给产品页链接，则进入节点 2；如果用户直接给截图、页面字段、观察结果，则允许跳过前序节点，直接进入节点 4。
 
 ### 什么情况下不回退到 init
 
@@ -55,7 +55,7 @@ allowed-tools:
 ## 边界
 
 - 本 skill 不重新创建插件目录
-- 本 skill 不重复创建飞书模板文档
+- 本 skill 不重复创建初始化 Markdown 模板文档
 - 公开知识库只写已确认、已定稿、可共享的信息
 - “待确认 / 未验证 / 开放问题”不写入正式知识库正文
 - 真正阻塞归档的问题只在对话里追问
@@ -75,7 +75,7 @@ allowed-tools:
 适用场景：
 
 - 节点 2 缺产品页 URL
-- 节点 3 缺飞书文档入口
+- 节点 3 缺本地客户端方案拆解 MD 填写结果
 - 节点 4 缺关键截图或字段说明
 - 节点 6 需要收尾追问
 
@@ -113,22 +113,25 @@ allowed-tools:
 - `target_site_url`
   - `如需要同步站点侧结构，请提供目标站点链接。`
 
-### 模板 B：飞书定稿同步补问
+### 模板 B：本地 MD 定稿同步补问
 
 适用场景：
 
-- 用户说飞书已补完
-- 但当前缺客户端拆解文档入口
+- 初始化已完成
+- 但客户端方案拆解 MD 还未填写完成或用户未确认
 
 推荐字段：
 
-1. `client_breakdown_doc_url`
-   - 提示语：`请提供客户端方案拆解飞书文档链接。`
+1. `client_breakdown_filled`
+   - 提示语：`请先填写 requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md，填写完成后告诉我继续。`
 
 使用规则：
 
-- 只收集客户端拆解文档链接，需求文档和 UI 文档使用本地 MD 文件（`requirements/plugin_requirement.md`、`requirements/plugin_ui_requirement.md`，由 init skill 从 common_templates 生成）
-- 收到链接后立即用 `lark-cli docs +fetch` 读取
+- 不索要飞书文档链接
+- 用户确认填写完成后，直接读取本地三份 MD：
+  - `requirements/plugin_requirement.md`
+  - `requirements/plugin_ui_requirement.md`
+  - `requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md`
 
 ### 模板 C：客户端拆解回填补问
 
@@ -168,7 +171,7 @@ allowed-tools:
 
 适用场景：
 
-- 已完成产品页、飞书、客户端三轮主要同步
+- 已完成产品页、本地 MD、客户端三轮主要同步
 - 当前仅剩关键归档字段未齐
 
 推荐字段池：
@@ -211,20 +214,17 @@ allowed-tools:
 确认项：
 
 - 插件目录是否已存在
-- 3 份飞书文档是否已存在
+- 3 份本地 Markdown 工作文档是否已存在
 - 当前处于哪个完成度等级
 
 如果未初始化，返回给 `streamfab-plugin-init`。
 如果已初始化，立即进入后续节点。
 
-**确认完成后，必须主动索取需求文档：**
+**确认完成后，必须主动检查本地工作文档：**
 
-> 初始化已确认。请提供以下飞书文档链接，我将用 `lark-cli docs +fetch` 直接读取并回填知识库：
-> 1. 需求文档（plugin_requirement）
-> 2. UI 需求说明（plugin_ui_requirement）
-> 3. 客户端方案拆解（可选，有则提供）
+> 初始化已确认。请先填写 `requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md`，填写完成后告诉我继续；我会读取本地三份 MD 并回填知识库。
 
-用 `lark-cli docs +fetch --doc <url> --as user --format pretty` 读取，内容回填到对应知识库文件。不等用户说"已补完"，主动发起读取。
+不要创建或读取飞书模板文档。用户确认填写完成前，不继续进行最终回填。
 
 ### 节点 2：产品页事实提取
 
@@ -258,18 +258,18 @@ allowed-tools:
 - `client_product_url`
 - 如有必要：`target_site_url`
 
-### 节点 3：飞书定稿同步
+### 节点 3：本地 MD 定稿同步
 
 **文档获取方式：**
-- 优先使用节点 1 已收集到的文档链接，用 `lark-cli docs +fetch --doc <url> --as user --format pretty` 直接读取
-- 如节点 1 未收到链接，通过 `AskUserQuestion` 一次性补问 3 份文档链接，再用 `lark-cli docs +fetch` 读取
+- 直接读取插件目录下的本地 Markdown 文件
+- 若客户端方案拆解 MD 尚未填写，停在当前节点，请用户填写后再继续
 
-当文档链接可用时（无论用户是否说"已补完"）：
+当用户确认客户端方案拆解 MD 已填写完成时：
 
 1. 读取：
-   - 需求文档
-   - UI 需求说明
-   - 客户端方案拆解
+   - `requirements/plugin_requirement.md`
+   - `requirements/plugin_ui_requirement.md`
+   - `requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md`
 2. 提取定稿字段：
    - app id / pid / option id / client id / mlink
    - 跳转链接
@@ -287,20 +287,20 @@ allowed-tools:
 写入这两个文件前必须先 Read `Extension/common_templates/plugin_requirement_template.md` 和 `Extension/common_templates/plugin_ui_requirement_template.md`，按其章节结构填值：
 
 - 模板已有的章节必须保留（如需求模板的 `### 网站信息` 是必填节）
-- 不增加模板没有的章节（如 `## 数据上报`、`## 全局变量`、`## 相关文档`、`## 文档目的`、`## 设计需求拆分` 等都不属于模板章节，即使飞书原文有，也不在正式文档里另立节，而是并入模板已有节或不写入）
+- 不增加模板没有的章节（如 `## 数据上报`、`## 全局变量`、`## 相关文档`、`## 文档目的`、`## 设计需求拆分` 等都不属于模板章节，即使客户端方案拆解 MD 有，也不在正式文档里另立节，而是并入模板已有节或不写入）
 - 不删除模板的必填节
-- 占位符（`{SiteName}` / `{sitename}` / `{BannerContentEN}` / `{ThirdStoreProductImageCaption}` 等）替换为飞书定稿值
+- 占位符（`{SiteName}` / `{sitename}` / `{BannerContentEN}` / `{ThirdStoreProductImageCaption}` 等）替换为本地 MD 定稿值
 - `{SiteName}` 按需求文档「流媒体服务名」原始大小写填写，用于插件产品名、CoApp 安装程序名、mlink 链接中的服务名片段；例如流媒体服务名为 `FANZA` 时写 `StreamFab_FANZA_Downloader_for_Browser`、`StreamFab_FANZA_Coapp`
 - `{sitename}` 一律小写，用于 app id 和跳转链接（产品页 URL、What's New、订阅 / 升级付费链接）；例如 `streamfab_for_browser_fanza`、`fanza-downloader-for-browser.htm`、`pid=fanza-downloader`，不是 `pid=FANZA-downloader`
-- 飞书未提供的字段对应单元格留空，不写"待确认"等兜底句
+- 本地 MD 未提供的字段对应单元格留空，不写"待确认"等兜底句
 - markdown 链接禁用嵌套方括号语法（如 `[[Feature][新品]X](url)` 会导致渲染器跳错），改用单层文本
 - Setting 配置项严格按模板顺序，站点差异化项（如 Hulu 的 Video Codec）追加到模板末尾，不插入中间
 
-如果某字段在飞书里仍为空，不编造，只在对话里指出缺口。
+如果某字段在本地 MD 里仍为空，不编造，只在对话里指出缺口。
 
 **节点 3 附加步骤：从 pid 表格自动读取并回填 Client ID 和 pid**
 
-在飞书定稿同步完成后，立即执行以下操作：
+在本地 MD 定稿同步完成后，立即执行以下操作：
 
 1. 用 `lark-cli sheets +read` 读取 pid 总表：
    - URL：`https://i6a1sqw3p2.feishu.cn/sheets/shtcnlXOVQicx407Qs5xWs8euqb`
@@ -330,11 +330,10 @@ allowed-tools:
 
 4. 如果表格中对应行不存在或值为空：在对话中告知用户哪项缺失，不编造数据，对应单元格留空。
 
-如果缺飞书入口，优先通过一次 `AskUserQuestion` 收集：
+如果客户端方案拆解 MD 尚未填写，优先停下并提示用户：
 
-- 需求文档链接
-- UI 需求文档链接
-- 客户端拆解文档链接
+- 请填写 `requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md`
+- 填写完成后告诉我继续
 
 ### 节点 4：客户端拆解回填
 
@@ -382,7 +381,7 @@ allowed-tools:
 
 ### 节点 6：收尾追问
 
-只在产品页同步、飞书定稿同步、客户端拆解回填都做完后再触发。
+只在产品页同步、本地 MD 定稿同步、客户端拆解回填都做完后再触发。
 
 规则：
 
@@ -438,9 +437,9 @@ allowed-tools:
 
 满足任一条件即可：
 
-- 用户明确说“3 份飞书文档已补完”
-- 用户给出飞书文档链接
-- 用户要求“从飞书定稿回填知识库”
+- 用户明确说“客户端方案拆解 MD 已填完”
+- 用户明确说“本地 MD 已补完”
+- 用户要求“从本地 MD 定稿回填知识库”
 
 ### 从节点 3 切到节点 4
 
@@ -459,7 +458,7 @@ allowed-tools:
 满足以下条件时进入收尾追问：
 
 - 已完成产品页事实同步
-- 已完成飞书定稿同步
+- 已完成本地 MD 定稿同步
 - 已完成至少一轮客户端拆解回填
 - 当前剩余问题数量有限，且都属于关键归档字段
 
@@ -490,7 +489,7 @@ allowed-tools:
 
 - `初始化完成`
 - `产品页事实已同步`
-- `飞书定稿已同步`
+- `本地 MD 定稿已同步`
 - `客户端拆解同步中`
 - `客户端拆解已同步`
 - `可进入收尾`
@@ -519,10 +518,10 @@ allowed-tools:
 ## 完成度定义
 
 - `L0 初始化`
-  - 目录和 3 份飞书文档已建立
+  - 目录和 3 份本地 Markdown 工作文档已建立
 - `L1 产品页同步`
   - 产品页客观事实已回填
-- `L2 飞书定稿同步`
+- `L2 本地 MD 定稿同步`
   - 需求 / UI / 客户端拆解定稿信息已同步
 - `L3 客户端拆解完善`
   - 页面、交互、状态、参数已补齐；context / patterns / constraints 已回填
@@ -571,7 +570,7 @@ allowed-tools:
 当由 `streamfab-plugin-init` 切入本 skill 时，优先按这个格式接管：
 
 - `当前阶段：初始化完成`
-- `本轮已同步内容：插件目录和飞书文档已创建，后续进入知识库完善流程`
+- `本轮已同步内容：插件目录和本地 Markdown 工作文档已创建，等待客户端方案拆解填写`
 - `更新的文件：<插件目录路径>`
 - `当前完成度：L0 初始化`
-- `下一步建议：提供客户端产品页链接，开始产品页事实提取`
+- `下一步建议：请填写 requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md；填写完成后我继续同步本地 MD`

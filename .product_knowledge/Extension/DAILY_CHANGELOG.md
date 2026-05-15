@@ -1,5 +1,31 @@
 # 知识库每日更新记录
 
+## 2026-05-15
+
+### 新增
+- .product_knowledge/Extension/common_templates/plugin_client_plan_template.md
+- ".product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/requirements/[RecordFab] - [\345\256\242\346\210\267\347\253\257\346\226\271\346\241\210\346\213\206\350\247\243] - Fandango at Home.md"
+- .skills/
+
+### 修改
+- .product_knowledge/Extension/scripts/create_feishu_plugin_docs.py
+- .product_knowledge/Extension/scripts/scaffold_plugin.py
+- .product_knowledge/Extension/skills/streamfab-extension-init-skill/SKILL.md
+- .product_knowledge/Extension/skills/streamfab-extension-init-skill/feishu_target.json
+- .product_knowledge/Extension/skills/streamfab-extension-init-skill/references/skeleton_requirements_index.md
+- .product_knowledge/Extension/skills/streamfab-extension-workflow-skill/SKILL.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/requirements/index.md
+- .product_knowledge/MAINTENANCE.md
+
+### 删除
+- .superpowers/brainstorm/1778746949/content/foundations-01.html
+- .superpowers/brainstorm/1778746949/state/server-stopped
+- docs/superpowers/plans/2026-05-14-icon-hover-tooltips.md
+- docs/superpowers/plans/2026-05-14-my-files-tag-pill.md
+- docs/superpowers/plans/2026-05-14-tab-size-224x44.md
+
+---
+
 ## 2026-05-14
 
 ### 新增

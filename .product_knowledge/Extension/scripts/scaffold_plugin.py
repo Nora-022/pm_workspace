@@ -40,11 +40,13 @@ SKELETON_FILES = [
 # display names, installer names, and mlink package names. {sitename} is the
 # lowercase service slug for app id and URL jump links.
 # Other placeholders ({BannerContentEN}, {ThirdStoreProductImageCaption}, etc.) are
-# left intact for the workflow stage to fill from feishu requirement docs.
+# left intact for the workflow stage to fill from local MD requirement docs.
 TEMPLATE_FILES = [
     ("plugin_requirement_template.md",     "requirements/plugin_requirement.md"),
     ("plugin_ui_requirement_template.md",  "requirements/plugin_ui_requirement.md"),
 ]
+
+CLIENT_PLAN_TEMPLATE = "plugin_client_plan_template.md"
 
 SUBDIRS = [
     "requirements",
@@ -77,7 +79,13 @@ def apply_template_placeholders(content: str, display_name: str, service_name: s
     return content.replace("{SiteName}", display_name).replace("{sitename}", sitename)
 
 
+def client_plan_target_name(display_name: str) -> str:
+    return f"requirements/[RecordFab] - [客户端方案拆解] - {display_name}.md"
+
+
 def main() -> int:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     args = parse_args()
     service_name: str = args.service
     display_name: str = args.display_name
@@ -144,6 +152,26 @@ def main() -> int:
             target_path.parent.mkdir(parents=True, exist_ok=True)
             target_path.write_text(content, encoding="utf-8")
         created_files.append(target_name)
+
+    # Create the local client plan breakdown document for the PM to fill.
+    client_plan_template = COMMON_TEMPLATES_DIR / CLIENT_PLAN_TEMPLATE
+    client_plan_target = plugin_dir / client_plan_target_name(display_name)
+    client_plan_relative = str(client_plan_target.relative_to(plugin_dir))
+
+    if client_plan_target.exists():
+        skipped_files.append(client_plan_relative)
+    elif not client_plan_template.exists():
+        print(f"WARNING: template not found: {client_plan_template}", file=sys.stderr)
+    else:
+        content = apply_template_placeholders(
+            client_plan_template.read_text(encoding="utf-8"),
+            display_name,
+            service_name,
+        )
+        if not args.dry_run:
+            client_plan_target.parent.mkdir(parents=True, exist_ok=True)
+            client_plan_target.write_text(content, encoding="utf-8")
+        created_files.append(client_plan_relative)
 
     result = {
         "service_name": service_name,

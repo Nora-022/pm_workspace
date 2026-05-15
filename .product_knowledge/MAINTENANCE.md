@@ -86,7 +86,7 @@ Get-ScheduledTaskInfo -TaskName "GitLab Daily Push"
 | 触发事件 | 工作流 | 推荐工具 / Skill |
 |---|---|---|
 | 确认了某条产品规则 | 更新对应的 `01–07` 核心文件，关闭 `open_questions.md` 中对应条目 | 直接编辑文件 |
-| 开始做新插件 | 在 `Extension/` 下创建插件目录，初始化 `00–07` 文件结构 | `/knowledge-manager` |
+| 开始做新插件 | 先由项目内 `knowledge-manager` 判断命名、边界与上下文，再交接 Extension 专项 skill 初始化 `00–07` 文件结构 | `/knowledge-manager` |
 | 新插件上线前 | 对目标站点做技术调研，写入 `references/site_research_notes.md` | Claude 搜索调研 + 写文件 |
 | 需求进入评审 | 在飞书记录需求，同步快照到 `requirements/backlog.md` | `/lark-base` |
 | 需求评审通过，开始设计 | 撰写 PRD | `/prd-writer` |
@@ -103,7 +103,7 @@ Get-ScheduledTaskInfo -TaskName "GitLab Daily Push"
 
 | Skill | 一句话说明 | 典型触发场景 |
 |---|---|---|
-| `knowledge-manager` | 产品知识库管家，确保 AI 在设计需求前先了解产品背景 | 开始新任务前加载产品上下文 |
+| `knowledge-manager` | 项目知识库入口与路由层，确保 AI 在设计需求前先了解产品背景，并按 RecordFab / Extension 边界分流 | 开始新任务前加载产品上下文、维护知识库、路由到专项 skill |
 | `prd-writer` | 撰写可直接交付研发/测试/设计的需求文档 | 需求范围明确，进入文档输出阶段 |
 | `prd-auditor` | 评审 PRD，查找逻辑漏洞，判断是否达到交付标准 | PRD 完成后自查或互审 |
 | `lark-base` | 操作飞书多维表格：读取记录、更新状态、新增字段 | 同步需求池、查询站点支持列表 |
@@ -112,6 +112,8 @@ Get-ScheduledTaskInfo -TaskName "GitLab Daily Push"
 | `lark-im` | 飞书消息收发 | 发送通知、查询消息记录 |
 | `lark-task` | 飞书任务管理 | 创建待办、跟踪任务状态 |
 | `bdd-feature-writer` | 将需求转换为 BDD 特性文档 | 需求文档交付研发前的规格化 |
+
+Extension 内部专项 skill 不在本表展开维护，完整清单以 `.product_knowledge/Extension/skills/README.md` 为准；`knowledge-manager` 只负责在入口处识别是否需要转交这些专项 skill。
 
 ---
 

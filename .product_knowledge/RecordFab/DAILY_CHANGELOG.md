@@ -1,5 +1,28 @@
 # 知识库每日更新记录
 
+## 2026-05-15
+
+### 新增
+- recordfab-prototype/docs/superpowers/plans/2026-05-15-setting-dialog.md
+- recordfab-prototype/src/components/SettingDialog.test.tsx
+- recordfab-prototype/src/components/SettingDialog.tsx
+- requirements/research/cloud_recording/solution_design.md
+
+### 修改
+- recordfab-prototype/src/components/SettingsMenu.tsx
+- recordfab-prototype/src/components/WindowTitleBar.test.tsx
+- recordfab-prototype/src/components/WindowTitleBar.tsx
+- recordfab-prototype/src/pages/FilesPage.tsx
+- recordfab-prototype/src/stores/recording.ts
+
+### 删除
+- recordfab-html-prototype/index.html
+- recordfab-html-prototype/script.js
+- recordfab-html-prototype/serve.ps1
+- recordfab-html-prototype/styles.css
+
+---
+
 ## 2026-05-14
 
 ### 新增
