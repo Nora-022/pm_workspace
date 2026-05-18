@@ -1,6 +1,6 @@
 ---
 name: streamfab-plugin-init
-description: 初始化新的 StreamFab 插件知识库目录，创建骨架文件和本地 Markdown 工作文档，完成后交给用户填写客户端方案拆解，再交接给 streamfab-extension-workflow。
+description: 初始化新的 StreamFab 插件知识库目录，创建骨架文件和客户端方案拆解 Markdown，完成后交接给 streamfab-extension-workflow 先做站点调研 / 产品页事实提取，再让用户填写客户端方案拆解。
 allowed-tools:
   - Bash
   - Read
@@ -17,19 +17,22 @@ allowed-tools:
 
 - 在 `Extension/` 下创建或修复插件目录
 - 按当前统一结构初始化本地知识库
-- 从 `common_templates/` 复制需求文档、UI 需求说明、客户端方案拆解 3 份 Markdown 模版，替换占位符后写入 `requirements/`
-- 客户端方案拆解文件名固定为 `[RecordFab] - [客户端方案拆解] - <display_name>.md`
+- 从 `common_templates/plugin_client_plan_template.md` 复制客户端方案拆解 Markdown，替换占位符后写入 `requirements/`
+- 不创建飞书文档，不调用 `lark-cli` 或 `create_feishu_plugin_docs.py`
+- 需求文档和 UI 需求说明不在 init 阶段生成；workflow 先做站点调研 / 产品页事实提取，再等用户填完客户端方案拆解后从 common 模板创建并回填
+- 客户端方案拆解文件名固定为 `[StreamFab 浏览器插件] - [<display_name>] - 客户端方案拆解.md`
 - 输出本地路径、模式和待填写的客户端方案拆解 MD 路径
 
 ## 职责边界
 
 - 本 skill 只负责初始化
+- 不负责站点调研或需求文档 `### 网站信息` 回填
 - 不负责产品页事实提取
-- 不负责本地 MD 定稿信息回填
+- 不负责需求文档 / UI 需求说明创建或回填
 - 不负责客户端拆解信息回填
 - 不负责缺口检查和收尾追问
 
-初始化完成后，先把客户端方案拆解 MD 交给用户填写；用户确认填写完成后，再切换到 `streamfab-extension-workflow` 继续推进。
+初始化完成后，先交接给 `streamfab-extension-workflow` 做站点调研 / 产品页事实提取；事实提取完成后，再提示用户填写客户端方案拆解 MD。用户确认填写完成后，workflow 继续生成 / 回填需求文档和 UI 需求说明。
 
 ## 初始化后的切换规则
 
@@ -37,14 +40,14 @@ allowed-tools:
 
 1. 插件目录已创建或修复
 2. 核心 Markdown 骨架已存在
-3. 3 份本地 Markdown 工作文档已创建成功
+3. 客户端方案拆解 Markdown 已创建成功
 4. 已向用户返回本地路径和客户端方案拆解 MD 路径
 
 切换时必须明确说明：
 
 - `初始化完成`
-- `下一步请填写客户端方案拆解 MD`
-- `你填写完成后，我再进入 streamfab-extension-workflow`
+- `下一步进入 streamfab-extension-workflow，先做站点调研 / 产品页事实提取`
+- `事实提取完成后，再请你填写客户端方案拆解 MD`
 
 如果缺少初始化最小必要信息，则停留在本 skill 内继续补问；一旦最小必要信息齐全，不再追加后续流程问题。
 
@@ -55,10 +58,7 @@ allowed-tools:
 1. `service_name`
 2. `display_name`
 
-只有在明确阻塞初始化时，才追加补问：
-
-- 客户端产品页 URL
-- 目标站点 URL
+初始化阶段不追问客户端产品页 URL、目标站点 URL、pid、client id、option id、站点调研信息或客户端拆解字段；这些都由 workflow 后续处理。
 
 ## 提问机制
 
@@ -96,9 +96,9 @@ allowed-tools:
 - `07_technical_constraints.md`
 - `CHANGELOG.md`
 - `requirements/index.md`
-- `requirements/plugin_requirement.md`
-- `requirements/plugin_ui_requirement.md`
-- `requirements/[RecordFab] - [客户端方案拆解] - <display_name>.md`
+- `requirements/[StreamFab 浏览器插件] - [<display_name>] - 客户端方案拆解.md`
+
+`requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md` 是 workflow 阶段的产物：先由 workflow 完成站点调研 / 产品页事实提取，再等用户填完客户端方案拆解后，从 common 模板创建并回填。
 
 禁止继续创建旧 `00_*` 文件：
 
@@ -115,13 +115,18 @@ allowed-tools:
 
 ## 本地 Markdown 文档规则
 
-新模式下不创建飞书模板文档。所有初始化工作文档都由 `scaffold_plugin.py` 从 `common_templates/` 复制 Markdown 模版生成：
+新模式下不创建飞书文档。init 阶段只由 `scaffold_plugin.py` 从 `common_templates/` 复制客户端方案拆解 Markdown 模板生成：
+
+- `common_templates/plugin_client_plan_template.md` → `requirements/[StreamFab 浏览器插件] - [<display_name>] - 客户端方案拆解.md`
+
+脚本会自动替换模版中的基础变量：`{SiteName}` 替换为 `display_name`，`{service_name}` 替换为 snake_case 服务标识，`{SiteNameMlink}` 替换为展示名单词用 `_` 连接后的 mlink 产品片段，`{sitename}` 替换为 service_name 的连字符小写形式。`{SiteName}` 必须理解为需求文档中的「流媒体服务名」原始大小写，用于插件产品名和 CoApp 安装程序名；`{SiteNameMlink}` 用于 mlink；`{service_name}` 用于 app id；`{sitename}` 用于产品页 URL、What's New、订阅 / 升级付费等跳转链接。其他占位符（`{BannerContentEN}`、`{ThirdStoreProductImageCaption}` 等）保留，留待 workflow 阶段从本地 MD 定稿内容填入。
+
+workflow 完成站点调研 / 产品页事实提取后，用户再填写客户端方案拆解。用户填写完成后，`streamfab-extension-workflow` 读取客户端方案拆解，并从以下模板创建 / 回填：
 
 - `common_templates/plugin_requirement_template.md` → `requirements/plugin_requirement.md`
 - `common_templates/plugin_ui_requirement_template.md` → `requirements/plugin_ui_requirement.md`
-- `common_templates/plugin_client_plan_template.md` → `requirements/[RecordFab] - [客户端方案拆解] - <display_name>.md`
 
-脚本会自动将模版中的 `{SiteName}` 替换为 `display_name`、`{sitename}` 替换为 service_name 的连字符小写形式。`{SiteName}` 必须理解为需求文档中的「流媒体服务名」原始大小写，用于插件产品名、CoApp 安装程序名和 mlink；`{sitename}` 用于 app id、产品页 URL、What's New、订阅 / 升级付费等跳转链接。其他占位符（`{BannerContentEN}`、`{ThirdStoreProductImageCaption}` 等）保留，留待 workflow 阶段从本地 MD 定稿内容填入。
+`plugin_requirement.md` 中的 `### 网站信息` 由 workflow 基于 `references/site_research_notes.md`、目标站点调研和必要的产品页事实补充回填，不在 init 阶段填充正文。
 
 ## 执行流程
 
@@ -131,9 +136,6 @@ allowed-tools:
 
 - `service_name`
 - `display_name`
-- `template_plugin`
-- 可选：`client_product_url`
-- 可选：`target_site_urls`
 
 如果字段缺失，优先通过一次 `AskUserQuestion` 完成补问；只有在工具不可用或问题极少时，才退回普通对话提问。
 
@@ -170,13 +172,15 @@ python Extension/scripts/scaffold_plugin.py \
 
 先用 `--dry-run` 预览，确认无误后去掉参数正式执行。
 
-### Phase 4：确认本地工作文档
+### Phase 4：确认客户端方案拆解文档
 
-需求文档、UI 需求说明、客户端方案拆解均已由 `scaffold_plugin.py` 在 Phase 2 & 3 自动从 `common_templates/` 复制并替换 `{SiteName}` / `{sitename}` 占位符，无需手工 Read + Write。
+客户端方案拆解已由 `scaffold_plugin.py` 在 Phase 2 & 3 自动从 `common_templates/plugin_client_plan_template.md` 复制并替换 `{SiteName}` / `{sitename}` 占位符，无需手工 Read + Write。
 
 必须确认客户端方案拆解文件存在：
 
-`requirements/[RecordFab] - [客户端方案拆解] - <display_name>.md`
+`requirements/[StreamFab 浏览器插件] - [<display_name>] - 客户端方案拆解.md`
+
+此阶段不要求 `requirements/plugin_requirement.md` 或 `requirements/plugin_ui_requirement.md` 存在；它们由 workflow 在用户填写完成后生成 / 回填。
 
 ### Phase 5：输出并交接
 
@@ -184,13 +188,15 @@ python Extension/scripts/scaffold_plugin.py \
 
 - 插件路径
 - 模式：`create mode` / `repair mode`
-- 本地生成的 MD 文件：
+- 本地生成的待填写 MD 文件：
+  - `requirements/[StreamFab 浏览器插件] - [<display_name>] - 客户端方案拆解.md`
+- 后续由 workflow 生成 / 回填的 MD 文件：
   - `requirements/plugin_requirement.md`
   - `requirements/plugin_ui_requirement.md`
-  - `requirements/[RecordFab] - [客户端方案拆解] - <display_name>.md`
 - 明确交接语：
-  - `初始化完成，下一步请填写客户端方案拆解 MD`
-  - `你填写完成后，我再进入 streamfab-extension-workflow`
+  - `初始化完成，下一步进入 streamfab-extension-workflow`
+  - `请先提供目标站点链接和 / 或客户端产品页链接，我会先做站点调研 / 产品页事实提取`
+  - `事实提取完成后，再请你填写客户端方案拆解 MD`
 
 如果用户只想完成初始化，不强行继续追问后续流程字段；交接留给 `streamfab-extension-workflow`。
 
@@ -200,16 +206,16 @@ python Extension/scripts/scaffold_plugin.py \
 
 - 插件目录已创建或修复
 - 核心骨架文件齐全
-- `requirements/plugin_requirement.md`、`requirements/plugin_ui_requirement.md`、`requirements/[RecordFab] - [客户端方案拆解] - <display_name>.md` 已从 common_templates 生成
+- `requirements/[StreamFab 浏览器插件] - [<display_name>] - 客户端方案拆解.md` 已从 common_templates 生成
 - `{SiteName}` / `{sitename}` 占位符已替换
-- 已明确交给用户填写客户端方案拆解 MD，用户填完后再交接到 `streamfab-extension-workflow`
+- 已明确交接到 `streamfab-extension-workflow`，下一步先做站点调研 / 产品页事实提取；事实提取完成后再让用户填写客户端方案拆解 MD
 
 ## 交接语模板
 
 初始化完成后，优先按这个格式汇报：
 
 - `当前阶段：初始化完成`
-- `本轮已同步内容：目录、骨架文件、本地 Markdown 工作文档已创建`
+- `本轮已同步内容：目录、骨架文件、客户端方案拆解 Markdown 已创建`
 - `更新的文件：<插件目录路径>`
 - `当前完成度：L0 初始化`
-- `下一步建议：请填写 requirements/[RecordFab] - [客户端方案拆解] - <display_name>.md；填写完成后我继续进入 streamfab-extension-workflow`
+- `下一步建议：请提供目标站点链接和 / 或客户端产品页链接；我会进入 streamfab-extension-workflow 先做站点调研 / 产品页事实提取，之后再请你填写 requirements/[StreamFab 浏览器插件] - [<display_name>] - 客户端方案拆解.md`

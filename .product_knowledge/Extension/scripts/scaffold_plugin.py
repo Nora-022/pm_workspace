@@ -35,17 +35,20 @@ SKELETON_FILES = [
     ("skeleton_requirements_index.md",  "requirements/index.md"),
 ]
 
-# Files copied from common_templates with {SiteName}/{sitename} placeholders replaced.
-# {SiteName} is the streaming service name with its original casing for product
-# display names, installer names, and mlink package names. {sitename} is the
-# lowercase service slug for app id and URL jump links.
-# Other placeholders ({BannerContentEN}, {ThirdStoreProductImageCaption}, etc.) are
-# left intact for the workflow stage to fill from local MD requirement docs.
-TEMPLATE_FILES = [
+# Requirement and UI requirement docs are generated later by workflow after the
+# client plan breakdown has been filled. Init creates only the PM-fillable client
+# plan from common_templates.
+DEFERRED_TEMPLATE_FILES = [
     ("plugin_requirement_template.md",     "requirements/plugin_requirement.md"),
     ("plugin_ui_requirement_template.md",  "requirements/plugin_ui_requirement.md"),
 ]
 
+# Files copied from common_templates with placeholders replaced.
+# {SiteName} is the streaming service display name. {service_name} is snake_case
+# for app ids. {SiteNameMlink} uses underscores for mlink package names.
+# {sitename} is the hyphenated slug for product page and What's New URLs.
+# Other placeholders ({BannerContentEN}, {ThirdStoreProductImageCaption}, etc.) are
+# left intact for the workflow stage to fill from the local client plan.
 CLIENT_PLAN_TEMPLATE = "plugin_client_plan_template.md"
 
 SUBDIRS = [
@@ -70,17 +73,26 @@ def apply_placeholders(content: str, display_name: str, service_name: str) -> st
 
 
 def apply_template_placeholders(content: str, display_name: str, service_name: str) -> str:
-    """Replace {SiteName} and {sitename} placeholders in common_templates content.
+    """Replace common_templates placeholders.
 
     {SiteName} → display_name, preserving the streaming service name casing
+    {service_name} → snake_case service name
+    {SiteNameMlink} → display_name with spaces converted to underscores
     {sitename} → hyphenated lowercase service name (snake_case → kebab-case)
     """
     sitename = service_name.replace("_", "-")
-    return content.replace("{SiteName}", display_name).replace("{sitename}", sitename)
+    site_name_mlink = "_".join(display_name.split())
+    return (
+        content
+        .replace("{SiteNameMlink}", site_name_mlink)
+        .replace("{SiteName}", display_name)
+        .replace("{service_name}", service_name)
+        .replace("{sitename}", sitename)
+    )
 
 
 def client_plan_target_name(display_name: str) -> str:
-    return f"requirements/[RecordFab] - [客户端方案拆解] - {display_name}.md"
+    return f"requirements/[StreamFab 浏览器插件] - [{display_name}] - 客户端方案拆解.md"
 
 
 def main() -> int:
@@ -129,30 +141,6 @@ def main() -> int:
             target_path.write_text(content, encoding="utf-8")
         created_files.append(target_name)
 
-    # Create requirement files from common_templates (with {SiteName}/{sitename} replaced)
-    for template_name, target_name in TEMPLATE_FILES:
-        template_path = COMMON_TEMPLATES_DIR / template_name
-        target_path = plugin_dir / target_name
-
-        if target_path.exists():
-            skipped_files.append(target_name)
-            continue
-
-        if not template_path.exists():
-            print(f"WARNING: template not found: {template_path}", file=sys.stderr)
-            continue
-
-        content = apply_template_placeholders(
-            template_path.read_text(encoding="utf-8"),
-            display_name,
-            service_name,
-        )
-
-        if not args.dry_run:
-            target_path.parent.mkdir(parents=True, exist_ok=True)
-            target_path.write_text(content, encoding="utf-8")
-        created_files.append(target_name)
-
     # Create the local client plan breakdown document for the PM to fill.
     client_plan_template = COMMON_TEMPLATES_DIR / CLIENT_PLAN_TEMPLATE
     client_plan_target = plugin_dir / client_plan_target_name(display_name)
@@ -181,6 +169,7 @@ def main() -> int:
         "dry_run": args.dry_run,
         "created_dirs": created_dirs,
         "created_files": created_files,
+        "deferred_files": [target_name for _, target_name in DEFERRED_TEMPLATE_FILES],
         "skipped_files": skipped_files,
     }
     json.dump(result, sys.stdout, ensure_ascii=False, indent=2)

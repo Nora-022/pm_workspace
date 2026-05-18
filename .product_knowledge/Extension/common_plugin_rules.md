@@ -29,12 +29,14 @@ M3U8 插件在 Netflix 模式基础上，增加了一段插件侧页面结构预
 
 ## 规则 4：流媒体服务名大小写
 
-插件需求文档中，插件名大小写按「流媒体服务名」字段拆成两类处理：
+插件需求文档中，插件名按用途拆成四类处理：
 
-- `{SiteName}` 表示流媒体服务名的原始大小写，用于对外展示和安装程序命名，包括插件产品名、CoApp 安装程序名、mlink 链接中的服务名片段。
-- `{sitename}` 表示小写服务标识，用于系统标识和跳转链接，包括 app id、产品页 URL、What's New URL、订阅 / 升级付费 URL 中的 slug 或参数。
-- 示例：流媒体服务名为 `FANZA` 时，对外展示 / mlink 写 `StreamFab_FANZA_Downloader_for_Browser`、`StreamFab_FANZA_Coapp`；app id 和跳转链接写 `streamfab_for_browser_fanza`、`fanza-downloader-for-browser.htm`、`pid=fanza-downloader`。
-- 后续从飞书定稿、pid 表格或产品页回填知识库时，必须保持上述规则，不用产品页 URL 的小写 slug 反推展示名大小写。
+- `{SiteName}` 表示流媒体服务名的原始大小写，用于对外展示和安装程序命名，例如插件产品名、CoApp 安装程序名、License Info 产品名。
+- `{service_name}` 表示 snake_case 服务标识，用于 app id，例如 `streamfab_for_browser_fandango_at_home`。
+- `{SiteNameMlink}` 表示 mlink 产品名片段：在 `{SiteName}` 基础上用 `_` 连接单词，例如 `Fandango_at_Home`。
+- `{sitename}` 表示跳转链接 slug：小写并用 `-` 连接单词，用于产品页 URL、What's New URL、订阅 / 升级付费 URL 中的 slug 或参数，例如 `fandango-at-home`。
+- 示例：流媒体服务名为 `Fandango at Home` 时，对外展示写 `StreamFab Fandango at Home Downloader for Browser`，mlink 写 `StreamFab_Fandango_at_Home_Downloader_for_Browser` / `StreamFab_Fandango_at_Home_Coapp`，app id 写 `streamfab_for_browser_fandango_at_home`，跳转链接写 `fandango-at-home-downloader-for-browser.htm` / `pid=fandango-at-home-downloader`。
+- 后续从本地 MD 定稿、pid 表格或产品页回填知识库时，必须保持上述规则，不用产品页 URL 的小写 slug 反推展示名大小写。
 
 ## 规则 5：阅读顺序
 - 先看 `index.md`

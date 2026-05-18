@@ -1,6 +1,6 @@
 ---
 name: streamfab-extension-workflow
-description: 把已初始化的 StreamFab 插件知识库从 L0 推进到 L5 已上线，覆盖产品页提取、本地 Markdown 定稿同步、客户端拆解、缺口检查和上线收尾，不重复做初始化。
+description: 把已初始化的 StreamFab 插件知识库从 L0 推进到 L5 已上线，覆盖站点调研、产品页事实提取、本地 Markdown 定稿同步、客户端拆解、缺口检查和上线收尾，不重复做初始化。
 allowed-tools:
   - Bash
   - Read
@@ -21,7 +21,7 @@ allowed-tools:
 把一个新插件从“已起盘”推进到“可归档”，覆盖以下固定节点：
 
 1. 初始化状态确认
-2. 产品页事实提取
+2. 站点调研与产品页事实提取
 3. 本地 MD 定稿同步
 4. 客户端拆解回填
 4.5. context / patterns / constraints 回填
@@ -37,16 +37,18 @@ allowed-tools:
 
 - 本地插件目录已存在
 - 核心骨架文档已存在
-- 本地 Markdown 工作文档已创建（需求文档、UI 需求说明、客户端方案拆解）
-- 用户确认客户端方案拆解 MD 已填写完成，或开始提供产品页 / 本地 MD 定稿信息 / 客户端拆解信息
+- 本地客户端方案拆解 Markdown 已创建
+- 用户开始提供目标站点 / 产品页链接，或已完成站点调研 / 产品页事实提取后确认客户端方案拆解 MD 已填写完成
 
 ### workflow 接管后的第一优先级
 
 默认优先进入：
 
-- `节点 3：本地 MD 定稿同步`（当用户已填完客户端方案拆解 MD）
+- `节点 2：站点调研与产品页事实提取`
 
-如果用户先给产品页链接，则进入节点 2；如果用户直接给截图、页面字段、观察结果，则允许跳过前序节点，直接进入节点 4。
+节点 2 完成后，再提示用户填写客户端方案拆解 MD；用户确认填写完成后进入节点 3。
+
+如果用户已经提前填完客户端方案拆解 MD，仍先检查节点 2 是否已完成；若未完成，先补站点调研 / 产品页事实提取，再进入节点 3。如果用户直接给截图、页面字段、观察结果，则允许跳过前序节点，直接进入节点 4。
 
 ### 什么情况下不回退到 init
 
@@ -55,7 +57,9 @@ allowed-tools:
 ## 边界
 
 - 本 skill 不重新创建插件目录
-- 本 skill 不重复创建初始化 Markdown 模板文档
+- 本 skill 不重复创建客户端方案拆解模板文档
+- 本 skill 负责在用户填完客户端方案拆解后，从 common 模板创建 / 回填 `requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md`
+- 本 skill 不创建飞书文档，不调用 `lark-cli docs` 或 `create_feishu_plugin_docs.py`
 - 公开知识库只写已确认、已定稿、可共享的信息
 - “待确认 / 未验证 / 开放问题”不写入正式知识库正文
 - 真正阻塞归档的问题只在对话里追问
@@ -74,7 +78,7 @@ allowed-tools:
 
 适用场景：
 
-- 节点 2 缺产品页 URL
+- 节点 2 缺目标站点 URL 或产品页 URL
 - 节点 3 缺本地客户端方案拆解 MD 填写结果
 - 节点 4 缺关键截图或字段说明
 - 节点 6 需要收尾追问
@@ -87,31 +91,31 @@ allowed-tools:
 
 ## AskUserQuestion 标准模板
 
-### 模板 A：产品页事实提取补问
+### 模板 A：站点调研与产品页事实提取补问
 
 适用场景：
 
 - 插件已初始化
-- 当前缺产品页或目标站点链接
+- 当前缺目标站点链接或产品页链接
 
 推荐字段：
 
-1. `client_product_url`
-   - 提示语：`请提供客户端产品页链接，我将先从中提取客观事实并回填知识库。`
-2. `target_site_url`
-   - 提示语：`如需要同步站点侧结构，请提供目标站点链接。`
+1. `target_site_url`
+   - 提示语：`请提供目标站点链接，我将先整理服务地区、内容类型、账号权益、播放协议、加密/DRM 等与插件需求相关的站点调研。`
+2. `client_product_url`
+   - 提示语：`如需要同步客户端产品页事实，请提供客户端产品页链接。`
 
 使用规则：
 
 - 只在缺链接时使用
-- 一轮问完后立即进入产品页事实提取
+- 一轮问完后立即进入站点调研与产品页事实提取
 
 示例问法：
 
-- `client_product_url`
-  - `请提供客户端产品页链接，我将先从中提取客观事实并回填知识库。`
 - `target_site_url`
-  - `如需要同步站点侧结构，请提供目标站点链接。`
+  - `请提供目标站点链接，我将先整理服务地区、内容类型、账号权益、播放协议、加密/DRM 等与插件需求相关的站点调研。`
+- `client_product_url`
+  - `如需要同步客户端产品页事实，请提供客户端产品页链接。`
 
 ### 模板 B：本地 MD 定稿同步补问
 
@@ -123,15 +127,16 @@ allowed-tools:
 推荐字段：
 
 1. `client_breakdown_filled`
-   - 提示语：`请先填写 requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md，填写完成后告诉我继续。`
+   - 提示语：`请先填写 requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md，填写完成后告诉我继续。`
 
 使用规则：
 
 - 不索要飞书文档链接
-- 用户确认填写完成后，直接读取本地三份 MD：
+- 用户确认填写完成后，先读取本地客户端方案拆解 MD：
+  - `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`
+- 再从 common 模板创建 / 回填：
   - `requirements/plugin_requirement.md`
   - `requirements/plugin_ui_requirement.md`
-  - `requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md`
 
 ### 模板 C：客户端拆解回填补问
 
@@ -171,7 +176,7 @@ allowed-tools:
 
 适用场景：
 
-- 已完成产品页、本地 MD、客户端三轮主要同步
+- 已完成站点调研 / 产品页、本地 MD、客户端三轮主要同步
 - 当前仅剩关键归档字段未齐
 
 推荐字段池：
@@ -214,7 +219,7 @@ allowed-tools:
 确认项：
 
 - 插件目录是否已存在
-- 3 份本地 Markdown 工作文档是否已存在
+- 客户端方案拆解 Markdown 是否已存在
 - 当前处于哪个完成度等级
 
 如果未初始化，返回给 `streamfab-plugin-init`。
@@ -222,26 +227,36 @@ allowed-tools:
 
 **确认完成后，必须主动检查本地工作文档：**
 
-> 初始化已确认。请先填写 `requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md`，填写完成后告诉我继续；我会读取本地三份 MD 并回填知识库。
+> 初始化已确认。下一步请先提供目标站点链接和 / 或客户端产品页链接；我会先完成站点调研与产品页事实提取，再请你填写 `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`。
 
-不要创建或读取飞书模板文档。用户确认填写完成前，不继续进行最终回填。
+不要创建或读取飞书文档。用户确认填写完成前，不创建 / 回填 `plugin_requirement.md` 和 `plugin_ui_requirement.md`。
 
-### 节点 2：产品页事实提取
+### 节点 2：站点调研与产品页事实提取
 
-当用户给出客户端产品页或官网产品页链接时：
+当用户给出目标站点链接、客户端产品页或官网产品页链接时：
 
-1. 先将客观事实落到：
+1. 先将目标站点调研落到：
+   - `references/site_research_notes.md`
+2. 如有客户端产品页或官网产品页链接，再将产品页客观事实落到：
    - `references/client_product_page_notes.md`
-2. 再按主题分发到主干文档：
+3. 再按主题分发到主干文档：
    - `01_product_brief.md`
    - `02_functional_architecture.md`
    - `03_page_structure.md`
    - `06_business_rules.md`
    - `07_technical_constraints.md`
-   - `requirements/plugin_requirement.md`
-   - `requirements/plugin_ui_requirement.md`
 
-只提取：
+如果 `requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md` 尚未生成，不在节点 2 提前创建；节点 2 只沉淀 `references/` 和必要的 01-07 核心事实。节点 3 从 common 模板创建需求 / UI 文档时，再把节点 2 的事实同步进去。
+
+站点调研优先提取：
+
+- 平台定位、运营主体、主要服务地区和界面语言
+- 内容类型、内容组织方式、免费 / 订阅 / 租买 / 频道 / 创作者付费等权益形态
+- 登录、年龄验证、地区限制、支付门槛、账号权限和内容库差异
+- HLS / DASH、M3U8 / MPD、Widevine / PlayReady / FairPlay、AES-128 / SAMPLE-AES 等播放协议、加密和 DRM 线索
+- 对插件需求有直接影响的页面入口、检测难点、下载边界、错误原因、合规或风控风险
+
+产品页事实只提取：
 
 - 产品名
 - 价格与商业方案
@@ -251,12 +266,19 @@ allowed-tools:
 - 合规文案
 - 系统要求
 
-不把产品页未写明的信息扩写成规则。
+不把产品页未写明的信息扩写成规则，也不把产品页营销文案当成站点技术结论。
 
-如果产品页链接缺失，使用 `AskUserQuestion` 直接收集：
+回填 `requirements/plugin_requirement.md` 的 `### 网站信息` 时，必须以 `references/site_research_notes.md` 或目标站点调研结果为主；产品页事实只能补充商业方案、官方宣传能力或跳转链接，不承担站点服务地区、内容类型、加密/DRM 判断的主要来源。
 
-- `client_product_url`
-- 如有必要：`target_site_url`
+节点 2 完成后，下一步必须提示用户填写客户端方案拆解 MD：
+
+- `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`
+- 填写前可参考 `references/site_research_notes.md` 和 `references/client_product_page_notes.md`
+
+如果目标站点或产品页链接缺失，使用 `AskUserQuestion` 直接收集：
+
+- `target_site_url`
+- 如有必要：`client_product_url`
 
 ### 节点 3：本地 MD 定稿同步
 
@@ -267,10 +289,13 @@ allowed-tools:
 当用户确认客户端方案拆解 MD 已填写完成时：
 
 1. 读取：
-   - `requirements/plugin_requirement.md`
-   - `requirements/plugin_ui_requirement.md`
-   - `requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md`
-2. 提取定稿字段：
+   - `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`
+2. 确认 / 创建：
+   - 如果 `requirements/plugin_requirement.md` 不存在，从 `Extension/common_templates/plugin_requirement_template.md` 创建
+   - 如果 `requirements/plugin_ui_requirement.md` 不存在，从 `Extension/common_templates/plugin_ui_requirement_template.md` 创建
+   - 创建时替换 `{SiteName}` / `{service_name}` / `{SiteNameMlink}` / `{sitename}` 等基础占位符
+   - 如果上述文件已存在，只按本轮已确认字段增量回填，不整体覆盖，避免覆盖用户人工盯正内容
+3. 从客户端方案拆解中提取定稿字段：
    - app id / pid / option id / client id / mlink
    - 跳转链接
    - Banner 文案
@@ -280,23 +305,25 @@ allowed-tools:
    - 试用和付费规则
    - 状态说明
    - 商店素材要求
-3. 回填到对应知识库文件
+4. 回填到 `requirements/plugin_requirement.md`、`requirements/plugin_ui_requirement.md` 和对应知识库文件
 
 **回填 plugin_requirement.md / plugin_ui_requirement.md 的硬约束（强制）：**
 
-写入这两个文件前必须先 Read `Extension/common_templates/plugin_requirement_template.md` 和 `Extension/common_templates/plugin_ui_requirement_template.md`，按其章节结构填值：
+创建或写入这两个文件前必须先 Read `Extension/common_templates/plugin_requirement_template.md` 和 `Extension/common_templates/plugin_ui_requirement_template.md`，按其章节结构填值：
 
 - 模板已有的章节必须保留（如需求模板的 `### 网站信息` 是必填节）
+- `### 网站信息` 必须按需求模板定义写成站点调研摘要，覆盖主要服务地区、内容类型、账号权益、播放协议、加密/DRM 线索及其对插件需求的影响；不要从产品页营销文案反推站点技术结论
 - 不增加模板没有的章节（如 `## 数据上报`、`## 全局变量`、`## 相关文档`、`## 文档目的`、`## 设计需求拆分` 等都不属于模板章节，即使客户端方案拆解 MD 有，也不在正式文档里另立节，而是并入模板已有节或不写入）
 - 不删除模板的必填节
 - 占位符（`{SiteName}` / `{sitename}` / `{BannerContentEN}` / `{ThirdStoreProductImageCaption}` 等）替换为本地 MD 定稿值
-- `{SiteName}` 按需求文档「流媒体服务名」原始大小写填写，用于插件产品名、CoApp 安装程序名、mlink 链接中的服务名片段；例如流媒体服务名为 `FANZA` 时写 `StreamFab_FANZA_Downloader_for_Browser`、`StreamFab_FANZA_Coapp`
-- `{sitename}` 一律小写，用于 app id 和跳转链接（产品页 URL、What's New、订阅 / 升级付费链接）；例如 `streamfab_for_browser_fanza`、`fanza-downloader-for-browser.htm`、`pid=fanza-downloader`，不是 `pid=FANZA-downloader`
-- 本地 MD 未提供的字段对应单元格留空，不写"待确认"等兜底句
+- `{SiteName}` 按需求文档「流媒体服务名」原始大小写填写，用于插件产品名、CoApp 安装程序名和正文文案
+- `{SiteNameMlink}` 用于 mlink 链接中的产品名片段，保留展示名大小写并将单词用 `_` 连接；例如 `StreamFab_Fandango_at_Home_Downloader_for_Browser`、`StreamFab_Fandango_at_Home_Coapp`
+- `{service_name}` 用于 app id，保持 snake_case；`{sitename}` 一律小写并使用连字符，用于跳转链接（产品页 URL、What's New、订阅 / 升级付费链接）；例如 `streamfab_for_browser_fandango_at_home`、`fandango-at-home-downloader-for-browser.htm`、`pid=fandango-at-home-downloader`
+- 客户端方案拆解未提供的字段对应单元格留空，不写"待确认"等兜底句
 - markdown 链接禁用嵌套方括号语法（如 `[[Feature][新品]X](url)` 会导致渲染器跳错），改用单层文本
 - Setting 配置项严格按模板顺序，站点差异化项（如 Hulu 的 Video Codec）追加到模板末尾，不插入中间
 
-如果某字段在本地 MD 里仍为空，不编造，只在对话里指出缺口。
+如果某字段在客户端方案拆解里仍为空，不编造，只在对话里指出缺口。回填完成后停下，等待用户人工盯正；人工盯正后的变更视为最终口径。
 
 **节点 3 附加步骤：从 pid 表格自动读取并回填 Client ID 和 pid**
 
@@ -332,7 +359,7 @@ allowed-tools:
 
 如果客户端方案拆解 MD 尚未填写，优先停下并提示用户：
 
-- 请填写 `requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md`
+- 请填写 `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`
 - 填写完成后告诉我继续
 
 ### 节点 4：客户端拆解回填
@@ -381,7 +408,7 @@ allowed-tools:
 
 ### 节点 6：收尾追问
 
-只在产品页同步、本地 MD 定稿同步、客户端拆解回填都做完后再触发。
+只在站点调研 / 产品页同步、本地 MD 定稿同步、客户端拆解回填都做完后再触发。
 
 规则：
 
@@ -435,7 +462,11 @@ allowed-tools:
 
 ### 从节点 2 切到节点 3
 
-满足任一条件即可：
+必须先满足：
+
+- 已完成站点调研 / 产品页事实提取，或用户明确说明当前无需产品页事实提取
+
+再满足任一条件即可：
 
 - 用户明确说“客户端方案拆解 MD 已填完”
 - 用户明确说“本地 MD 已补完”
@@ -518,11 +549,11 @@ allowed-tools:
 ## 完成度定义
 
 - `L0 初始化`
-  - 目录和 3 份本地 Markdown 工作文档已建立
-- `L1 产品页同步`
-  - 产品页客观事实已回填
+  - 目录、骨架文件和客户端方案拆解 Markdown 已建立
+- `L1 站点调研 / 产品页同步`
+  - 站点调研和产品页客观事实已按来源边界回填
 - `L2 本地 MD 定稿同步`
-  - 需求 / UI / 客户端拆解定稿信息已同步
+  - 已从客户端方案拆解生成 / 回填需求文档和 UI 需求说明
 - `L3 客户端拆解完善`
   - 页面、交互、状态、参数已补齐；context / patterns / constraints 已回填
 - `L4 收尾可归档`
@@ -570,7 +601,7 @@ allowed-tools:
 当由 `streamfab-plugin-init` 切入本 skill 时，优先按这个格式接管：
 
 - `当前阶段：初始化完成`
-- `本轮已同步内容：插件目录和本地 Markdown 工作文档已创建，等待客户端方案拆解填写`
+- `本轮已同步内容：插件目录、骨架文件和客户端方案拆解 Markdown 已创建，等待站点调研 / 产品页事实提取`
 - `更新的文件：<插件目录路径>`
 - `当前完成度：L0 初始化`
-- `下一步建议：请填写 requirements/[RecordFab] - [客户端方案拆解] - <SiteName>.md；填写完成后我继续同步本地 MD`
+- `下一步建议：请先提供目标站点链接和 / 或客户端产品页链接；我完成事实提取后，再请你填写 requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`

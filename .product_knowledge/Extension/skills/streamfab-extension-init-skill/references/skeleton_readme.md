@@ -19,8 +19,9 @@
 
 ## 需求文档
 - `requirements/index.md`
-- `requirements/plugin_requirement.md`
-- `requirements/plugin_ui_requirement.md`
+- `requirements/[StreamFab 浏览器插件] - [{display_name}] - 客户端方案拆解.md`
+- `requirements/plugin_requirement.md`（workflow 根据客户端方案拆解生成 / 回填）
+- `requirements/plugin_ui_requirement.md`（workflow 根据客户端方案拆解生成 / 回填）
 
 ## 版本记录
 - `CHANGELOG.md`
