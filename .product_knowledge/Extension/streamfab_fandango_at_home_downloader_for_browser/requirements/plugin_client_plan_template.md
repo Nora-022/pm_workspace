@@ -12,14 +12,22 @@
 
 ## 客户端拆解
 
-<!-- colwidth:36.19%,44.48%,19.34% -->
+<!-- colwidth:36.24%,44.49%,19.27% -->
 | 截图 / 模块 | 说明 | SF 插件策略 |
 | --- | --- | --- |
-| **Meta 分析弹窗**movie![](https://i6a1sqw3p2.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTM1MmUzZmM5YzA2ODE1ODI4MWE5YTRjNzczOTI1ZDNfbUNEOXhBNEd1N09DbjRwMDh6MndrV2o3R0ExVWRhR2VfVG9rZW46UkJQamJqUjN6b2lrNzZ4dUlib2NUc29ObnNpXzE3NzkwOTUxMTU6MTc3OTA5ODcxNV9WNA)tv![](https://i6a1sqw3p2.feishu.cn/space/api/box/stream/download/asynccode/?code=MjcwMTQ3YWQyYzVmYzkzMmU0ZmE2MzUyMDNhYTljYzhfbmVOMkFEYW5iTW80N0N2TW5MNjU2N3pOR1pnRjdFeWpfVG9rZW46SFJWdWJUMVNPb1BpVnl4VEd5dWN6TTNKbmpmXzE3NzkwOTUxMTU6MTc3OTA5ODcxNV9WNA) | Movie 由主视频和Extra构成，Extra分两级结构，按照meta分析返回的结果展示 下载配置项  ：ResolutionAudio Codec    Language    Subtitle | 复用 Netflix 插件流程；按 Fandango at Home 实际分析结果补齐配置项。 |
+| **Meta 分析弹窗**movie![](https://i6a1sqw3p2.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTM1MmUzZmM5YzA2ODE1ODI4MWE5YTRjNzczOTI1ZDNfbUNEOXhBNEd1N09DbjRwMDh6MndrV2o3R0ExVWRhR2VfVG9rZW46UkJQamJqUjN6b2lrNzZ4dUlib2NUc29ObnNpXzE3NzkwOTUxMTU6MTc3OTA5ODcxNV9WNA)tv![](https://i6a1sqw3p2.feishu.cn/space/api/box/stream/download/asynccode/?code=MjcwMTQ3YWQyYzVmYzkzMmU0ZmE2MzUyMDNhYTljYzhfbmVOMkFEYW5iTW80N0N2TW5MNjU2N3pOR1pnRjdFeWpfVG9rZW46SFJWdWJUMVNPb1BpVnl4VEd5dWN6TTNKbmpmXzE3NzkwOTUxMTU6MTc3OTA5ODcxNV9WNA) | Movie 由主视频和Extra构成，Extra分两级结构，按照meta分析返回的结果展示 下载配置项  ：Resolution Audio Codec    Language    Subtitle | 复用 Netflix 插件流程；按 Fandango at Home 实际分析结果补齐配置项。 |
 | **Downloading 界面** | 下载中展示标签：文件大小或 Segments。<br>展示信息：下载进度、速度、剩余时间、任务状态。 | 复用 common 下载进度展示；无法获取文件大小时使用 Segments 进度。 |
-| **Setting 界面**![image.png](https://doc-img.dvdfab.me/assets/2026/05/img/1779096218852-37c951cb817b.png) | 通用配置项(选项不再赘述）：Language、Video Format、Video Resolution、Pre-select Audio Language、Audio Channel、Pre-select Subtitle Language、Subtitle Action。特殊配置项： Video Codec：<br>H264 H265 - SDR HDR10 Dolby Vision Audio Codec： EAC3 AAC配置项顺序为：Language、Video Format、Video Codec、Video Resolution、Pre-select Audio Language、Audio Codec、Audio Channel、Pre-select Subtitle Language、Subtitle Action。 | common 配置项+特殊配置项 |
+| **Setting 界面**![image.png](https://doc-img.dvdfab.me/assets/2026/05/img/1779096218852-37c951cb817b.png) | 通用配置项(选项不再赘述）：Language、Video Format、Video Resolution、Pre-select Audio Language、Audio Channel、Pre-select Subtitle Language、Subtitle Action。特殊配置项： Video Codec：<br>H264 H265 - SDRHDR10 Dolby Vision Audio Codec： EAC3 AAC配置项顺序为：Language、Video Format、Video Codec、Video Resolution、Pre-select Audio Language、Audio Codec、Audio Channel、Pre-select Subtitle Language、Subtitle Action。<br>1112223334661234<br>1<br>2<br>3<br>4 | common 配置项+特殊配置项 |
 
 ---
+
+1
+
+2
+
+3
+
+4
 
 ## 网站产品页
 

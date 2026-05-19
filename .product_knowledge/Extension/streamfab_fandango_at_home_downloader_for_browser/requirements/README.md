@@ -9,6 +9,7 @@ requirements/
 ├── index.md                   ## 需求索引，汇总正式需求文档与辅助资料入口
 ├── plugin_requirement.md      ## 正式需求文档，记录功能、规则、链接与关键产品定义
 ├── plugin_ui_requirement.md   ## UI 需求文档，记录界面结构、交互与展示要求
+├── [StreamFab 浏览器插件] - [Fandango at Home] - 客户端方案拆解.md ## 客户端差异来源，用于回填正式需求文档
 ├── raw/                       ## 原始输入目录，保存历史文档、会议纪要与外部原始材料
 └── derived/                   ## 整理输出目录，保存从原始资料提炼出的摘要、归纳与整理结果
 ```

@@ -1,4 +1,4 @@
-# [StreamFab 浏览器插件] - [需求文档] - [{SiteName}] 
+# [StreamFab 浏览器插件] - [需求文档] - [{SiteName}]
 
 > **全局变量说明（填写完成后删除本块）**
 > 
@@ -99,10 +99,10 @@
 
 | 一级模块 | 二级模块 | 变更点 |
 | --- | --- | --- |
-| 登录 & 授权 | — | /（结构一致） |
-| 用户权益 | — | /（结构一致） |
-| 视频分析 | — | /（结构一致） |
-| 视频检测 | — | /（结构一致） |
+| 登录 & 授权 | — | / |
+| 用户权益 | — | / |
+| 视频分析 | — | / |
+| 视频检测 | — | / |
 | 视频下载 | — | 下载配置项（按需填写） |
 | Dashboard | — | Banner 文案、产品名 |
 | Dashboard | Setting | 按需填写差异化配置项 |
@@ -129,7 +129,7 @@
 参见 UI 需求说明文档。调整项：
 
 - 安装器资源：([https://www.figma.com/design/71aG2GlU1BF5VDxKTbfSwd/%E3%80%90StreamFab%E3%80%91-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6?node-id=21-6761&p=f&m=dev](https://www.figma.com/design/71aG2GlU1BF5VDxKTbfSwd/%E3%80%90StreamFab%E3%80%91-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6?node-id=21-6761&p=f&m=dev))
-- 安装目录结构：参见「[StreamFab 浏览器插件] - CoApp 目录结构设计」
+- 安装目录结构：参见「[https://i6a1sqw3p2.feishu.cn/docx/CfszdQRt2o91I7xX6IIc9rY0nVh](https://i6a1sqw3p2.feishu.cn/docx/CfszdQRt2o91I7xX6IIc9rY0nVh)」
 
 ### 视频下载 — 配置参数
 
@@ -151,58 +151,29 @@
 
 ### License Info — Banner 文案
 
+License Info 产品名：`StreamFab {SiteName} Downloader for Browser`
+
 | 语言 | 文案 |
 | --- | --- |
 | EN | {BannerContentEN} |
 | ZH | {BannerContentZH} |
 
-License Info 产品名：`StreamFab {SiteName} Downloader for Browser`
-
 ### Setting — Extension 配置项
 
-Setting 结构不变，分为 Extension 和 CoApp。
+由 common 配置项+特殊配置项构成，common 配置项不再赘述，特殊配置项已展开（如有），配置项顺序如下：
 
 通用配置项（按顺序）：
 
 **1. Language**
 
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-
 **2. Video Format**
-
-- MP4
-- MKV (FFmpeg)
-- MKV (MKVToolNix)
 
 **3. Video Resolution**
 
-- Full HD - 1080p
-- HD - 720p
-
 **4. Pre-select Audio Language**
-
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-- 子选项：Pre-select Description Audio if available（默认不选）
 
 **5. Audio Channel**
 
-- Stereo (AAC)
-- Multi-Channel 5.1 (EAC3 / AC3)
-- 子选项：Pre-select both 5.1 and 2.0 audios（默认不选）
-
 **6. Pre-select Subtitle Language**
 
-- None
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-- 子选项：Always download the forced subtitle（默认选中）
-
 **7. Subtitle Action**
-
-- Remux Into File
-- Extract to SRT File
-- Extract Original Format
-
-> 如站点有差异化配置项，在上方列表后追加，并注明默认值。

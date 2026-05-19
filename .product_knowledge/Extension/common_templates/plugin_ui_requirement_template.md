@@ -44,9 +44,13 @@
 **第三张图**（在统一调整基础上额外处理）：
 
 - 副标题改为：`{ThirdStoreProductImageCaption}`
-
 - 示例：`Experience up to 1080p, MP4/MKV, AAC 2.0/EAC3 5.1 audio. Full control in your hands.`
-- 下载配置项截图需替换为当前站点的实际配置项及选项示例
+- 下载配置项如下：
+
+- 配置项 a ：选项示例
+- 配置项 b ：选项示例
+- 配置项 c ：选项示例
+- 配置项 d ：选项示例
 
 ### Small Promo Tile
 

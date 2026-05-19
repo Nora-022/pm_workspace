@@ -1,5 +1,32 @@
 # 知识库每日更新记录
 
+## 2026-05-19
+
+### 新增
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/constraints/
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/context/
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/patterns/
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/requirements/derived/
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/requirements/raw/
+- .prompts/
+
+### 修改
+- .product_knowledge/Extension/common_templates/plugin_requirement_template.md
+- .product_knowledge/Extension/common_templates/plugin_ui_requirement_template.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/01_product_brief.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/02_functional_architecture.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/03_page_structure.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/04_interaction_details.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/06_business_rules.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/07_technical_constraints.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/references/site_research_notes.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/requirements/index.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/requirements/plugin_client_plan_template.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/requirements/plugin_requirement.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/requirements/plugin_ui_requirement.md
+
+---
+
 ## 2026-05-18
 
 ### 新增
