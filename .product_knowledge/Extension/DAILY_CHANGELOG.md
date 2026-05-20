@@ -1,5 +1,16 @@
 # 知识库每日更新记录
 
+## 2026-05-20
+
+### 修改
+- .product_knowledge/RecordFab/recordfab-prototype/src/components/SettingsMenu.tsx
+- .product_knowledge/RecordFab/recordfab-prototype/src/components/WindowTitleBar.test.tsx
+- .product_knowledge/RecordFab/recordfab-prototype/src/components/WindowTitleBar.tsx
+- .product_knowledge/RecordFab/recordfab-prototype/src/stores/recording.ts
+- .product_knowledge/RecordFab/requirements/research/cloud_recording/raw/playon_cloud_analysis.md
+
+---
+
 ## 2026-05-19
 
 ### 新增

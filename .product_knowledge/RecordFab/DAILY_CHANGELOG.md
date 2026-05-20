@@ -1,5 +1,15 @@
 # 知识库每日更新记录
 
+## 2026-05-20
+
+### 修改
+- recordfab-prototype/src/components/SettingsMenu.tsx
+- recordfab-prototype/src/components/WindowTitleBar.test.tsx
+- recordfab-prototype/src/components/WindowTitleBar.tsx
+- recordfab-prototype/src/stores/recording.ts
+
+---
+
 ## 2026-05-15
 
 ### 新增
