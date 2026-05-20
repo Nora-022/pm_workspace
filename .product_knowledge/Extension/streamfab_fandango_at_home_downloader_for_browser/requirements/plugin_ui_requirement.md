@@ -5,16 +5,6 @@
 
 ---
 
-## 文档更新记录
-
-| 日期 | 更新内容 | 备注 |
-| --- | --- | --- |
-| 2026-05-18 | 按 common 模板创建 UI 需求说明并回填商店素材、第三张图副标题 | — |
-| 2026-05-19 | 补充第三张图下载配置项截图差异化要求（Video Codec、Audio Codec） | 客户端拆解来源：[StreamFab 浏览器插件] - [Fandango at Home] - 客户端方案拆解 |
-| 2026-05-19 | 标题与引用关系对齐 common UI 需求说明模板 | 保持 UI 文档只承接安装器与商店素材，不扩散功能需求 |
-
----
-
 ## CoApp 安装器资源
 
 需提供对应的 Logo 及各尺寸规格。
@@ -47,7 +37,6 @@
 
 - 副标题改为：`Experience up to 4K video, MP4/MKV output, HDR10/Dolby Vision, and AAC 2.0/EAC3 5.1 audio. Full control in your hands.`
 - 下载配置项如下：
-
 - Resolution:`1280x528 - 1158 kbps - 439.65 MB`
 - Audio Codec:`EAC3`
 - Language:`Deutsch EAC3 5.1 - 640 kbps`

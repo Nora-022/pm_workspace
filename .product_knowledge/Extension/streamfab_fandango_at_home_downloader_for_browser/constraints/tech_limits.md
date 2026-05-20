@@ -62,8 +62,6 @@
 
 ## 需实测确认项
 
-- 同账号并发设备数与设备授权 / 解绑规则
 - AVOD 免费内容下载边界
 - 4K HDR / DV 在内置浏览器环境下的实际命中率
 - Free with Ads 内容广告插入位置和 "Remove Ads" 能力的精确适用范围
-- 下载中途登录中断的具体处理（resume / cancel / prompt）
