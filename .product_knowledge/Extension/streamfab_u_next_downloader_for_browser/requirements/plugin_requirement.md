@@ -99,22 +99,31 @@
 
 ### 视频下载 — 配置参数
 
-配置项与配置项选项均由 CoApp 分析结果动态生成，不固定枚举。U-NEXT 下载配置不应写死为固定两项，需按当前视频 meta 返回结果动态展示。
+配置项与配置项选项均由 CoApp 分析结果动态生成，不固定枚举。U-NEXT 下载配置需按当前视频 meta 返回结果动态展示。
 
 展示规则：
 
-- `Codec`：当 CoApp 分析结果支持选择 codec 时展示；不支持 codec 选择时不展示。
+- `Video Codec`：当 CoApp 分析结果支持选择 codec 时展示；不支持 codec 选择时不展示。
 - `Video Version`：当 CoApp 分析结果返回版本维度时展示。可选项包含 `Subbed`（字幕版）与 `Dubbed`（配音版）；部分视频可能仅存在其中一个版本，仅展示实际返回的版本选项。
 - `Resolution`、`Audio Codec`、`Language`：按 CoApp 分析结果展示。
 - 字段展示顺序：`Codec` -> `Video Version` -> `Resolution` -> `Audio Codec` -> `Language`。未返回的字段直接跳过，剩余字段保持相对顺序不变。
 
 | 配置项 | 展示条件 | 选项格式 / 来源 | 示例 |
 | --- | --- | --- | --- |
-| Codec | CoApp 返回 codec 可选维度时展示 | `{视频编码}`，具体选项以 CoApp 返回为准 | `H264` |
+| Video Codec | CoApp 返回 Video codec 可选维度时展示 | `{视频编码}`，具体选项以 CoApp 返回为准 | `H264` |
 | Video Version | CoApp 返回版本维度时展示 | `Subbed` / `Dubbed`，按 CoApp 返回结果动态展示 | `Subbed` |
 | Resolution | CoApp 返回分辨率维度时展示 | `{宽}x{高} - {码率} kbps - {文件大小}` | `1280x720 - 2444 kbps - 1.46 GB` |
 | Audio Codec | CoApp 返回音频编码维度时展示 | `{音频编码} {声道}`，具体选项以 CoApp 返回为准 | `AAC` |
-| Language | CoApp 返回音轨语言维度时展示 | 音轨语言 / 音轨描述文案以 CoApp 返回为准，插件侧不固定枚举 | `Default` |
+| Language | CoApp 返回音轨语言维度时展示 | 音轨语言 / 音轨描述文案以 CoApp 返回为准，插件不固定枚举 | `Default AAC 2.0 - 125 kbps` |
+
+补充：
+
+支持所有配置项的视频 url [https://video.unext.jp/play/SID0017988/ED00075257?ps=2](https://video.unext.jp/play/SID0017988/ED00075257?ps=2)
+支持 video version、resolution、audio codec、language 配置的视频 url [https://video.unext.jp/play/SID0020807/ED00098629](https://video.unext.jp/play/SID0020807/ED00098629)
+支持 video version、resolution、language 配置的视频 url [https://video.unext.jp/play/SID0021252/ED00100711](https://video.unext.jp/play/SID0021252/ED00100711)
+只支持 resolution、language 配置的视频 url [https://video.unext.jp/play/SID0028826/ED00155129](https://video.unext.jp/play/SID0028826/ED00155129)
+
+
 
 ### 视频下载 — 下载进度显示
 
