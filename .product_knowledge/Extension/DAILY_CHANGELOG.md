@@ -1,5 +1,20 @@
 # 知识库每日更新记录
 
+## 2026-05-22
+
+### 新增
+- .product_knowledge/Extension/common_templates/plugin_store_listing_template.md
+- .product_knowledge/Extension/shared_references/vdh_v10_coapp_research_and_streamfab_options.md
+- .product_knowledge/Extension/shared_references/vdh_v10_competitor_strategy_research.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/store_listing.md
+
+### 修改
+- .product_knowledge/Extension/scripts/scaffold_plugin.py
+- .product_knowledge/Extension/skills/streamfab-extension-init-skill/SKILL.md
+- .product_knowledge/Extension/skills/streamfab-extension-workflow-skill/SKILL.md
+
+---
+
 ## 2026-05-20
 
 ### 修改

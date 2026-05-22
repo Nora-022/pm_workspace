@@ -19,6 +19,7 @@ from pathlib import Path
 SKILLS_DIR = Path(__file__).resolve().parents[1] / "skills" / "streamfab-extension-init-skill"
 REFERENCES_DIR = SKILLS_DIR / "references"
 EXTENSION_DIR = Path(__file__).resolve().parents[1]
+COMMON_TEMPLATES_DIR = EXTENSION_DIR / "common_templates"
 
 SKELETON_FILES = [
     ("skeleton_readme.md",              "README.md"),
@@ -41,6 +42,14 @@ SKELETON_FILES = [
 DEFERRED_TEMPLATE_FILES = [
     ("plugin_requirement_template.md",     "requirements/plugin_requirement.md"),
     ("plugin_ui_requirement_template.md",  "requirements/plugin_ui_requirement.md"),
+]
+
+# Common-template files copied immediately at init time. Unlike DEFERRED_TEMPLATE_FILES
+# these get materialized right away because their content is largely fixed and only
+# depends on display_name (e.g. store listing copy). Placeholders {SiteName} /
+# {SiteNameMlink} / {sitename} are applied at copy time so the doc is ready to use.
+IMMEDIATE_COMMON_TEMPLATES = [
+    ("plugin_store_listing_template.md",   "store_listing.md"),
 ]
 
 # Client plan breakdown is no longer scaffolded locally. It now lives as a Feishu
@@ -67,7 +76,21 @@ def parse_args() -> argparse.Namespace:
 
 
 def apply_placeholders(content: str, display_name: str, service_name: str) -> str:
-    return content.replace("{display_name}", display_name).replace("{service_name}", service_name)
+    # Init-time placeholders for skeleton files.
+    content = content.replace("{display_name}", display_name).replace("{service_name}", service_name)
+    # Product-name placeholders shared with common_templates. Rules match
+    # init-skill SKILL.md: {SiteName} keeps original display_name casing;
+    # {SiteNameMlink} joins display_name tokens with "_"; {sitename} uses
+    # hyphenated lowercase form of service_name.
+    site_name_mlink = display_name.replace(" ", "_")
+    sitename_hyphen = service_name.replace("_", "-").lower()
+    content = (
+        content
+        .replace("{SiteNameMlink}", site_name_mlink)
+        .replace("{SiteName}", display_name)
+        .replace("{sitename}", sitename_hyphen)
+    )
+    return content
 
 
 def main() -> int:
@@ -107,6 +130,32 @@ def main() -> int:
 
         content = apply_placeholders(
             skeleton_path.read_text(encoding="utf-8"),
+            display_name,
+            service_name,
+        )
+
+        if not args.dry_run:
+            target_path.parent.mkdir(parents=True, exist_ok=True)
+            target_path.write_text(content, encoding="utf-8")
+        created_files.append(target_name)
+
+    # Copy immediate common templates (store listing, etc.) right away. These
+    # depend only on display_name / service_name and don't need the workflow's
+    # Feishu client plan breakdown to be filled in first.
+    for template_name, target_name in IMMEDIATE_COMMON_TEMPLATES:
+        template_path = COMMON_TEMPLATES_DIR / template_name
+        target_path = plugin_dir / target_name
+
+        if target_path.exists():
+            skipped_files.append(target_name)
+            continue
+
+        if not template_path.exists():
+            print(f"WARNING: common template not found: {template_path}", file=sys.stderr)
+            continue
+
+        content = apply_placeholders(
+            template_path.read_text(encoding="utf-8"),
             display_name,
             service_name,
         )

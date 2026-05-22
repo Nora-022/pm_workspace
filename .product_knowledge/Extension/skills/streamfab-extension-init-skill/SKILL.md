@@ -97,6 +97,7 @@ allowed-tools:
 - `07_technical_constraints.md`
 - `CHANGELOG.md`
 - `requirements/index.md`
+- `requirements/store_listing.md`（Chrome / Edge 应用商店上架信息，init 阶段从 `common_templates/plugin_store_listing_template.md` 拷贝并替换 `{SiteName}` 等占位符；上架前由 PM 补充截图、Search terms 等待填字段）
 
 `requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md` 是 workflow 阶段的产物：先由 workflow 完成站点调研 / 产品页事实提取，再等用户在飞书完成拆解副本填写后，从 common 模板创建并回填。
 
@@ -117,7 +118,12 @@ allowed-tools:
 
 ## 本地 Markdown 文档规则
 
-init 阶段只由 `scaffold_plugin.py` 从 `skills/streamfab-extension-init-skill/references/` 读取骨架模板生成 00–07、CHANGELOG、requirements/index.md 等本地文件；脚本会替换 `{display_name}` / `{service_name}` 占位符。**脚本不再复制 `plugin_client_plan_template.md`，本地客户端方案拆解 md 不再生成。**
+init 阶段由 `scaffold_plugin.py` 生成两类本地文件：
+
+1. **骨架文件**：从 `skills/streamfab-extension-init-skill/references/` 读取，生成 00–07、CHANGELOG、requirements/index.md，替换 `{display_name}` / `{service_name}` 占位符。
+2. **上架信息文档**：从 `common_templates/plugin_store_listing_template.md` 拷贝到 `requirements/store_listing.md`，替换 `{SiteName}` → display_name、`{SiteNameMlink}` → display_name 单词用 `_` 连接、`{sitename}` → service_name 连字符小写形式。截图、Search terms 等待填字段由 PM 在上架前手工补齐。
+
+**脚本不再复制 `plugin_client_plan_template.md`，本地客户端方案拆解 md 不再生成。**
 
 客户端方案拆解改为飞书副本：
 
@@ -173,7 +179,7 @@ python Extension/scripts/scaffold_plugin.py \
   --display-name "<display_name>"
 ```
 
-脚本从 `skills/streamfab-extension-init-skill/references/` 读取骨架模板，替换 `{display_name}` / `{service_name}` 占位符后写入新插件目录。repair mode 下只创建缺失文件，不覆盖已有内容。**脚本不再复制 `plugin_client_plan_template.md`。**
+脚本从 `skills/streamfab-extension-init-skill/references/` 读取骨架模板，从 `common_templates/plugin_store_listing_template.md` 拷贝上架信息模板，替换 `{display_name}` / `{service_name}` / `{SiteName}` / `{SiteNameMlink}` / `{sitename}` 占位符后写入新插件目录。repair mode 下只创建缺失文件，不覆盖已有内容。**脚本不再复制 `plugin_client_plan_template.md`。**
 
 先用 `--dry-run` 预览，确认无误后去掉参数正式执行。
 
@@ -194,6 +200,7 @@ python Extension/scripts/scaffold_plugin.py \
 - 模式：`create mode` / `repair mode`
 - 飞书拆解模板 URL：`https://i6a1sqw3p2.feishu.cn/docx/KEledkZ7Po2OFNxCtaccq1B9nsf`
 - 客户端方案拆解副本流程提示：飞书复制 → 重命名 → workflow 阶段交付副本 URL
+- 已生成的上架信息文档：`requirements/store_listing.md`（截图 / Search terms 等待发版前由 PM 补齐）
 - 后续由 workflow 生成 / 回填的本地 MD 文件：
   - `requirements/plugin_requirement.md`
   - `requirements/plugin_ui_requirement.md`

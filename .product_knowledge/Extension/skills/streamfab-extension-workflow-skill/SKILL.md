@@ -436,6 +436,17 @@ allowed-tools:
 
 **执行前加载：** `references/template_version_history.md` 和 `references/template_changelog_entry.md`，按模板填空。
 
+**上架前预检 `requirements/store_listing.md`：**
+
+该文件在 init 阶段已生成，`{SiteName}` 系列占位符已替换为定稿值；上架前 PM 需补齐：
+
+- Chrome / Edge 截图素材（Global screenshots / Small promo tile / Marquee promo tile）
+- Edge `Mature content` 选项（Yes / No）
+- Edge `Search terms`
+- 「插件类别」「权限说明」等留 `/` 的字段如需在商店后台另填，按实际填入
+
+如发现仍残留 `{SiteName}`、`{SiteNameMlink}`、`{sitename}` 字面占位符，说明 init 时 display_name / service_name 传错，需要纠正后重跑 scaffold。
+
 **必须更新：**
 
 1. `version_history.md`（位于插件根目录）
