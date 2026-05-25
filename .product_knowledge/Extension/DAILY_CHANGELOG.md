@@ -1,5 +1,71 @@
 # 知识库每日更新记录
 
+## 2026-05-25
+
+### 修改
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/requirements/plugin_requirement.md
+
+### 删除
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/patterns/netflix_vs_ytdlp_logic_diff.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/business-rules-template.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/compliance-template.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/design-principles-template.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/error-handling-template.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/feature-design-guide-template.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/platform-diffs-template.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/product-brief-template.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/tech-limits-template.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/ui-patterns-template.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/references/user-flows-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/business-rules-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/compliance-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/design-principles-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/error-handling-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/feature-design-guide-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/platform-diffs-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/product-brief-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/tech-limits-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/ui-patterns-template.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/references/user-flows-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/business-rules-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/compliance-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/design-principles-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/error-handling-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/feature-design-guide-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/platform-diffs-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/product-brief-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/tech-limits-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/ui-patterns-template.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/references/user-flows-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/patterns/disney_vs_netflix_logic_diff.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/patterns/netflix_vs_ytdlp_logic_diff.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/business-rules-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/compliance-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/design-principles-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/error-handling-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/feature-design-guide-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/platform-diffs-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/product-brief-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/tech-limits-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/ui-patterns-template.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/references/user-flows-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/constraints/compliance.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/patterns/feature_design_guide.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/patterns/u_next_vs_ytdlp_logic_diff.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/patterns/ui_patterns.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/business-rules-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/compliance-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/design-principles-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/error-handling-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/feature-design-guide-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/platform-diffs-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/product-brief-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/tech-limits-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/ui-patterns-template.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/references/user-flows-template.md
+
+---
+
 ## 2026-05-22
 
 ### 新增

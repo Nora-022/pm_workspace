@@ -90,10 +90,10 @@
 
 | 按钮 | 渠道 | 链接 |
 | --- | --- | --- |
-| 产品页 | 主站 | [https://streamfab.dvdfab.cn/u-next-downloader-for-browser.htm](https://streamfab.dvdfab.cn/u-next-downloader-for-browser.htm) |
-| 产品页 | 独立站 | [https://streamfab.com/u-next-downloader-for-browser.htm](https://streamfab.com/u-next-downloader-for-browser.htm) |
-| What's New | 主站 | [https://streamfab.dvdfab.cn/streamfab-for-browser-new.htm?pid=u-next-downloader](https://streamfab.dvdfab.cn/streamfab-for-browser-new.htm?pid=u-next-downloader) |
-| What's New | 独立站 | [https://streamfab.com/streamfab-for-browser-new.htm?pid=u-next-downloader](https://streamfab.com/streamfab-for-browser-new.htm?pid=u-next-downloader) |
+| 产品页 | 主站 | [https://streamfab.dvdfab.cn/unext-downloader-for-browser.htm](https://streamfab.dvdfab.cn/unext-downloader-for-browser.htm) |
+| 产品页 | 独立站 | [https://streamfab.com/unext-downloader-for-browser.htm](https://streamfab.com/unext-downloader-for-browser.htm) |
+| What's New | 主站 | [https://streamfab.dvdfab.cn/streamfab-for-browser-new.htm?pid=unext-downloader](https://streamfab.dvdfab.cn/streamfab-for-browser-new.htm?pid=unext-downloader) |
+| What's New | 独立站 | [https://streamfab.com/streamfab-for-browser-new.htm?pid=unext-downloader](https://streamfab.com/streamfab-for-browser-new.htm?pid=unext-downloader) |
 | 付费 / Upgrade | 主站 | [https://streamfab.dvdfab.cn/streamfab-for-browser.htm?open=659](https://streamfab.dvdfab.cn/streamfab-for-browser.htm?open=659) |
 | 付费 / Upgrade | 独立站 | [https://streamfab.com/streamfab-for-browser.htm?open=659](https://streamfab.com/streamfab-for-browser.htm?open=659) |
 
