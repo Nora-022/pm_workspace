@@ -1,5 +1,16 @@
 # 知识库每日更新记录
 
+## 2026-05-26
+
+### 新增
+- .product_knowledge/Extension/tmp/FRAMEWORK_draft.md
+
+### 删除
+- .product_knowledge/Extension/tmp/figma_video_page_context.txt
+- .product_knowledge/Extension/tmp/figma_whoami.txt
+
+---
+
 ## 2026-05-25
 
 ### 修改
