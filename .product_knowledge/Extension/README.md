@@ -32,32 +32,33 @@ StreamFab 浏览器扩展是面向主流流媒体平台的下载插件产品线�
 
 | 角色 | 优先阅读入口 |
 |---|---|
-| 产品 | 各插件 `06_business_rules.md`、`requirements/` → 跨插件共用规则见 `shared_references/` |
-| 设计 | 各插件 `04_interaction_details.md`、`05_design_principles.md` → 共用视觉/布局/UX 规范见 `shared_references/` |
-| 研发 | 各插件 `02_functional_architecture.md`、`07_technical_constraints.md`、`patterns/` → 通用技术基线见 Video 插件，DRM / 付费流程基线见 Netflix 插件 |
+| 产品 | 各插件 `requirements/plugin_requirement.md` → 跨插件共用规则见 `_common/references/` |
+| 设计 | 各插件 `requirements/plugin_ui_requirement.md` → 共用视觉 / UX / 布局规范见 `_common/references/` |
+| 研发 | `_common/references/baselines/` 取检测模式基线 → 各插件 `diff_summary.md` 看差异 → 通用技术基线见 Video 插件，DRM / 付费流程基线见 Netflix 插件 |
 
-### shared_references 快查
+### _common/references 快查
 
 | 文件 | 内容 |
 |---|---|
-| `streamfab_extension_common_ux_patterns.md` | 跨插件通用交互模式 |
-| `streamfab_extension_common_visual_guidelines.md` | 共用视觉规范 |
-| `streamfab_extension_common_layout_specs.md` | 页面骨架与尺寸参考 |
-| `streamfab_plugin_glossary.md` | 产品线术语表 |
+| `ux_patterns.md` | 跨插件通用交互模式 |
+| `visual_guidelines.md` | 共用视觉规范 |
+| `layout_specs.md` | 页面骨架与尺寸参考 |
+| `glossary.md` | 产品线术语表 |
+| `baselines/netflix_mode.md` / `baselines/ytdlp_mode.md` | 两类检测模式基线 |
 
 ---
 
 ## 维护规范
 
-- `01–07` 核心文件只写已确认信息，不写推测或待验证内容
-- 跨插件通用规则沉淀到 `shared_references/`，不在各插件中重复维护
-- 站点调研放 `references/site_research_notes.md`，不写入核心文件
+- 框架与目录结构以 [`_common/FRAMEWORK.md`](_common/FRAMEWORK.md) 为唯一权威；阅读路线见 [`_common/READING_MAP.md`](_common/READING_MAP.md)
+- 跨插件通用规则沉淀到 `_common/references/`，不在各插件中重复维护
+- 检测模式归属由 `_common/READING_MAP.md` 的归属表决定，插件文档不自行声明
 - 工作流、Skills 速查、同步脚本说明见 [`../MAINTENANCE.md`](../MAINTENANCE.md)
 
 ## 当前知识库更新记录
 
 | 日期 | 更新内容 |
 |---|---|
-| 2026-05-26 | 新增 1 项，删除 2 项 |
+| 2026-05-28 | 新增 6 项，修改 54 项，删除 1 项 |
 
 > 完整更新记录见 [DAILY_CHANGELOG.md](DAILY_CHANGELOG.md)

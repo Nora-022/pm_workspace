@@ -16,10 +16,11 @@ import sys
 from pathlib import Path
 
 
-SKILLS_DIR = Path(__file__).resolve().parents[1] / "skills" / "streamfab-extension-init-skill"
+COMMON_DIR = Path(__file__).resolve().parents[1]  # Extension/_common
+EXTENSION_DIR = COMMON_DIR.parent  # Extension/
+SKILLS_DIR = COMMON_DIR / "skills" / "streamfab-extension-init-skill"
 REFERENCES_DIR = SKILLS_DIR / "references"
-EXTENSION_DIR = Path(__file__).resolve().parents[1]
-COMMON_TEMPLATES_DIR = EXTENSION_DIR / "common_templates"
+TEMPLATES_DIR = COMMON_DIR / "templates"
 
 SKELETON_FILES = [
     ("skeleton_readme.md",              "README.md"),
@@ -78,7 +79,7 @@ def parse_args() -> argparse.Namespace:
 def apply_placeholders(content: str, display_name: str, service_name: str) -> str:
     # Init-time placeholders for skeleton files.
     content = content.replace("{display_name}", display_name).replace("{service_name}", service_name)
-    # Product-name placeholders shared with common_templates. Rules match
+    # Product-name placeholders shared with _common/templates. Rules match
     # init-skill SKILL.md: {SiteName} keeps original display_name casing;
     # {SiteNameMlink} joins display_name tokens with "_"; {sitename} uses
     # hyphenated lowercase form of service_name.
@@ -143,7 +144,7 @@ def main() -> int:
     # depend only on display_name / service_name and don't need the workflow's
     # Feishu client plan breakdown to be filled in first.
     for template_name, target_name in IMMEDIATE_COMMON_TEMPLATES:
-        template_path = COMMON_TEMPLATES_DIR / template_name
+        template_path = TEMPLATES_DIR / template_name
         target_path = plugin_dir / target_name
 
         if target_path.exists():

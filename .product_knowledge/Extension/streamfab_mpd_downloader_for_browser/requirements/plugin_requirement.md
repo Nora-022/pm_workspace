@@ -116,58 +116,31 @@ DRM-MPD 不针对单一流媒体平台，而是面向所有以 MPEG-DASH（`.mpd
 
 进度信息用 Segment（分片数）展示，非文件大小。
 
-### License Info — Banner 文案（定稿）
+### License Info — Banner 文案
+
+License Info 产品名：`StreamFab DRM-MPD Downloader for Browser`
 
 | 语言 | 文案 |
 | --- | --- |
 | EN | DRM-MPD Videos, Downloaded Simply.<br>Save DRM-protected MPD streams for offline viewing in up to 1080p with clear AAC audio. |
 | ZH | DRM-MPD 视频，轻松下载。<br>将受 DRM 保护的 MPD 流媒体保存下来，以最高 1080p 分辨率和清晰的 AAC 音频进行离线观看。 |
 
-License Info 产品名：`StreamFab DRM-MPD Downloader for Browser`
-
 ### Setting — Extension 配置项
 
-Setting 结构不变，分为 Extension 和 CoApp。DRM-MPD 无特殊配置项，按照 Common 配置来。
+Setting 结构不变，分为 Extension 和 CoApp。保留下方默认 7 项通用配置项顺序，不修改。
 
 通用配置项（按顺序）：
 
 **1. Language**
 
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-
 **2. Video Format**
-
-- MP4
-- MKV (FFmpeg)
-- MKV (MKVToolNix)
 
 **3. Video Resolution**
 
-- Full HD - 1080p
-- HD - 720p
-
 **4. Pre-select Audio Language**
-
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-- 子选项：Pre-select Description Audio if available（默认不选）
 
 **5. Audio Channel**
 
-- Stereo (AAC)
-- Multi-Channel 5.1 (EAC3 / AC3)
-- 子选项：Pre-select both 5.1 and 2.0 audios（默认不选）
-
 **6. Pre-select Subtitle Language**
 
-- None
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-- 子选项：Always download the forced subtitle（默认选中）
-
 **7. Subtitle Action**
-
-- Remux Into File
-- Extract to SRT File
-- Extract Original Format

@@ -113,7 +113,7 @@ Get-ScheduledTaskInfo -TaskName "GitLab Daily Push"
 | `lark-task` | 飞书任务管理 | 创建待办、跟踪任务状态 |
 | `bdd-feature-writer` | 将需求转换为 BDD 特性文档 | 需求文档交付研发前的规格化 |
 
-Extension 内部专项 skill 不在本表展开维护，完整清单以 `.product_knowledge/Extension/skills/README.md` 为准；`knowledge-manager` 只负责在入口处识别是否需要转交这些专项 skill。
+Extension 内部专项 skill 不在本表展开维护，完整清单以 `.product_knowledge/Extension/_common/skills/README.md` 为准；`knowledge-manager` 只负责在入口处识别是否需要转交这些专项 skill。
 
 ---
 

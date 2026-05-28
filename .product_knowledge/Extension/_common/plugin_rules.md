@@ -20,9 +20,9 @@ M3U8 插件在 Netflix 模式基础上，增加了一段插件侧页面结构预
 - 原始资料写到各插件的 `requirements/`
 
 ## 规则 3：视觉规范边界
-- 产品线共用的颜色、字体、圆角、边框、阴影、间距、通用组件尺寸与状态，统一写在 `shared_references/streamfab_extension_common_visual_guidelines.md`
-- 产品线共用的界面结构、页面职责、交互模式、通知与阻断逻辑，统一写在 `shared_references/streamfab_extension_common_ux_patterns.md`
-- 产品线共用的页面骨架、布局比例、容器尺寸、关键控件尺寸参考，统一写在 `shared_references/streamfab_extension_common_layout_specs.md`
+- 产品线共用的颜色、字体、圆角、边框、阴影、间距、通用组件尺寸与状态，统一写在 `_common/references/visual_guidelines.md`
+- 产品线共用的界面结构、页面职责、交互模式、通知与阻断逻辑，统一写在 `_common/references/ux_patterns.md`
+- 产品线共用的页面骨架、布局比例、容器尺寸、关键控件尺寸参考，统一写在 `_common/references/layout_specs.md`
 - 各插件自己的 `05_design_principles.md` 只写插件特有的设计原则、页面策略、信息层级、内容表达、差异交互和例外约束
 - 插件文档不重复抄写 common 视觉令牌和通用组件规范；如需使用，直接引用共享规范
 - 某插件存在视觉例外时，只记录偏离点、适用范围和原因
@@ -39,9 +39,9 @@ M3U8 插件在 Netflix 模式基础上，增加了一段插件侧页面结构预
 - 后续从本地 MD 定稿、pid 表格或产品页回填知识库时，必须保持上述规则，不用产品页 URL 的小写 slug 反推展示名大小写。
 
 ## 规则 5：阅读顺序
-- 先看 `index.md`
+- 先看 `_common/FRAMEWORK.md` 与 `_common/READING_MAP.md`
 - 再看本文件
-- 需要对齐通用视觉时，再看 `shared_references/streamfab_extension_common_visual_guidelines.md`
-- 需要对齐通用交互结构时，再看 `shared_references/streamfab_extension_common_ux_patterns.md`
-- 需要确认页面骨架和尺寸参考时，再看 `shared_references/streamfab_extension_common_layout_specs.md`
+- 需要对齐通用视觉时，再看 `_common/references/visual_guidelines.md`
+- 需要对齐通用交互结构时，再看 `_common/references/ux_patterns.md`
+- 需要确认页面骨架和尺寸参考时，再看 `_common/references/layout_specs.md`
 - 再进入具体插件目录

@@ -1,9 +1,9 @@
 # 03 页面结构与布局（Page Structure）
 
 ## 引用关系
-- 通用视觉规范统一引用 `shared_references/streamfab_extension_common_visual_guidelines.md`
-- 通用交互结构统一引用 `shared_references/streamfab_extension_common_ux_patterns.md`
-- 通用结构尺寸统一引用 `shared_references/streamfab_extension_common_layout_specs.md`
+- 通用视觉规范统一引用 `_common/references/visual_guidelines.md`
+- 通用交互结构统一引用 `_common/references/ux_patterns.md`
+- 通用结构尺寸统一引用 `_common/references/layout_specs.md`
 - 本文档只记录 M3U8 插件相对 common 的页面结构差异
 
 ## 基线说明

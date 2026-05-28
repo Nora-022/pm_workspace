@@ -1,0 +1,7 @@
+{
+  "deprecated": true,
+  "reason": "Init flow no longer creates Feishu template docs. Use local Markdown files generated from Extension/_common/templates instead.",
+  "as": "user",
+  "folder_token": "KJPNfENnalPMKJdPjm3c6qCwnxd",
+  "templates": []
+}

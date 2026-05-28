@@ -20,8 +20,8 @@
 - 在插件本地 `00_planning_context.md` 和 `00_decision_log.md` 中记录基线信息
 
 4. 准备共享输入
-- 按需读取 `common_templates/` 下的模板
-- 按需读取 `shared_references/` 下的共享术语和清单
+- 按需读取 `_common/templates/` 下的模板
+- 按需读取 `_common/references/` 下的共享术语和清单
 
 5. 生成插件本地研究资料
 - 在 `<plugin>/references/` 下创建站点研究文件

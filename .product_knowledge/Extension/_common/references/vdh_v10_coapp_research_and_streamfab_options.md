@@ -368,6 +368,6 @@ MVP 不建议覆盖所有站点。建议先选两类：
 
 如果 PoC 成功，下一步可以把结论沉淀进：
 
-- `Extension/common_plugin_rules.md`：新增“Browser-only / CoApp Enhanced 双层模式”的共性规则。
-- `Extension/shared_references/streamfab_extension_common_ux_patterns.md`：新增无 CoApp、需 CoApp、需客户端三类状态。
+- `Extension/_common/plugin_rules.md`：新增“Browser-only / CoApp Enhanced 双层模式”的共性规则。
+- `Extension/_common/references/ux_patterns.md`：新增无 CoApp、需 CoApp、需客户端三类状态。
 - 各插件 `07_technical_constraints.md`：按站点确认 browser-only 可覆盖范围。

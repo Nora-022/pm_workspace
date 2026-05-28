@@ -97,7 +97,7 @@ allowed-tools:
 - `07_technical_constraints.md`
 - `CHANGELOG.md`
 - `requirements/index.md`
-- `requirements/store_listing.md`（Chrome / Edge 应用商店上架信息，init 阶段从 `common_templates/plugin_store_listing_template.md` 拷贝并替换 `{SiteName}` 等占位符；上架前由 PM 补充截图、Search terms 等待填字段）
+- `requirements/store_listing.md`（Chrome / Edge 应用商店上架信息，init 阶段从 `_common/templates/plugin_store_listing_template.md` 拷贝并替换 `{SiteName}` 等占位符；上架前由 PM 补充截图、Search terms 等待填字段）
 
 `requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md` 是 workflow 阶段的产物：先由 workflow 完成站点调研 / 产品页事实提取，再等用户在飞书完成拆解副本填写后，从 common 模板创建并回填。
 
@@ -120,8 +120,8 @@ allowed-tools:
 
 init 阶段由 `scaffold_plugin.py` 生成两类本地文件：
 
-1. **骨架文件**：从 `skills/streamfab-extension-init-skill/references/` 读取，生成 00–07、CHANGELOG、requirements/index.md，替换 `{display_name}` / `{service_name}` 占位符。
-2. **上架信息文档**：从 `common_templates/plugin_store_listing_template.md` 拷贝到 `requirements/store_listing.md`，替换 `{SiteName}` → display_name、`{SiteNameMlink}` → display_name 单词用 `_` 连接、`{sitename}` → service_name 连字符小写形式。截图、Search terms 等待填字段由 PM 在上架前手工补齐。
+1. **骨架文件**：从 `_common/skills/streamfab-extension-init-skill/references/` 读取，生成 00–07、CHANGELOG、requirements/index.md，替换 `{display_name}` / `{service_name}` 占位符。
+2. **上架信息文档**：从 `_common/templates/plugin_store_listing_template.md` 拷贝到 `requirements/store_listing.md`，替换 `{SiteName}` → display_name、`{SiteNameMlink}` → display_name 单词用 `_` 连接、`{sitename}` → service_name 连字符小写形式。截图、Search terms 等待填字段由 PM 在上架前手工补齐。
 
 **脚本不再复制 `plugin_client_plan_template.md`，本地客户端方案拆解 md 不再生成。**
 
@@ -132,8 +132,8 @@ init 阶段由 `scaffold_plugin.py` 生成两类本地文件：
 
 workflow 完成站点调研 / 产品页事实提取后，用户在飞书副本中完成填写。用户交付副本 URL 后，`streamfab-extension-workflow` 用 `lark-cli docs +fetch --api-version v2 --doc <副本 URL>` 读取副本作为权威输入，并从以下模板创建 / 回填：
 
-- `common_templates/plugin_requirement_template.md` → `requirements/plugin_requirement.md`
-- `common_templates/plugin_ui_requirement_template.md` → `requirements/plugin_ui_requirement.md`
+- `_common/templates/plugin_requirement_template.md` → `requirements/plugin_requirement.md`
+- `_common/templates/plugin_ui_requirement_template.md` → `requirements/plugin_ui_requirement.md`
 
 模板中的占位符按以下规则替换：`{SiteName}` → display_name（用于插件产品名和 CoApp 安装程序名，保留原始大小写）；`{SiteNameMlink}` → display_name 单词用 `_` 连接（用于 mlink）；`{service_name}` → snake_case 服务标识（用于 app id）；`{sitename}` → service_name 的连字符小写形式（用于产品页 URL、What's New、订阅 / 升级付费等跳转链接）。其他占位符（`{BannerContentEN}`、`{ThirdStoreProductImageCaption}` 等）保留，待 workflow 阶段从飞书副本定稿内容填入。
 
@@ -174,12 +174,12 @@ workflow 完成站点调研 / 产品页事实提取后，用户在飞书副本�
 调用：
 
 ```bash
-python Extension/scripts/scaffold_plugin.py \
+python Extension/_common/scripts/scaffold_plugin.py \
   --service <service_name> \
   --display-name "<display_name>"
 ```
 
-脚本从 `skills/streamfab-extension-init-skill/references/` 读取骨架模板，从 `common_templates/plugin_store_listing_template.md` 拷贝上架信息模板，替换 `{display_name}` / `{service_name}` / `{SiteName}` / `{SiteNameMlink}` / `{sitename}` 占位符后写入新插件目录。repair mode 下只创建缺失文件，不覆盖已有内容。**脚本不再复制 `plugin_client_plan_template.md`。**
+脚本从 `_common/skills/streamfab-extension-init-skill/references/` 读取骨架模板，从 `_common/templates/plugin_store_listing_template.md` 拷贝上架信息模板，替换 `{display_name}` / `{service_name}` / `{SiteName}` / `{SiteNameMlink}` / `{sitename}` 占位符后写入新插件目录。repair mode 下只创建缺失文件，不覆盖已有内容。**脚本不再复制 `plugin_client_plan_template.md`。**
 
 先用 `--dry-run` 预览，确认无误后去掉参数正式执行。
 

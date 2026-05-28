@@ -18,7 +18,7 @@
 ## 文档定位
 
 - 本文档定义 StreamFab 浏览器插件产品线共用的交互结构、页面职责和关键 UX 规则。
-- 与 [streamfab_extension_common_visual_guidelines.md](C:/Users/fab/yuki-studio-repo/pm-workspace/.product_knowledge/Extension/shared_references/streamfab_extension_common_visual_guidelines.md) 配套使用。
+- 与 [visual_guidelines.md](./visual_guidelines.md) 配套使用。
 - 本文档重点回答三个问题：
   - 界面分成哪些固定层级。
   - 每种页面各自承担什么职责。

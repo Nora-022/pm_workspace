@@ -1,5 +1,76 @@
 # 知识库每日更新记录
 
+## 2026-05-28
+
+### 新增
+- .product_knowledge/Extension/_common/READING_MAP.md
+- .product_knowledge/Extension/_common/references/baselines/
+- ".product_knowledge/Extension/chrome extension stastics/"
+- .product_knowledge/Extension/chrome_store_plugin_matrix_analysis_report.md
+- .product_knowledge/Extension/chrome_store_plugin_matrix_analysis_report_v2.md
+- .product_knowledge/Extension/streamfab_myfans_downloader_for_browser/store_listing.md
+
+### 修改
+- .product_knowledge/Extension/_common/FRAMEWORK.md
+- .product_knowledge/Extension/_common/backlog.md
+- .product_knowledge/Extension/_common/plugin_rules.md
+- .product_knowledge/Extension/_common/prototype/index.html
+- .product_knowledge/Extension/_common/references/glossary.md
+- .product_knowledge/Extension/_common/references/layout_specs.md
+- .product_knowledge/Extension/_common/references/new_plugin_kickoff_checklist.md
+- .product_knowledge/Extension/_common/references/ux_patterns.md
+- .product_knowledge/Extension/_common/references/vdh_v10_coapp_research_and_streamfab_options.md
+- .product_knowledge/Extension/_common/references/vdh_v10_competitor_strategy_research.md
+- .product_knowledge/Extension/_common/references/visual_guidelines.md
+- .product_knowledge/Extension/_common/scripts/create_feishu_plugin_docs.py
+- .product_knowledge/Extension/_common/scripts/scaffold_plugin.py
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/SKILL.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/feishu_target.json
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_00_overview.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_01_product_brief.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_02_functional_architecture.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_03_page_structure.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_04_interaction_details.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_05_design_principles.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_06_business_rules.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_07_technical_constraints.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_changelog.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_readme.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_requirements_index.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/SKILL.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/checklist_gap_check.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/template_changelog_entry.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/template_version_history.md
+- .product_knowledge/Extension/_common/templates/plugin_client_plan_template.md
+- .product_knowledge/Extension/_common/templates/plugin_requirement_template.md
+- .product_knowledge/Extension/_common/templates/plugin_research_template.md
+- .product_knowledge/Extension/_common/templates/plugin_store_listing_template.md
+- .product_knowledge/Extension/_common/templates/plugin_ui_requirement_template.md
+- .product_knowledge/Extension/index.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/03_page_structure.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/05_design_principles.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/requirements/plugin_requirement.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/requirements/plugin_ui_requirement.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/03_page_structure.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/05_design_principles.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/requirements/plugin_requirement.md
+- .product_knowledge/Extension/streamfab_m3u8_downloader_for_browser/03_page_structure.md
+- .product_knowledge/Extension/streamfab_m3u8_downloader_for_browser/05_design_principles.md
+- .product_knowledge/Extension/streamfab_mpd_downloader_for_browser/03_page_structure.md
+- .product_knowledge/Extension/streamfab_mpd_downloader_for_browser/05_design_principles.md
+- .product_knowledge/Extension/streamfab_mpd_downloader_for_browser/requirements/plugin_requirement.md
+- .product_knowledge/Extension/streamfab_myfans_downloader_for_browser/requirements/plugin_requirement.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/03_page_structure.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/05_design_principles.md
+- .product_knowledge/Extension/streamfab_tver_downloader_for_browser/requirements/plugin_requirement.md
+- .product_knowledge/Extension/streamfab_video_downloader_for_browser/05_design_principles.md
+- .product_knowledge/MAINTENANCE.md
+
+### 删除
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/requirements/plugin_client_plan_template.md
+
+---
+
 ## 2026-05-26
 
 ### 新增

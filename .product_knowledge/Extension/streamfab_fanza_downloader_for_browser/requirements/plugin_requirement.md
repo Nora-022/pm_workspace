@@ -102,13 +102,6 @@ FANZA 内容以成人为主，视频形态包含単片 / 月額 / VR / TV。
 | 付费 / Upgrade | 主站 | [https://streamfab.dvdfab.cn/streamfab-for-browser.htm?open=658](https://streamfab.dvdfab.cn/streamfab-for-browser.htm?open=658) |
 | 付费 / Upgrade | 独立站 | [https://streamfab.com/streamfab-for-browser.htm?open=658](https://streamfab.com/streamfab-for-browser.htm?open=658) |
 
-### 安装器
-
-参见 UI 需求说明文档。调整项：
-
-- 安装器资源：参见 Figma 设计文件
-- 安装目录结构：参见「[StreamFab 浏览器插件] - CoApp 目录结构设计」
-
 ### 视频下载 — 配置参数
 
 下载区域只有 **1 项 Video**，可选项为 FANZA 原生画质标签，按画质从高到低依序排列，共 7 档，格式分两类：
@@ -152,47 +145,20 @@ License Info 产品名：`StreamFab FANZA Downloader for Browser`
 
 ### Setting — Extension 配置项
 
-Setting 结构不变，分为 Extension 和 CoApp。
+Setting 结构不变，分为 Extension 和 CoApp。保留下方默认 7 项通用配置项顺序，不修改。
 
-Extension 共 7 项（通用结构，无 FANZA 单独配置项）：
+通用配置项（按顺序）：
 
 **1. Language**
 
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-
 **2. Video Format**
-
-- MP4
-- MKV (FFmpeg)
-- MKV (MKVToolNix)
 
 **3. Video Resolution**
 
-- Full HD - 1080p
-- HD - 720p
-
 **4. Pre-select Audio Language**
-
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-- 子选项：Pre-select Description Audio if available（默认不选）
 
 **5. Audio Channel**
 
-- Stereo (AAC)
-- Multi-Channel 5.1 (EAC3 / AC3)
-- 子选项：Pre-select both 5.1 and 2.0 audios（默认不选）
-
 **6. Pre-select Subtitle Language**
 
-- None
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-- 子选项：Always download the forced subtitle（默认选中）
-
 **7. Subtitle Action**
-
-- Remux Into File
-- Extract to SRT File
-- Extract Original Format

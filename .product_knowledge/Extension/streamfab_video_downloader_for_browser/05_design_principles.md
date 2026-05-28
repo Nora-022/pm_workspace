@@ -28,9 +28,9 @@
 - `Detected` 与 `Downloads` 是该插件的一级骨架，应长期保持稳定。
 - 下载前设置、Playlist 选择、任务队列、状态页都属于同一套工具型框架中的子层级。
 - 插件级文档只记录该插件自己的结构和交互约束。
-- 通用视觉规范统一引用 `shared_references/streamfab_extension_common_visual_guidelines.md`，不在本文件重复展开。
-- 通用交互结构与页面职责统一引用 `shared_references/streamfab_extension_common_ux_patterns.md`，不在本文件重复展开。
-- 通用页面骨架与结构尺寸参考统一引用 `shared_references/streamfab_extension_common_layout_specs.md`，不在本文件重复展开。
+- 通用视觉规范统一引用 `_common/references/visual_guidelines.md`，不在本文件重复展开。
+- 通用交互结构与页面职责统一引用 `_common/references/ux_patterns.md`，不在本文件重复展开。
+- 通用页面骨架与结构尺寸参考统一引用 `_common/references/layout_specs.md`，不在本文件重复展开。
 
 ## 组件使用约束
 - Tab：

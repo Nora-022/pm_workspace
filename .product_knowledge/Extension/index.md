@@ -13,10 +13,17 @@
 .product_knowledge/Extension/
 ├── README.md                                      ## 产品线入口说明
 ├── index.md                                       ## 当前索引文件
-├── common_templates/                              ## 通用模板与初始化材料
-├── shared_references/                             ## 共享规则与共享参考资料
-├── skills/                                        ## 插件初始化与流程编排 skill
-├── scripts/                                       ## 自动化脚本
+├── DAILY_CHANGELOG.md                             ## 每日变更记录（脚本生成）
+├── _common/                                       ## 通用基线、模板、脚本、skill 全部收敛在此
+│   ├── FRAMEWORK.md                               ## 框架定稿，结构与写作规则唯一权威
+│   ├── READING_MAP.md                             ## AI 阅读路线 + 检测模式归属表
+│   ├── plugin_rules.md                            ## 跨插件规则总览
+│   ├── backlog.md                                 ## 需求池快照（飞书为权威）
+│   ├── references/                                ## 通用规则文档（含 baselines/）
+│   ├── prototype/                                 ## 通用原型 Demo
+│   ├── templates/                                 ## 新插件模板
+│   ├── scripts/                                   ## 自动化脚本
+│   └── skills/                                    ## 插件 init / workflow skill
 ├── streamfab_video_downloader_for_browser/        ## Video Downloader 插件目录
 ├── streamfab_amazon_downloader_for_browser/       ## Amazon 插件目录
 ├── streamfab_netflix_downloader_for_browser/      ## Netflix 插件目录
@@ -55,9 +62,12 @@
 | `streamfab_m3u8_downloader_for_browser` | 已上线 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_m3u8_downloader_for_browser` |
 
 ## 阅读入口
+- 框架与目录结构（唯一权威）：`_common/FRAMEWORK.md`
+- AI 阅读路线 + 检测模式归属表：`_common/READING_MAP.md`
 - 产品线入口：`README.md`
-- 单插件入口：各插件目录下的 `00_overview.md`
-- 需求入口：各插件目录下的 `requirements/index.md`
-- 通用视觉规范：`shared_references/streamfab_extension_common_visual_guidelines.md`
-- 通用 UX 规范：`shared_references/streamfab_extension_common_ux_patterns.md`
-- 通用结构尺寸参考：`shared_references/streamfab_extension_common_layout_specs.md`
+- 单插件入口：各插件目录下的 `README.md`，差异索引看 `diff_summary.md`
+- 需求入口：各插件目录下的 `requirements/`
+- 通用视觉规范：`_common/references/visual_guidelines.md`
+- 通用 UX 规范：`_common/references/ux_patterns.md`
+- 通用结构尺寸参考：`_common/references/layout_specs.md`
+- 检测模式基线：`_common/references/baselines/netflix_mode.md` / `ytdlp_mode.md`

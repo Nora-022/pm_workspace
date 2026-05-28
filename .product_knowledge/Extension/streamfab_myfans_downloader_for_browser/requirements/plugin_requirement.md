@@ -120,47 +120,20 @@
 
 ### Setting — Extension 配置项
 
-Setting 结构不变，分为 Extension 和 CoApp。
+Setting 结构不变，分为 Extension 和 CoApp。保留下方默认 7 项通用配置项顺序，不修改。
 
 通用配置项（按顺序）：
 
 **1. Language**
 
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-
 **2. Video Format**
-
-- MP4
-- MKV (FFmpeg)
-- MKV (MKVToolNix)
 
 **3. Video Resolution**
 
-- Full HD - 1080p
-- HD - 720p
-
 **4. Pre-select Audio Language**
-
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-- 子选项：Pre-select Description Audio if available（默认不选）
 
 **5. Audio Channel**
 
-- Stereo (AAC)
-- Multi-Channel 5.1 (EAC3 / AC3)
-- 子选项：Pre-select both 5.1 and 2.0 audios（默认不选）
-
 **6. Pre-select Subtitle Language**
 
-- None
-- Same as UI Language
-- 其他语言复用客户端 27 个选项
-- 子选项：Always download the forced subtitle（默认选中）
-
 **7. Subtitle Action**
-
-- Remux Into File
-- Extract to SRT File
-- Extract Original Format

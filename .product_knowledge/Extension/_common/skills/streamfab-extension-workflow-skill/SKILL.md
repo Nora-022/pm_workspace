@@ -291,8 +291,8 @@ allowed-tools:
 1. 读取：
    - `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`
 2. 确认 / 创建：
-   - 如果 `requirements/plugin_requirement.md` 不存在，从 `Extension/common_templates/plugin_requirement_template.md` 创建
-   - 如果 `requirements/plugin_ui_requirement.md` 不存在，从 `Extension/common_templates/plugin_ui_requirement_template.md` 创建
+   - 如果 `requirements/plugin_requirement.md` 不存在，从 `Extension/_common/templates/plugin_requirement_template.md` 创建
+   - 如果 `requirements/plugin_ui_requirement.md` 不存在，从 `Extension/_common/templates/plugin_ui_requirement_template.md` 创建
    - 创建时替换 `{SiteName}` / `{service_name}` / `{SiteNameMlink}` / `{sitename}` 等基础占位符
    - 如果上述文件已存在，只按本轮已确认字段增量回填，不整体覆盖，避免覆盖用户人工盯正内容
 3. 从客户端方案拆解中提取定稿字段：
@@ -310,7 +310,7 @@ allowed-tools:
 
 **回填 plugin_requirement.md / plugin_ui_requirement.md 的硬约束（强制）：**
 
-创建或写入这两个文件前必须先 Read `Extension/common_templates/plugin_requirement_template.md` 和 `Extension/common_templates/plugin_ui_requirement_template.md`，按其章节结构填值：
+创建或写入这两个文件前必须先 Read `Extension/_common/templates/plugin_requirement_template.md` 和 `Extension/_common/templates/plugin_ui_requirement_template.md`，按其章节结构填值：
 
 - 模板已有的章节必须保留（如需求模板的 `### 网站信息` 是必填节）
 - `### 网站信息` 必须按需求模板定义写成站点调研摘要，覆盖主要服务地区、内容类型、账号权益、播放协议、加密/DRM 线索及其对插件需求的影响；不要从产品页营销文案反推站点技术结论

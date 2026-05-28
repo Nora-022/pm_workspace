@@ -58,6 +58,8 @@ Extension/
 │   │   ├── streamfab-extension-init-skill/
 │   │   └── streamfab-extension-workflow-skill/
 │   │
+│   ├── version_ledger.md                          全局版本台账（飞书版本台账快照，只含版本信息）
+│   ├── backlog.md                                 需求池快照（飞书需求池快照）
 │   ├── FRAMEWORK.md                               框架定稿（本文档）
 │   ├── READING_MAP.md                             AI 阅读路线 + 检测模式归属表
 │   └── plugin_rules.md                            跨插件规则总览
@@ -271,6 +273,23 @@ streamfab_<x>_downloader_for_browser/
 **承载内容**：商店配图调整说明、专属视觉元素。
 **不承载**：UI 交互差异（这部分仍归 `plugin_requirement.md`，目前没有专门的 UI 交互差异章节，因为大部分插件 UI 交互沿用基线）。
 
+### H. 外部数据源与本地快照
+
+权威数据存在飞书多维表格，本地只存快照（或按需查表）。所有写作以飞书为准，本地快照标注同步日期。
+
+| 数据 | 飞书权威源 | 类型 | 本地快照 | 同步规则 |
+| --- | --- | --- | --- | --- |
+| 需求池 | `base/VFZVb3aXfanWimsyb1EcY65On6c` | 多维表格 | `_common/backlog.md` | 飞书为准，本地定期快照，标注同步日期 |
+| 插件 ID（client_id / pid / option_id） | `sheets/shtcnlXOVQicx407Qs5xWs8euqb`（Sheet `7JaGqO` StreamFab for Browser） | 电子表格 | 无本地快照 | workflow 实时查表（节点 3 已有逻辑），不存本地（ID 发布时才定） |
+| 版本台账 | `base/XmxhbAt1aaYDZWssW00cKRlSnzh` | 多维表格 | `_common/version_ledger.md` | 飞书为准，本地快照只含版本信息（插件版本 ↔ CoApp 版本），不含 URL |
+| 客户端方案拆解 | 飞书文档副本（每插件一份，从通用模板复制） | 文档 | 无本地快照 | workflow 读飞书副本作为权威输入，不在本地落 MD |
+
+**插件 ID 表读取逻辑**（workflow 节点 3）：按产品名定位 4 行一组 —— Coapp-win / Coapp-macos / null / Downloader for Browser；列映射 B=pid C=option_id F=主站 client_id I=品牌站 client_id。
+
+> 各插件不再各存 `version_history.md`；版本统一看 `_common/version_ledger.md`。
+> 各插件需求不再各存需求池；统一看 `_common/backlog.md`。
+> 客户端方案拆解走飞书文档副本，本地插件目录不存拆解 MD。
+
 ---
 
 ## 四、AI 阅读路线（写进 READING_MAP.md）
@@ -313,6 +332,11 @@ streamfab_<x>_downloader_for_browser/
 | Video（通用） | ytdlp_mode |
 
 > 插件不自己声明检测模式，本表是唯一权威。
+
+**检测模式归属的写入时机**：
+- init 阶段：新插件默认归 `netflix_mode`（12/13 都是），先在本表占位，保证表始终完整
+- workflow 节点 2（站点调研）：调研后若发现实际是 `ytdlp_mode`，修正本表对应行
+- 只有 Video 这类 yt-dlp 通用下载器才是 `ytdlp_mode`
 
 ---
 

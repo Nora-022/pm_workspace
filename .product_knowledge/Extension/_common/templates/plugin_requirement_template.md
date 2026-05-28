@@ -82,6 +82,20 @@
 
 ---
 
+## 价格与权益
+
+> **填写规则**：差异时填，与基线（_common/references/business_rules.md）一致时整块删除。
+> 只写本插件相对基线的差异，不重复通用权益规则。
+
+| 项 | 值 |
+| --- | --- |
+| 订阅价格 | <如有插件专属定价，填写；否则删行> |
+| Trial 配额 | <与基线不同时填，如次数 / 时长差异> |
+| Premium 配额 | <与基线不同时填，如每日 / 每周上限差异> |
+| 特殊套餐 | <如附属订阅、附加服务权限等> |
+
+---
+
 ## 变更说明
 
 除以下提及的逻辑外，其余所有逻辑均参照基线插件（Netflix）。
@@ -151,7 +165,9 @@
 
 （根据站点实际情况选择，填写后删除另一行。）
 
-### License Info — Banner 文案
+### Dashboard - Banner 文案
+
+> **范围**：本节只承载 Dashboard License Info 顶部 Banner 文案。Empty State / Tooltip / 其他提示语与基线一致，不在此节写；Setting 配置项见独立的「Setting — Extension 配置项」节。
 
 License Info 产品名：`StreamFab {SiteName} Downloader for Browser`
 

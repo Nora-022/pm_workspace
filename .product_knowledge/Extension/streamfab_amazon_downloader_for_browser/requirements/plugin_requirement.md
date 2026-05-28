@@ -9,7 +9,7 @@
 
 - 原型链接：
 - 需求来源：
-- 初始化说明：本文档基于 `common_templates/plugin_requirement_template.md` 创建，并在 `streamfab-plugin-init` create mode 中完成首轮回填。
+- 初始化说明：本文档基于 `_common/templates/plugin_requirement_template.md` 创建，并在 `streamfab-plugin-init` create mode 中完成首轮回填。
 
 ## 文档更新记录
 | 版本 | 日期 | 修改人 | 说明 |
