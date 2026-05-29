@@ -1,5 +1,14 @@
 # 知识库每日更新记录
 
+## 2026-05-29
+
+### 修改
+- recordfab-prototype/src/index.css
+- recordfab-prototype/src/pages/FilesPage.tsx
+- recordfab-prototype/vite.config.ts
+
+---
+
 ## 2026-05-20
 
 ### 修改

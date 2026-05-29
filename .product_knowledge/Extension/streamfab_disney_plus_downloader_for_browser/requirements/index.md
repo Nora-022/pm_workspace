@@ -1,21 +1,16 @@
-﻿# Requirements Index
+# Disney Plus 需求文档索引
 
-## 文档清单
-- 暂无（待录入 Disney Plus 需求文档）
+## 正式文档
 
-## 录入模板
-- 文档名：
-- 版本：
-- 日期：
-- 状态：草稿 / 评审中 / 定版 / 废弃
-- 关键主题：
-- 关联知识库文件：
+| 文件 | 用途 |
+| --- | --- |
+| [`plugin_requirement_feishu.md`](plugin_requirement_feishu.md) | 主需求文档（飞书侧需求文档导出快照），对外交付给开发 / PM |
 
-## 文件结构
-```text
-requirements/
-├── plugin_requirement.md      ## 主需求文档，作为当前插件需求定义的正式入口
-├── plugin_ui_requirement.md   ## UI 需求文档，作为界面与交互说明的正式入口
-├── raw/                       ## 原始输入资料目录，存放历史文档、会议纪要与原始材料
-└── derived/                   ## 整理输出资料目录，存放摘要、归纳与整理结果
-```
+## 调研与原始资料
+
+| 文件 | 用途 |
+| --- | --- |
+| [`site_research_notes.md`](site_research_notes.md) | 站点技术调研：HLS+CMAF、DRM、CDN、订阅方案、地区差异 |
+| [`product_page_facts.md`](product_page_facts.md) | 产品页事实层（`https://streamfab.dvdfab.cn/disney-plus-downloader.htm`） |
+| `raw/` | 原始 PDF 需求文档 |
+| `derived/` | 从 PDF 抽取出的文本片段 |

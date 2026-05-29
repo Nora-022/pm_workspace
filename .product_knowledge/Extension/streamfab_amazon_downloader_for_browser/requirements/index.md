@@ -1,26 +1,17 @@
-# 需求索引
+# Amazon 需求文档索引
 
-## 当前工作文档
-1. `plugin_requirement.md`
-   - 状态：已初始化
-   - 说明：基于产品页与 Prime Video 站点调研得到的首版产品需求稿
-2. `plugin_ui_requirement.md`
-   - 状态：已初始化
-   - 说明：围绕 Banner、商店素材、安装器资源的首版 UI 需求稿
+## 正式文档
 
-## 原始输入
-- `requirements/raw/`
-  - 当前状态：初始化后为空
+| 文件 | 用途 |
+| --- | --- |
+| [`plugin_requirement.md`](plugin_requirement.md) | 主需求文档，对外交付给开发 / PM（由 workflow 从 `_common/templates/plugin_requirement_template.md` 创建） |
+| [`plugin_ui_requirement.md`](plugin_ui_requirement.md) | UI 需求文档，主要给 UI 设计师出商店配图 |
+| [`plugin_requirement_feishu.md`](plugin_requirement_feishu.md) | 飞书侧需求文档导出快照 |
 
-## 整理产物
-- `requirements/derived/`
-  - 当前状态：初始化后为空
+## 调研与原始资料
 
-## 文件结构
-```text
-requirements/
-├── plugin_requirement.md      ## 主需求文档，作为当前插件需求定义的正式入口
-├── plugin_ui_requirement.md   ## UI 需求文档，作为界面与交互说明的正式入口
-├── raw/                       ## 原始输入资料目录，存放历史文档、会议纪要与原始材料
-└── derived/                   ## 整理输出资料目录，存放摘要、归纳与整理结果
-```
+| 文件 | 用途 |
+| --- | --- |
+| [`site_research_notes.md`](site_research_notes.md) | 站点技术调研：DRM（Widevine / PlayReady / FairPlay）、MPEG-DASH 协议、Akamai CDN、Prime / Rent / Buy / Channel 订阅体系 |
+| [`product_page_facts.md`](product_page_facts.md) | 产品页事实层（`https://streamfab.dvdfab.cn/amazon-downloader.htm`） |
+| [`store_listing_notes.md`](store_listing_notes.md) | Chrome / Edge 商店发布事实（扩展 ID、版本、文案口径） |

@@ -1,49 +1,31 @@
-# M3U8 插件知识库
+# StreamFab M3U8 Downloader for Browser
 
-## 主入口
-- `00_overview.md`
+面向 `M3U8 / HLS` 协议的**多站点**浏览器下载插件，覆盖所有含 M3U8 流的视频站点，不绑定特定平台。
 
-## 核心文件
-1. `01_product_brief.md`
-2. `02_functional_architecture.md`
-3. `03_page_structure.md`
-4. `04_interaction_details.md`
-5. `05_design_principles.md`
-6. `06_business_rules.md`
-7. `07_technical_constraints.md`
-8. `08_technical_implementation.md`
-9. `09_technical_open_issues.md`
+| 维度 | 取值 |
+| --- | --- |
+| 检测模式 | **netflix_mode（变体）** — 插件侧增加页面结构预判断 + 20 秒 CoApp 超时 |
+| 站点范围 | 多站点（任意含 M3U8 / HLS 流的视频页） |
+| 上线状态 | 已上线（V1001 / 2026-04-28） |
+| 视频画质 | 最高 1080P |
+| 加密支持 | 明文 + AES-128 / AES-256 / SAMPLE-AES（key 从 playlist 提取）；不支持 Widevine / PlayReady / FairPlay |
+| Banner 文案锚点 | M3U8 streams、up to 1080p、clear AAC audio（不绑定单站点） |
+| 产品页 | https://streamfab.dvdfab.cn/m3u8-downloader-for-browser.htm |
 
-## 关键模式
-- `patterns/settings_configuration_matrix.md`
-- `patterns/user_flows.md`
+## 文档导航
 
-## 需求文档
-- `requirements/plugin_requirement.md`
-- `requirements/plugin_ui_requirement.md`
+- 差异索引：[`diff_summary.md`](diff_summary.md)
+- 需求文档：[`requirements/plugin_requirement.md`](requirements/plugin_requirement.md)
+- UI 需求：[`requirements/plugin_ui_requirement.md`](requirements/plugin_ui_requirement.md)
+- 站点调研：[`requirements/site_research_notes.md`](requirements/site_research_notes.md)
+- 产品页事实：[`requirements/product_page_facts.md`](requirements/product_page_facts.md)
+- 变更日志：[`CHANGELOG.md`](CHANGELOG.md)
 
-## 版本记录
-- `CHANGELOG.md`
-- `version_history.md`
+## 阅读路线
 
-## 文件结构
-```text
-streamfab_m3u8_downloader_for_browser/
-├── 00_overview.md                 ## 目录总览，说明当前阶段、核心目标与阅读入口
-├── 01_product_brief.md            ## 产品简介，概览产品范围、核心信息与阅读入口
-├── 02_functional_architecture.md  ## 功能架构，说明模块划分、主链路与关键能力结构
-├── 03_page_structure.md           ## 页面结构，记录站点页面、插件页面与主要接入点
-├── 04_interaction_details.md      ## 交互细节，沉淀主流程、状态变化与关键交互规则
-├── 05_design_principles.md        ## 设计原则，记录界面表达、文案与插件专属设计要求
-├── 06_business_rules.md           ## 商业规则，记录套餐、试用、授权、限制与权益口径
-├── 07_technical_constraints.md    ## 技术约束，记录格式、平台能力、系统要求与技术边界
-├── 08_technical_implementation.md ## 技术实现，记录接口流、URL 判断、分析与下载链路
-├── 09_technical_open_issues.md    ## 技术遗留问题，记录当前已知的状态机缺口与待补接口
-├── CHANGELOG.md                   ## 本插件知识库更新记录
-├── version_history.md             ## 版本发布历史
-├── context/                       ## 摘要层，提供适合快速浏览的压缩版信息
-├── patterns/                      ## 模式层，沉淀可复用的流程、UI 与错误处理模式
-├── constraints/                   ## 约束层，补充平台、合规与技术限制说明
-├── references/                    ## 参考层，归档产品页、研究资料、来源与外部证据
-└── requirements/                  ## 需求层，维护正式需求文档与 UI 需求说明
-```
+按 [`_common/READING_MAP.md`](../_common/READING_MAP.md) 4 步读取：
+
+1. 通用规则 → [`_common/references/`](../_common/references/)
+2. 检测模式基线 → [`_common/references/baselines/netflix_mode.md`](../_common/references/baselines/netflix_mode.md)（**重点看 § 八 M3U8 变体小节**）
+3. 差异总览 → [`diff_summary.md`](diff_summary.md)
+4. 详细规格 → `requirements/`

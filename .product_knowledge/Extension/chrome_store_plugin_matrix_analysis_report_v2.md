@@ -4,11 +4,11 @@
 
 ### 0.1 报告范围
 
-本报告基于 8 个 Chrome 商店插件的最近 30 天后台数据（U-NEXT、OnlyFans 为部分窗口），覆盖流量、安装、活跃、口碑、渠道结构、OS 分布、地域与语言 7 个维度。
+本报告基于 8 个 Chrome 商店插件的最近 30 天后台数据（U-NEXT、OnlyFans 为部分窗口），并补充 Chrome 商店列表中的 Users 字段作为累计用户数口径。报告覆盖流量、安装、活跃、口碑、渠道结构、OS 分布、地域与语言 7 个维度。截图中的 myfans 为 Draft 状态，不计入本报告。
 
 ### 0.2 关键结论
 
-1. **矩阵规模过度集中于单点**：合计 1,856 次安装、2,343 WAU，但 Ytdlp 一款占 WAU 60.6%、Top 3（Ytdlp + Netflix + TVer）合计 85.4%；其余 5 款 WAU 均在 200 以下，矩阵抗单点波动能力弱。
+1. **矩阵规模过度集中于单点**：合计 1,856 次安装、2,343 WAU、3,113 累计用户数；Ytdlp 一款占 WAU 60.6%，Video / Ytdlp 在累计用户数中占 47.6%。Top 3 WAU（Ytdlp + Netflix + TVer）合计 85.4%，用户规模集中度较高。
 2. **Ytdlp 是矩阵中唯一具备公开评分压力的样本**：评分 3.0（2 条评价含 1 条自然 1 星），自然差评指向"试用+付费+需装额外软件"的预期错位；同时承担最大用户规模与最高口碑风险，是本周期最高优先级。
 3. **其余 7 款均缺评分资产**：6 款 0 评价、TVer 5.0 但仅 2 条样本；矩阵整体未建立公开口碑护城河，相较公开样本中 49.8% 扩展具备评分、有评分扩展均值 4.56 的水平偏弱。
 4. **进店流量管道单一**：所有插件进店流量高度依赖商店原生入口（ext_sidebar + ext_app_menu 在 OnlyFans、Ytdlp 合计 ≥91%）；所有 8 个插件 Campaign 报表均空白，外部营销动作无可量化复盘。
@@ -49,6 +49,7 @@
 | CTR | PV / Impressions | 仅对数据完整的插件计算 |
 | Installs | 安装量 | 本期获客 |
 | Uninstalls | 卸载量 | 本期卸载压力 |
+| 累计用户数 | Chrome 商店列表 Users 字段 | 观察插件发布以来的用户规模沉淀 |
 | WAU | 后台 Users 报表周用户字段 | 观察本期用户规模，不等同真实使用活跃 |
 | Ratings | 商店公开评分 | 观察公开口碑资产与差评风险 |
 
@@ -57,6 +58,7 @@
 - `WAU / 本期安装` 不是新增用户留存率。
 - `本期卸载 / 本期安装` 不是新增安装卸载率，本期卸载可能来自历史用户。
 - `Ratings = 0.0` 应理解为评分资产缺失或样本不足，不等同用户给出 0 分。
+- 累计用户数来自 Chrome 商店列表 Users 字段，用于观察发布以来的用户规模沉淀；WAU 来自后台周用户字段，用于观察本周期用户规模，两者不能混用。
 - WAU 字段来自 Chrome Web Store Users 报表，Google 官方说明 Users 不等同真实活跃行为监控。
 - 仅 Ytdlp 与 OnlyFans 提供完整曝光数据，CTR 仅对这两款计算。
 - Amazon、Disney Plus、Netflix、U-NEXT 因 PV 数据缺失或 Installs > PV，不计算 PV → Install 转化率。
@@ -69,8 +71,8 @@
 
 | 对比项 | 公开基准 | 本矩阵情况 | 参考判断 |
 | --- | --- | --- | --- |
-| 用户规模分布 | Exstats Q1 2026：Chrome 扩展用户中位数 18，70.4% ≤100 | Ytdlp 1,420；Netflix、TVer、Amazon、Disney Plus 均 >100；M3U8、OnlyFans、U-NEXT ≤100 | Ytdlp 明显高于长尾区间，4 款已越过低使用量区间 |
-| 1K+ 档位 | Exstats：1K–10K 约 6.3%、10K+ 约 2.6% | 仅 Ytdlp >1K | Ytdlp 为矩阵中唯一进入 1K+ 档位 |
+| 用户规模分布 | Exstats Q1 2026：Chrome 扩展用户中位数 18，70.4% ≤100 | Video/Ytdlp 1,481；Amazon 666；Netflix 378；TVer 251；Disney Plus 194；M3U8 106；OnlyFans 36；U-NEXT 1 | 6 款插件已超过 100 用户，Video/Ytdlp 明显高于长尾区间 |
+| 1K+ 档位 | Exstats：1K–10K 约 6.3%、10K+ 约 2.6% | 仅 Video/Ytdlp >1K | Video/Ytdlp 为矩阵中唯一进入 1K+ 档位 |
 | 评分覆盖 | Exstats：约 49.8% 扩展有评分，有评分平均 4.56 | 6 款无有效评分；TVer 5.0 但仅 2 条；Ytdlp 3.0 | 评分资产整体偏弱，Ytdlp 低于有评分样本均值 |
 | CTR、PV 转化、卸载率 | 无 Google 官方公开均值 | 仅内部横向 | 不下"高于/低于全商店平均"结论 |
 
@@ -82,11 +84,28 @@
 | --- | --- | --- |
 | 合计安装 | 1,856 | 含 U-NEXT 首日 |
 | 合计 WAU | 2,343 | 8 款合计 |
+| 合计累计用户数 | 3,113 | 基于 Chrome 商店列表 Users 字段，排除 myfans Draft |
 | Ytdlp 安装占比 | 32.2% | 598 / 1,856 |
 | Ytdlp WAU 占比 | 60.6% | 1,420 / 2,343 |
+| Video/Ytdlp 累计用户占比 | 47.6% | 1,481 / 3,113 |
 | Top 3 WAU 占比 | 85.4% | Ytdlp + Netflix + TVer = 2,002 |
 
-Ytdlp 在矩阵中同时承担最大安装规模与最大活跃来源；Amazon、Netflix、M3U8、Disney Plus 安装规模在 237–282 区间；TVer WAU（245）显著高于本期安装（122），存量用户规模来自历史沉淀。
+Ytdlp 在矩阵中同时承担最大安装规模、最大活跃来源和最大累计用户规模；Amazon、Netflix、M3U8、Disney Plus 安装规模在 237–282 区间；TVer WAU（245）显著高于本期安装（122），存量用户规模来自历史沉淀。
+
+### 3.1 累计用户数
+
+| 插件 | 累计用户数 | 状态 |
+| --- | ---: | --- |
+| Video / Ytdlp | 1,481 | Published - public |
+| Amazon | 666 | Published - public |
+| Netflix | 378 | Published - public |
+| TVer | 251 | Published - public |
+| Disney Plus | 194 | Published - public |
+| M3U8 | 106 | Published - public |
+| OnlyFans | 36 | Published - public |
+| U-NEXT | 1 | Published - public |
+
+累计用户数来自 Chrome 商店列表的 Users 字段，用于观察插件发布以来的用户规模沉淀。该口径与本期安装、WAU 不同：本期安装反映本报告周期内新增安装，WAU 反映最近 7 天用户规模，累计用户数更适合判断每个插件当前在商店中的总体用户底盘。
 
 ---
 
@@ -296,7 +315,7 @@ Amazon、Disney Plus、Netflix、U-NEXT 不计算。Amazon（282 安装 / 175 PV
 
 ## 12. 结论
 
-矩阵已形成一定安装与用户规模基础。Ytdlp 已脱离长尾区间，4 款成熟插件越过低使用量区间。但评分资产、Campaign 归因、安装后事件数据仍不完整；地域结构呈现稳定的"美区底盘 + 日德长尾"，本地化覆盖严重不足。
+矩阵已形成一定安装与用户规模基础。按 Chrome 商店 Users 字段看，Video/Ytdlp 已达到 1,481 累计用户，Amazon、Netflix、TVer、Disney Plus、M3U8 均已超过 100 累计用户；OnlyFans 与 U-NEXT 仍处于早期用户沉淀阶段。但评分资产、Campaign 归因、安装后事件数据仍不完整；地域结构呈现稳定的"美区底盘 + 日德长尾"，本地化覆盖严重不足。
 
 本周期运营优先级：
 
@@ -312,16 +331,18 @@ Amazon、Disney Plus、Netflix、U-NEXT 不计算。Amazon（282 安装 / 175 PV
 
 ## 附录 A：原始数据快照
 
-| 插件 | Installs | Uninstalls | PV | Impressions | WAU | Ratings |
-| --- | --- | --- | --- | --- | --- | --- |
-| Ytdlp | 598 | 356 | 937 | 5,320 | 1,420 | 3.0（2 条，含 1 条自然 1 星） |
-| Netflix | 265 | 125 | — | — | 337 | 0.0 |
-| TVer | 122 | 31 | 167 | — | 245 | 5.0（2 条） |
-| Disney Plus | 237 | 110 | — | — | 158 | 0.0 |
-| Amazon | 282 | 132 | 175 | — | 110 | 0.0 |
-| M3U8 | 260 | 缺数据 | 363 | — | 57 | 0.0 |
-| OnlyFans | 82 | 50 | 138 | 1,380 | 15 | 0.0 |
-| U-NEXT | 10 | 0 | 8 | — | 1 | 0.0 |
+| 插件 | 累计用户数 | Installs | Uninstalls | PV | Impressions | WAU | Ratings |
+| --- | ---: | --- | --- | --- | --- | --- | --- |
+| Ytdlp / Video | 1,481 | 598 | 356 | 937 | 5,320 | 1,420 | 3.0（2 条，含 1 条自然 1 星） |
+| Amazon | 666 | 282 | 132 | 175 | — | 110 | 0.0 |
+| Netflix | 378 | 265 | 125 | — | — | 337 | 0.0 |
+| TVer | 251 | 122 | 31 | 167 | — | 245 | 5.0（2 条） |
+| Disney Plus | 194 | 237 | 110 | — | — | 158 | 0.0 |
+| M3U8 | 106 | 260 | 缺数据 | 363 | — | 57 | 0.0 |
+| OnlyFans | 36 | 82 | 50 | 138 | 1,380 | 15 | 0.0 |
+| U-NEXT | 1 | 10 | 0 | 8 | — | 1 | 0.0 |
+
+注：累计用户数来自 Chrome 商店列表 Users 字段；myfans 为 Draft 状态，未计入本表。
 
 ## 附录 B：计算公式
 

@@ -1,45 +1,29 @@
-﻿# Disney Plus 插件知识库
+# StreamFab Disney Plus Downloader for Browser
 
-## 主入口
-- `00_overview.md`
+面向 Disney+ 用户的专用浏览器下载插件，仅支持 `disneyplus.com` 单站点。
 
-## 核心文件
-1. `01_product_brief.md`
-2. `02_functional_architecture.md`
-3. `03_page_structure.md`
-4. `04_interaction_details.md`
-5. `05_design_principles.md`
-6. `06_business_rules.md`
-7. `07_technical_constraints.md`
+| 维度 | 取值 |
+| --- | --- |
+| 检测模式 | **netflix_mode**（标准模式，无变体） |
+| 上线状态 | 已上线（首版 2026-03-16） |
+| 视频画质 | 浏览器侧最高 1080P（Chrome / Firefox 受 Widevine L3 限制至 720p） |
+| Banner 文案锚点 | `Pro-Quality Disney Plus Downloads, One Click.` / `up to 1080p, MP4/MKV, multi-track where available.` |
+| 站点协议 | HLS（M3U8）+ CMAF（同时携带 Widevine / PlayReady 初始化数据） |
+| 产品页 | https://streamfab.dvdfab.cn/disney-plus-downloader.htm |
 
-## 关键模式
-- `patterns/disney_vs_netflix_logic_diff.md`
+## 文档导航
 
-## 需求文档
-- `requirements/README.md`
-- `requirements/index.md`
-- `requirements/raw/`
-- `requirements/derived/`
+- 差异索引：[`diff_summary.md`](diff_summary.md)
+- 需求文档：[`requirements/plugin_requirement_feishu.md`](requirements/plugin_requirement_feishu.md)（飞书侧需求文档快照，主交付件）
+- 站点调研：[`requirements/site_research_notes.md`](requirements/site_research_notes.md)
+- 产品页事实：[`requirements/product_page_facts.md`](requirements/product_page_facts.md)
+- 变更日志：[`CHANGELOG.md`](CHANGELOG.md)
 
-## 版本记录
-- `CHANGELOG.md`
-- `version_history.md`
+## 阅读路线
 
-## 文件结构
-```text
-streamfab_disney_plus_downloader_for_browser/
-├── 00_overview.md                 ## 目录总览，说明当前阶段、核心目标与阅读入口
-├── 01_product_brief.md            ## 产品简介，概览产品范围、核心信息与阅读入口
-├── 02_functional_architecture.md  ## 功能架构，说明模块划分、主链路与关键能力结构
-├── 03_page_structure.md           ## 页面结构，记录站点页面、插件页面与主要接入点
-├── 04_interaction_details.md      ## 交互细节，沉淀主流程、状态变化与关键交互规则
-├── 05_design_principles.md        ## 设计原则，记录界面表达、文案与插件专属设计要求
-├── 06_business_rules.md           ## 商业规则，记录套餐、试用、授权、限制与权益口径
-├── 07_technical_constraints.md    ## 技术约束，记录格式、平台能力、系统要求与技术边界
-├── context/                       ## 摘要层，提供适合快速浏览的压缩版信息
-├── patterns/                      ## 模式层，沉淀可复用的流程、UI 与错误处理模式
-├── constraints/                   ## 约束层，补充平台、合规与技术限制说明
-├── references/                    ## 参考层，归档产品页、研究资料、来源与外部证据
-├── requirements/                  ## 需求层，维护正式需求文档、UI 需求与相关输入资料
-└── working_notes/                 ## 工作层，存放初始化辅助信息与不进入共享正文的内部记录
-```
+按 [`_common/READING_MAP.md`](../_common/READING_MAP.md) 4 步读取：
+
+1. 通用规则 → [`_common/references/`](../_common/references/)
+2. 检测模式基线 → [`_common/references/baselines/netflix_mode.md`](../_common/references/baselines/netflix_mode.md)
+3. 差异总览 → [`diff_summary.md`](diff_summary.md)
+4. 详细规格 → `requirements/`
