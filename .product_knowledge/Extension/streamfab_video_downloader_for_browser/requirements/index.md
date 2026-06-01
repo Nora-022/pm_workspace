@@ -8,7 +8,7 @@
 | [`plugin_ui_requirement.md`](plugin_ui_requirement.md) | UI 需求文档 |
 | [`plugin_requirement_feishu.md`](plugin_requirement_feishu.md) | 飞书侧需求文档导出快照 |
 | [`store_listing.md`](store_listing.md) | Chrome / Edge 商店上架文案（如已生成） |
-| [`rating_prompt_requirement.md`](rating_prompt_requirement.md) | Chrome 商店评价引导试点需求文档 |
+| [`rating_prompt_requirement.md`](rating_prompt_requirement.md) | Chrome / Edge 商店评价引导试点需求文档 |
 
 ## 调研与原始资料
 

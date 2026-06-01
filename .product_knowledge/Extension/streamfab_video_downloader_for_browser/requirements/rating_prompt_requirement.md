@@ -1,10 +1,10 @@
-# StreamFab Video Downloader for Browser - 评价引导试点需求文档
+# [StreamFab 浏览器插件] - [需求文档] - 商店评价引导
 
 ## 文档信息
 
 | 项目 | 内容 |
-|---|---|
-| 文档类型 | 试点需求文档 |
+| --- | --- |
+| 文档类型 | 需求文档 |
 | 试点插件 | StreamFab Video Downloader for Browser |
 | 适用渠道 | Chrome Web Store 版本 |
 | 当前版本 | v0.1 |
@@ -17,12 +17,14 @@
 
 Chrome 插件矩阵分析显示，当前多个插件存在评分资产不足的问题。Video 插件是通用多站点下载器，也是 ytdlp_mode 的基线样例，已上线且具备较明确的用户规模基础。因此，评价引导不应先全量铺到所有插件，而应先在 Video 插件中试点，验证触发时机、用户接受度、界面干扰和评分资产提升效果。
 
+数据分析文档：[https://doc-viewer.specm8.work/s/dga9nnue](https://doc-viewer.specm8.work/s/dga9nnue)
+
 Video 插件的核心价值链路是：用户检测到可下载视频，发起下载，并在 Downloads / Downloaded 区域看到任务成功完成。评价引导应放在用户完成核心价值闭环之后，而不是安装后、检测后或下载开始时。
 
 ### 1.2 为什么先做 Video 试点
 
 | 原因 | 说明 |
-|---|---|
+| --- | --- |
 | 用户规模具备基础 | Video / Ytdlp 是当前 Chrome 插件矩阵中 WAU 最高的插件，具备更高的评价样本转化潜力 |
 | 任务闭环明确 | 下载完成是清晰、可识别、用户感知强的成功节点 |
 | 模式可复用 | Video 是 ytdlp_mode 基线样例，试点结果可沉淀为后续 M3U8、TVer 等插件的共用规则 |
@@ -37,7 +39,7 @@ Video 插件的核心价值链路是：用户检测到可下载视频，发起�
 ### 1.4 不做范围
 
 | 不做项 | 原因 |
-|---|---|
+| --- | --- |
 | 不做奖励换评价 | Chrome Web Store 政策禁止通过激励方式操纵评分、评论或安装量 |
 | 不要求 5 星评价 | 避免评分操纵和误导用户 |
 | 不在失败场景触发 | 下载失败、CoApp 异常、配额阻断等场景不适合引导评价 |
@@ -49,7 +51,7 @@ Video 插件的核心价值链路是：用户检测到可下载视频，发起�
 ### 2.1 已引用知识文件
 
 | 文件 | 关键事实 |
-|---|---|
+| --- | --- |
 | `Extension/streamfab_video_downloader_for_browser/README.md` | Video 插件是通用多站点下载插件，支持 Popup + Sidebar 双模式 |
 | `Extension/streamfab_video_downloader_for_browser/diff_summary.md` | Video 是 ytdlp_mode 活样例，主结构为 Detected / Downloads |
 | `Extension/_common/references/baselines/ytdlp_mode.md` | 任务状态包含 Pending、Downloading、Completed、Failed、Canceled；Completed 后进入 Downloaded 分组 |
@@ -62,7 +64,7 @@ Video 插件的核心价值链路是：用户检测到可下载视频，发起�
 Downloaded 列表右侧 hover action 已承载文件级操作：`Open Folder` 和关闭 / 删除。该区域不适合加入评价入口，原因如下：
 
 | 约束 | 影响 |
-|---|---|
+| --- | --- |
 | 单条 item 右侧空间有限 | 只能容纳少量文件操作 icon，新增评价 icon 会造成拥挤 |
 | 右侧 icon 已形成文件级语义 | 用户会把新增 icon 理解为该文件的操作，而不是插件整体评价 |
 | 只给第一条完成记录加 icon 会破坏一致性 | 同一列表内不同 item 行为不一致，容易造成理解成本 |
@@ -79,7 +81,7 @@ Downloaded 列表右侧 hover action 已承载文件级操作：`Open Folder` �
 ### 3.2 位置选择
 
 | 位置 | 结论 | 原因 |
-|---|---|---|
+| --- | --- | --- |
 | Downloaded 分组标题下方 | 推荐 | 不破坏单条记录操作语义，且与下载完成结果相关 |
 | 单条下载记录右侧 | 不推荐 | 与 Open Folder / Close 混在一起，会被理解为文件级操作 |
 | Downloaded 标题右侧垃圾桶附近 | 不推荐 | 垃圾桶是列表清理语义，评价入口放在这里不自然 |
@@ -92,7 +94,7 @@ Downloaded 列表右侧 hover action 已承载文件级操作：`Open Folder` �
 如果 Popup 高度不足，提示条允许采用更轻的 compact 形态：
 
 | 形态 | 使用条件 | 展示内容 |
-|---|---|---|
+| --- | --- | --- |
 | 标准提示条 | Sidebar 或 Popup 空间充足 | 一行文案 + `Rate` + `Not now` / 关闭 |
 | 紧凑提示条 | Popup 空间有限 | `Enjoying StreamFab?` + `Rate` + 关闭 |
 | 延后展示 | 当前 Downloads 列表空间不足或用户正在 hover item | 用户下次进入 Downloads / Downloaded 时再展示 |
@@ -101,7 +103,7 @@ Downloaded 列表右侧 hover action 已承载文件级操作：`Open Folder` �
 
 ## 4. 用户流程
 
-```mermaid
+```
 flowchart TD
   A["用户发起下载"] --> B["任务进入 Downloads"]
   B --> C{"任务结果"}
@@ -123,8 +125,8 @@ flowchart TD
 评价引导必须同时满足以下条件：
 
 | 条件 | 规则 |
-|---|---|
-| 渠道 | 仅 Chrome Web Store 版本 |
+| --- | --- |
+| 渠道 | Chrome Web Store、Edge Addon |
 | 任务状态 | 至少 1 个任务进入 `Completed` |
 | 成功类型 | 文件写入成功且校验通过 |
 | 用户状态 | 用户未主动点击过 `Rate` |
@@ -136,7 +138,7 @@ flowchart TD
 以下场景不得触发评价引导：
 
 | 场景 | 原因 |
-|---|---|
+| --- | --- |
 | 下载失败 | 用户处于负面体验，不适合引导商店评价 |
 | 用户取消下载 | 未完成核心价值闭环 |
 | CoApp 未连接或更新失败 | 问题尚未解决，优先给出修复引导 |
@@ -148,7 +150,7 @@ flowchart TD
 ### 5.3 频控规则
 
 | 用户操作 | 后续规则 |
-|---|---|
+| --- | --- |
 | 点击 `Rate` | 永久不再主动展示评价提示 |
 | 点击关闭或 `Not now` | 14 天内不再展示 |
 | 无操作关闭插件 | 下次满足条件时可继续展示，但同一自然日最多展示 1 次 |
@@ -163,7 +165,7 @@ flowchart TD
 建议布局：
 
 | 元素 | 规则 |
-|---|---|
+| --- | --- |
 | 高度 | 标准态 32-36px；紧凑态不超过 28px |
 | 位置 | Downloaded 标题下方，第一条记录上方 |
 | 文案 | 一行展示，超出省略 |
@@ -175,23 +177,15 @@ flowchart TD
 推荐文案使用中性表达，不引导用户给好评。
 
 | 场景 | 文案 | 按钮 |
-|---|---|---|
+| --- | --- | --- |
 | 标准态 | `Download completed. Share your feedback?` | `Rate` / `Not now` |
-| 紧凑态 | `Enjoying StreamFab?` | `Rate` / close |
+| 紧凑态 |  | `Rate` / close |
 | Tooltip | `Rate StreamFab Video Downloader on Chrome Web Store` | - |
-
-不允许使用以下文案：
-
-- `Give us 5 stars`
-- `Leave a good review`
-- `Rate us to unlock`
-- `Get rewards for rating`
-- 任何暗示必须好评、奖励换评价或功能解锁的表达
 
 ### 6.3 对既有界面的影响
 
 | 模块 | 影响 |
-|---|---|
+| --- | --- |
 | Detected | 无影响，不新增入口 |
 | Downloads / Downloading | 无影响，不在下载中任务上展示 |
 | Downloaded | 新增分组级提示条，不修改单条 item hover action |
@@ -206,7 +200,7 @@ flowchart TD
 客户端需记录以下本地状态，用于频控和避免重复打扰：
 
 | 字段 | 含义 |
-|---|---|
+| --- | --- |
 | `rating_prompt_eligible` | 是否已完成首次成功下载，具备展示资格 |
 | `rating_prompt_last_shown_at` | 上次展示时间 |
 | `rating_prompt_dismissed_at` | 用户关闭或 Not now 时间 |
@@ -216,7 +210,7 @@ flowchart TD
 ### 7.2 事件埋点
 
 | Event | Trigger | Params |
-|---|---|---|
+| --- | --- | --- |
 | `rating_prompt_eligible` | 首个任务进入 Completed | `channel`、`task_type`、`is_batch` |
 | `rating_prompt_show` | 提示条展示 | `surface`、`layout`、`download_count` |
 | `rating_prompt_click_rate` | 点击 Rate | `surface`、`layout`、`days_since_install` |
@@ -225,14 +219,16 @@ flowchart TD
 
 ### 7.3 评价链接
 
-Chrome Web Store 评价入口应指向当前插件的 Chrome 商店详情页或评价页。链接必须按插件 ID 生成，不得跳转到其他插件或非官方评价收集页面。
+Chrome Web Store：[https://chromewebstore.google.com/detail/streamfab-video-downloade/pmblmkemjdeicgahfkiogdkhjhefhhea?hl=en-US&utm_source=ext_sidebar](https://chromewebstore.google.com/detail/streamfab-video-downloade/pmblmkemjdeicgahfkiogdkhjhefhhea?hl=en-US&utm_source=ext_sidebar)
+
+Edge Addon: [StreamFab Video Downloader - Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/streamfab-video-downloade/bgfbcbkjjndjeamckkakgkiphdhlmbip)
 
 ## 8. 合规与策略边界
 
 Chrome Web Store 政策要求开发者不得通过非法或激励方式操纵评分、评论或安装量，也不得使用误导性内容影响用户判断。评价引导必须遵守以下规则：
 
 | 规则 | 要求 |
-|---|---|
+| --- | --- |
 | 不激励 | 不提供折扣、权益、下载次数、功能解锁等奖励 |
 | 不诱导五星 | 不出现“5 stars”“good review”等定向表达 |
 | 不阻断任务 | 不用 modal 阻断用户继续使用 |
@@ -247,7 +243,7 @@ Chrome Web Store 政策要求开发者不得通过非法或激励方式操纵评
 ### 9.1 功能验收
 
 | 编号 | 验收标准 |
-|---|---|
+| --- | --- |
 | AC01 | 用户首次完成下载后，进入或停留在 Downloaded 分组时可看到评价提示条 |
 | AC02 | 下载失败、取消、配额阻断、CoApp 异常、DRM 限制、YouTube Chrome 限制场景不展示评价提示 |
 | AC03 | 提示条展示在 Downloaded 分组顶部，不出现在单条下载记录右侧 |
@@ -260,7 +256,7 @@ Chrome Web Store 政策要求开发者不得通过非法或激励方式操纵评
 ### 9.2 数据验收
 
 | 编号 | 验收标准 |
-|---|---|
+| --- | --- |
 | AC09 | 所有展示、点击、关闭、抑制原因均有埋点 |
 | AC10 | 可按渠道、展示位置、布局形态统计展示率、点击率、关闭率 |
 | AC11 | 可对比上线前后 Chrome Web Store 评分数量和评分变化 |
@@ -269,7 +265,7 @@ Chrome Web Store 政策要求开发者不得通过非法或激励方式操纵评
 ## 10. 发布与灰度
 
 | 阶段 | 范围 | 观察重点 |
-|---|---|---|
+| --- | --- | --- |
 | 内部验证 | 内部测试包 | UI 是否遮挡、状态是否误触发、链接是否正确 |
 | 小流量灰度 | Chrome Web Store 版部分用户 | 展示率、点击率、关闭率、负反馈 |
 | 扩大灰度 | Chrome Web Store 版更多用户 | 评分数量变化、卸载压力是否变化 |
@@ -301,7 +297,7 @@ Chrome Web Store 政策要求开发者不得通过非法或激励方式操纵评
 ## 12. 风险与应对
 
 | 风险 | 影响 | 应对 |
-|---|---|---|
+| --- | --- | --- |
 | 用户认为提示打扰 | 可能增加关闭率或负反馈 | 低频展示、可关闭、不使用弹窗 |
 | 被理解为诱导评价 | 可能产生合规风险 | 使用中性文案，不要求好评，不提供奖励 |
 | 下载列表空间不足 | 影响 Downloads 可读性 | 使用紧凑形态或延后展示 |

@@ -60,6 +60,6 @@ RecordFab/
 
 | 日期 | 更新内容 |
 |---|---|
-| 2026-05-29 | 修改 3 项 |
+| 2026-06-01 | 修改 1 项 |
 
 > 完整更新记录见 [DAILY_CHANGELOG.md](DAILY_CHANGELOG.md)

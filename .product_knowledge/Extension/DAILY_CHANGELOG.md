@@ -1,5 +1,17 @@
 # 知识库每日更新记录
 
+## 2026-06-01
+
+### 修改
+- .product_knowledge/Extension/streamfab_video_downloader_for_browser/requirements/index.md
+- .product_knowledge/Extension/streamfab_video_downloader_for_browser/requirements/rating_prompt_requirement.md
+- .product_knowledge/RecordFab/recordfab-prototype/vite.config.ts
+
+### 删除
+- .product_knowledge/chrome_store_plugin_matrix_analysis_report.md
+
+---
+
 ## 2026-05-29
 
 ### 新增
