@@ -6,7 +6,6 @@
 | --- | --- |
 | [`plugin_requirement.md`](plugin_requirement.md) | 主需求文档，对外交付给开发 / PM（由 workflow 从 `_common/templates/plugin_requirement_template.md` 创建） |
 | [`plugin_ui_requirement.md`](plugin_ui_requirement.md) | UI 需求文档，主要给 UI 设计师出商店配图 |
-| [`plugin_requirement_feishu.md`](plugin_requirement_feishu.md) | 飞书侧需求文档导出快照 |
 
 ## 调研与原始资料
 

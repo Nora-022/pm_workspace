@@ -1,27 +1,17 @@
-# Requirements Index
+# TVer 需求文档索引
 
-## Document List
-1. `plugin_requirement.md`
-   - Status: initialized from shared template and partially prefilled for TVer
-   - Purpose: functional requirement working document
+## 正式文档
 
-2. `plugin_ui_requirement.md`
-   - Status: initialized from shared template and partially prefilled for TVer
-   - Purpose: UI requirement working document
+| 文件 | 用途 |
+| --- | --- |
+| [`plugin_requirement.md`](plugin_requirement.md) | 主需求文档 |
+| [`plugin_ui_requirement.md`](plugin_ui_requirement.md) | UI 需求文档 |
 
-## Raw Inputs
-- `requirements/raw/`
-  - Current status: empty
+## 调研与原始资料
 
-## Derived Outputs
-- `requirements/derived/`
-  - Current status: empty
-
-## 文件结构
-```text
-requirements/
-├── plugin_requirement.md      ## 主需求文档，作为当前插件需求定义的正式入口
-├── plugin_ui_requirement.md   ## UI 需求文档，作为界面与交互说明的正式入口
-├── raw/                       ## 原始输入资料目录，存放历史文档、会议纪要与原始材料
-└── derived/                   ## 整理输出资料目录，存放摘要、归纳与整理结果
-```
+| 文件 | 用途 |
+| --- | --- |
+| [`site_research_notes.md`](site_research_notes.md) | 站点技术调研 |
+| [`product_page_facts.md`](product_page_facts.md) | 产品页事实层 |
+| [`client_product_page_notes.md`](client_product_page_notes.md) | 客户端产品页笔记 |
+| [`devtools_fetch_dump.js`](devtools_fetch_dump.js) | DevTools 抓包脚本 |

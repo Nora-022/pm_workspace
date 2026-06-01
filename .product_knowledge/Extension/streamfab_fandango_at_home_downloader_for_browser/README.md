@@ -1,38 +1,40 @@
-# Fandango at Home 插件知识库
+# StreamFab Fandango at Home Downloader for Browser
 
-## 主入口
-- `00_overview.md`
+面向 Fandango at Home（前身 Vudu）用户的单站点浏览器下载插件，仅美国。
 
-## 核心文件
-1. `01_product_brief.md`
-2. `02_functional_architecture.md`
-3. `03_page_structure.md`
-4. `04_interaction_details.md`
-5. `05_design_principles.md`
-6. `06_business_rules.md`
-7. `07_technical_constraints.md`
+| 维度 | 取值 |
+| --- | --- |
+| 检测模式 | **netflix_mode** |
+| 上线状态 | 待研发 |
+| 站点 | `athome.fandango.com`（旧域 `vudu.com` 已重定向） |
+| 地区 | 仅美国 |
+| 内容形态 | TVOD（Rent / Buy）+ AVOD（Free with Ads），约 200,000+ 标题 |
+| 视频画质 | 最高 4K（DRM 环境影响命中） |
+| 编码 | H.264 / H.265-SDR / HDR10 / Dolby Vision |
+| 音频 | EAC3 5.1 / AAC 2.0（4K 可能伴随 Atmos） |
+| 协议 | MPEG-DASH + CMAF / fMP4 |
+| DRM | Widevine + PlayReady（FairPlay 走 HLS，浏览器不命中） |
+| 价格 | Lifetime $59.99（仅一档） |
+| pid | 693（Win） |
+| app id | `streamfab_for_browser_fandango_at_home` |
+| 跳转 slug | `fandango-at-home-downloader` |
+| 产品页 | https://streamfab.com/fandango-at-home-downloader.htm |
 
-## 需求文档
-- `requirements/plugin_requirement.md`
-- `requirements/plugin_ui_requirement.md`
+## 文档导航
 
-## 版本记录
-- `CHANGELOG.md`
+- 差异索引：[`diff_summary.md`](diff_summary.md)
+- 需求文档：[`requirements/plugin_requirement.md`](requirements/plugin_requirement.md)
+- UI 需求：[`requirements/plugin_ui_requirement.md`](requirements/plugin_ui_requirement.md)
+- 站点调研：[`requirements/site_research_notes.md`](requirements/site_research_notes.md)
+- 产品页事实：[`requirements/product_page_facts.md`](requirements/product_page_facts.md)
+- 客户端产品页笔记：[`requirements/client_product_page_notes.md`](requirements/client_product_page_notes.md)
+- 变更日志：[`CHANGELOG.md`](CHANGELOG.md)
 
-## 文件结构
-```text
-streamfab_fandango_at_home_downloader_for_browser/
-├── 00_overview.md                 ## 目录总览，说明当前阶段、核心目标与阅读入口
-├── 01_product_brief.md            ## 产品简介，概览产品范围、核心信息与阅读入口
-├── 02_functional_architecture.md  ## 功能架构，说明模块划分、主链路与关键能力结构
-├── 03_page_structure.md           ## 页面结构，记录站点页面、插件页面与主要接入点
-├── 04_interaction_details.md      ## 交互细节，沉淀主流程、状态变化与关键交互规则
-├── 05_design_principles.md        ## 设计原则，记录界面表达、文案与插件专属设计要求
-├── 06_business_rules.md           ## 商业规则，记录套餐、试用、授权、限制与权益口径
-├── 07_technical_constraints.md    ## 技术约束，记录格式、平台能力、系统要求与技术边界
-├── context/                       ## 摘要层，提供适合快速浏览的压缩版信息
-├── patterns/                      ## 模式层，沉淀可复用的流程、UI 与错误处理模式
-├── constraints/                   ## 约束层，补充平台、合规与技术限制说明
-├── references/                    ## 参考层，归档产品页、研究资料、来源与外部证据
-└── requirements/                  ## 需求层，维护正式需求文档与 UI 需求说明
-```
+## 阅读路线
+
+按 [`_common/READING_MAP.md`](../_common/READING_MAP.md) 4 步读取：
+
+1. 通用规则 → [`_common/references/`](../_common/references/)
+2. 检测模式基线 → [`_common/references/baselines/netflix_mode.md`](../_common/references/baselines/netflix_mode.md)
+3. 差异总览 → [`diff_summary.md`](diff_summary.md)
+4. 详细规格 → `requirements/`
