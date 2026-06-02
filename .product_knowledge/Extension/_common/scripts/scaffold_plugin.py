@@ -23,17 +23,10 @@ REFERENCES_DIR = SKILLS_DIR / "references"
 TEMPLATES_DIR = COMMON_DIR / "templates"
 
 SKELETON_FILES = [
-    ("skeleton_readme.md",              "README.md"),
-    ("skeleton_00_overview.md",         "00_overview.md"),
-    ("skeleton_01_product_brief.md",    "01_product_brief.md"),
-    ("skeleton_02_functional_architecture.md", "02_functional_architecture.md"),
-    ("skeleton_03_page_structure.md",   "03_page_structure.md"),
-    ("skeleton_04_interaction_details.md", "04_interaction_details.md"),
-    ("skeleton_05_design_principles.md","05_design_principles.md"),
-    ("skeleton_06_business_rules.md",   "06_business_rules.md"),
-    ("skeleton_07_technical_constraints.md", "07_technical_constraints.md"),
-    ("skeleton_changelog.md",           "CHANGELOG.md"),
-    ("skeleton_requirements_index.md",  "requirements/index.md"),
+    ("skeleton_readme.md",                 "README.md"),
+    ("skeleton_plugin_differences.md",  "plugin_differences.md"),
+    ("skeleton_changelog.md",              "CHANGELOG.md"),
+    ("skeleton_requirements_index.md",     "requirements/index.md"),
 ]
 
 # Requirement and UI requirement docs are generated later by the workflow skill
@@ -61,10 +54,6 @@ IMMEDIATE_COMMON_TEMPLATES = [
 
 SUBDIRS = [
     "requirements",
-    "patterns",
-    "constraints",
-    "references",
-    "context",
 ]
 
 

@@ -16,7 +16,7 @@ allowed-tools:
 把一句”创建 `<service>` 插件”落成一个可继续推进的起点，至少完成：
 
 - 在 `Extension/` 下创建或修复插件目录
-- 按当前统一结构初始化本地知识库（00–07 骨架 + CHANGELOG + requirements/index.md）
+- 按当前统一结构初始化本地知识库（README + `plugin_differences.md` + CHANGELOG + requirements/index.md）
 - **不创建本地客户端方案拆解 md**；客户端方案拆解走飞书副本：
   - 通用模板 URL：`https://i6a1sqw3p2.feishu.cn/docx/KEledkZ7Po2OFNxCtaccq1B9nsf`
   - 用户在飞书复制本模板为副本，重命名为 `[StreamFab 浏览器插件] - 客户端方案拆解 - <display_name>`，再把副本 URL 交付给 AI（workflow 阶段使用）
@@ -33,14 +33,14 @@ allowed-tools:
 - 不负责客户端拆解信息回填
 - 不负责缺口检查和收尾追问
 
-初始化完成后，先交接给 `streamfab-extension-workflow` 做站点调研 / 产品页事实提取；事实提取完成后，再提示用户填写客户端方案拆解 MD。用户确认填写完成后，workflow 继续生成 / 回填需求文档和 UI 需求说明。
+初始化完成后，先交接给 `streamfab-extension-workflow` 做站点调研 / 产品页事实提取；事实提取完成后，再提示用户填写客户端方案拆解飞书副本。用户交付副本 URL 后，workflow 继续生成 / 回填需求文档、UI 需求说明和 `plugin_differences.md`。
 
 ## 初始化后的切换规则
 
 满足以下条件时，`streamfab-plugin-init` 必须结束，交由 `streamfab-extension-workflow` 接管：
 
 1. 插件目录已创建或修复
-2. 核心 Markdown 骨架已存在
+2. 插件差异入口 `plugin_differences.md` 已存在
 3. 已向用户输出飞书拆解模板 URL 及"复制 / 重命名 / 交付副本 URL"提示
 4. 已返回插件本地路径和模式
 
@@ -87,7 +87,23 @@ allowed-tools:
 插件目录至少包含：
 
 - `README.md`
+- `plugin_differences.md`
+- `CHANGELOG.md`
+- `requirements/index.md`
+- `requirements/store_listing.md`（Chrome / Edge 应用商店上架信息，init 阶段从 `_common/templates/plugin_store_listing_template.md` 拷贝并替换 `{SiteName}` 等占位符；上架前由 PM 补充截图、Search terms 等待填字段）
+
+插件目录不再生成自己的 01-07 主干文件。通用 Knowledge Manager 基线统一读取 `_common/01_product_brief.md` 到 `_common/07_technical_constraints.md`；插件自己的差异固定写入 `plugin_differences.md`，不参与 common 编号。
+
+`requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md` 是 workflow 阶段的产物：先由 workflow 完成站点调研 / 产品页事实提取，再等用户在飞书完成拆解副本填写后，从 common 模板创建并回填。
+
+客户端方案拆解走飞书副本（模板 URL：`https://i6a1sqw3p2.feishu.cn/docx/KEledkZ7Po2OFNxCtaccq1B9nsf`），不再在插件目录下生成本地 md 文件。
+
+禁止继续创建旧 `00_*` 和插件级 `01-07` 文件：
+
 - `00_overview.md`
+- `00_planning_context.md`
+- `00_decision_log.md`
+- `00_context_and_decisions.md`
 - `01_product_brief.md`
 - `02_functional_architecture.md`
 - `03_page_structure.md`
@@ -95,19 +111,6 @@ allowed-tools:
 - `05_design_principles.md`
 - `06_business_rules.md`
 - `07_technical_constraints.md`
-- `CHANGELOG.md`
-- `requirements/index.md`
-- `requirements/store_listing.md`（Chrome / Edge 应用商店上架信息，init 阶段从 `_common/templates/plugin_store_listing_template.md` 拷贝并替换 `{SiteName}` 等占位符；上架前由 PM 补充截图、Search terms 等待填字段）
-
-`requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md` 是 workflow 阶段的产物：先由 workflow 完成站点调研 / 产品页事实提取，再等用户在飞书完成拆解副本填写后，从 common 模板创建并回填。
-
-客户端方案拆解走飞书副本（模板 URL：`https://i6a1sqw3p2.feishu.cn/docx/KEledkZ7Po2OFNxCtaccq1B9nsf`），不再在插件目录下生成本地 md 文件。
-
-禁止继续创建旧 `00_*` 文件：
-
-- `00_planning_context.md`
-- `00_decision_log.md`
-- `00_context_and_decisions.md`
 
 ## 文档写作规则
 
@@ -120,10 +123,10 @@ allowed-tools:
 
 init 阶段由 `scaffold_plugin.py` 生成两类本地文件：
 
-1. **骨架文件**：从 `_common/skills/streamfab-extension-init-skill/references/` 读取，生成 00–07、CHANGELOG、requirements/index.md，替换 `{display_name}` / `{service_name}` 占位符。
+1. **骨架文件**：从 `_common/skills/streamfab-extension-init-skill/references/` 读取，生成 README、`plugin_differences.md`、CHANGELOG、requirements/index.md，替换 `{display_name}` / `{service_name}` 占位符。
 2. **上架信息文档**：从 `_common/templates/plugin_store_listing_template.md` 拷贝到 `requirements/store_listing.md`，替换 `{SiteName}` → display_name、`{SiteNameMlink}` → display_name 单词用 `_` 连接、`{sitename}` → service_name 连字符小写形式。截图、Search terms 等待填字段由 PM 在上架前手工补齐。
 
-**脚本不再复制 `plugin_client_plan_template.md`，本地客户端方案拆解 md 不再生成。**
+**脚本不再复制 `plugin_client_plan_template.md`，本地客户端方案拆解 md 不再生成，也不再生成插件级 01-07 主干文件。**
 
 客户端方案拆解改为飞书副本：
 
@@ -137,7 +140,7 @@ workflow 完成站点调研 / 产品页事实提取后，用户在飞书副本�
 
 模板中的占位符按以下规则替换：`{SiteName}` → display_name（用于插件产品名和 CoApp 安装程序名，保留原始大小写）；`{SiteNameMlink}` → display_name 单词用 `_` 连接（用于 mlink）；`{service_name}` → snake_case 服务标识（用于 app id）；`{sitename}` → service_name 的连字符小写形式（用于产品页 URL、What's New、订阅 / 升级付费等跳转链接）。其他占位符（`{BannerContentEN}`、`{ThirdStoreProductImageCaption}` 等）保留，待 workflow 阶段从飞书副本定稿内容填入。
 
-`plugin_requirement.md` 中的 `### 网站信息` 由 workflow 基于 `references/site_research_notes.md` 和目标站点调研回填，仅写历史沿革 / 服务地区 / 内容形式 / 视频付费方式 / 调研笔记链接五项简介，不在 init 阶段填充正文。
+`plugin_requirement.md` 中的 `### 网站信息` 由 workflow 基于 `requirements/site_research_notes.md` 和目标站点调研回填，仅写历史沿革 / 服务地区 / 内容形式 / 视频付费方式 / 调研笔记链接五项简介，不在 init 阶段填充正文。
 
 ## 执行流程
 
@@ -164,10 +167,6 @@ workflow 完成站点调研 / 产品页事实提取后，用户在飞书副本�
 至少保证这些目录存在：
 
 - `requirements/`
-- `patterns/`
-- `constraints/`
-- `references/`
-- `context/`
 
 ### Phase 2 & 3：创建目录和骨架文件（脚本执行）
 
@@ -179,7 +178,7 @@ python Extension/_common/scripts/scaffold_plugin.py \
   --display-name "<display_name>"
 ```
 
-脚本从 `_common/skills/streamfab-extension-init-skill/references/` 读取骨架模板，从 `_common/templates/plugin_store_listing_template.md` 拷贝上架信息模板，替换 `{display_name}` / `{service_name}` / `{SiteName}` / `{SiteNameMlink}` / `{sitename}` 占位符后写入新插件目录。repair mode 下只创建缺失文件，不覆盖已有内容。**脚本不再复制 `plugin_client_plan_template.md`。**
+脚本从 `_common/skills/streamfab-extension-init-skill/references/` 读取骨架模板，从 `_common/templates/plugin_store_listing_template.md` 拷贝上架信息模板，替换 `{display_name}` / `{service_name}` / `{SiteName}` / `{SiteNameMlink}` / `{sitename}` 占位符后写入新插件目录。repair mode 下只创建缺失文件，不覆盖已有内容。**脚本不再复制 `plugin_client_plan_template.md`，也不再生成插件级 01-07 主干文件。**
 
 先用 `--dry-run` 预览，确认无误后去掉参数正式执行。
 
@@ -216,7 +215,7 @@ python Extension/_common/scripts/scaffold_plugin.py \
 执行完成后，至少满足：
 
 - 插件目录已创建或修复
-- 核心骨架文件齐全
+- README、`plugin_differences.md`、CHANGELOG、`requirements/index.md` 齐全
 - 已向用户输出飞书拆解模板 URL（`https://i6a1sqw3p2.feishu.cn/docx/KEledkZ7Po2OFNxCtaccq1B9nsf`）及"复制 / 重命名 / 交付副本 URL"流程提示
 - 已明确交接到 `streamfab-extension-workflow`，下一步先做站点调研 / 产品页事实提取；事实提取完成后再让用户交付客户端方案拆解飞书副本 URL
 
@@ -225,7 +224,7 @@ python Extension/_common/scripts/scaffold_plugin.py \
 初始化完成后，优先按这个格式汇报：
 
 - `当前阶段：初始化完成`
-- `本轮已同步内容：目录、骨架文件已创建；客户端方案拆解走飞书副本（已给出模板 URL）`
+- `本轮已同步内容：目录、README、plugin_differences、CHANGELOG 和 requirements/index 已创建；客户端方案拆解走飞书副本（已给出模板 URL）`
 - `更新的文件：<插件目录路径>`
 - `当前完成度：L0 初始化`
 - `下一步建议：请提供目标站点链接和 / 或客户端产品页链接；我会进入 streamfab-extension-workflow 先做站点调研 / 产品页事实提取，之后请你在飞书复制拆解模板（https://i6a1sqw3p2.feishu.cn/docx/KEledkZ7Po2OFNxCtaccq1B9nsf），填好后把副本 URL 交付给我`

@@ -7,19 +7,19 @@
 ## 两个 Skill 的关系
 
 ```
-用户："创建新插件"
+用户：创建新插件
         ↓
-streamfab-plugin-init        ← 只负责起盘
-  - 创建本地目录和骨架文件
-  - 只创建客户端方案拆解 Markdown，不创建飞书文档
-  - 输出本地路径和客户端方案拆解文档路径
+streamfab-plugin-init        → 只负责起盘
+  - 创建本地插件目录和骨架文件
+  - 创建 / 输出客户端方案拆解 Markdown
+  - 骨架只包含 README、plugin_differences、CHANGELOG、requirements/index
         ↓ 初始化完成后交接
-streamfab-extension-workflow  ← 接管后续所有推进
+streamfab-extension-workflow → 接管后续所有推进
   - 节点1：确认初始化
   - 节点2：站点调研与产品页事实提取
-  - 节点3：产品页事实提取完成后，读取用户填写的客户端方案拆解，生成 / 回填需求文档和 UI 需求说明
-  - 节点4：客户端拆解回填
-  - 节点4.5：context/patterns/constraints 回填
+  - 节点3：读取用户填写的客户端方案拆解，生成 / 回填需求文档和 UI 需求说明
+  - 节点4：客户端拆解回填到 requirements 与 plugin_differences
+  - 节点4.5：插件差异回填
   - 节点5：缺口检查
   - 节点6：收尾追问
   - 节点7：上线收尾

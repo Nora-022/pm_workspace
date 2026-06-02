@@ -8,6 +8,7 @@
 
 ### Store listing
 
+<!-- colwidth:11.39%,88.61% -->
 | 字段名 | 信息 |
 | --- | --- |
 | 插件名称 | StreamFab myfans Downloader for Browser |
@@ -99,7 +100,7 @@ Save users' favourite videos from myfans
 
 Permission justification
 
-<!-- colwidth:12.61%,87.39% -->
+<!-- colwidth:12.56%,87.44% -->
 | 字段 | 填写内容 |
 | --- | --- |
 | activeTab justification | The activeTab permission is used only for myfans pages when the user clicks the extension icon. It provides temporary access to the current page's URL and title to detect available videos and show download options. No browsing history or personal data is collected. |
@@ -124,10 +125,6 @@ Permission justification
 Dear Review Team,
 Please find attached the submission for my browser extension package, version 1001.
 The extension fully complies with browser security standards and does not collect, store, or transmit any user information. Its primary function is to assist users in managing and saving myfans video content for offline viewing in supported scenarios.
-This version includes the following improvements:
-- Fixes for several known functional issues
-- Adjustments to certain user interface details
-- Overall experience optimizations
 Testing Instructions
 - The installation of the StreamFab myfans CoApp (Companion Application) is required. This component has been thoroughly tested and operates entirely on the user's device.
 - Use a valid myfans account with an active subscription to sign in and play content on myfans pages.
@@ -136,7 +133,7 @@ Testing Instructions
 Test Account (for reviewer reference)
 - A myfans account with an active paid subscription is required to access playable content. Reviewers may use their own subscribed account, or contact us if a test account is needed.
 - Extension test account:
-  Account: test-liftstreamfab_for_myfans-01@streamfab.com
+  Account: test-liftstreamfab_for_browser1-01@streamfab.com
 Password: 123456
 Thank you for your time and review.
 ```

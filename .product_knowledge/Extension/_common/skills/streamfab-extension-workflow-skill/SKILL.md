@@ -1,6 +1,6 @@
 ---
 name: streamfab-extension-workflow
-description: 把已初始化的 StreamFab 插件知识库从 L0 推进到 L5 已上线，覆盖站点调研、产品页事实提取、本地 Markdown 定稿同步、客户端拆解、缺口检查和上线收尾，不重复做初始化。
+description: 把已初始化的 StreamFab 插件知识库从 L0 推进到 L5 已上线，覆盖站点调研、产品页事实提取、飞书拆解回填、插件差异同步、缺口检查和上线收尾，不重复做初始化。
 allowed-tools:
   - Bash
   - Read
@@ -22,9 +22,9 @@ allowed-tools:
 
 1. 初始化状态确认
 2. 站点调研与产品页事实提取
-3. 本地 MD 定稿同步
+3. 飞书拆解定稿同步
 4. 客户端拆解回填
-4.5. context / patterns / constraints 回填
+4.5. 插件差异回填
 5. 缺口检查
 6. 收尾追问
 7. 上线收尾
@@ -36,7 +36,7 @@ allowed-tools:
 当 `streamfab-plugin-init` 已完成以下事项时，本 skill 必须接管：
 
 - 本地插件目录已存在
-- 核心骨架文档已存在
+- README、`plugin_differences.md`、CHANGELOG、`requirements/index.md` 已存在
 - init 已向用户输出飞书拆解模板 URL（`https://i6a1sqw3p2.feishu.cn/docx/KEledkZ7Po2OFNxCtaccq1B9nsf`）及"复制 / 重命名 / 交付副本 URL"提示
 - 用户开始提供目标站点 / 产品页链接，或已完成站点调研 / 产品页事实提取后交付了客户端方案拆解飞书副本 URL
 
@@ -79,7 +79,7 @@ allowed-tools:
 适用场景：
 
 - 节点 2 缺目标站点 URL 或产品页 URL
-- 节点 3 缺本地客户端方案拆解 MD 填写结果
+- 节点 3 缺飞书客户端方案拆解副本 URL 或填写结果
 - 节点 4 缺关键截图或字段说明
 - 节点 6 需要收尾追问
 
@@ -117,23 +117,22 @@ allowed-tools:
 - `client_product_url`
   - `如需要同步客户端产品页事实，请提供客户端产品页链接。`
 
-### 模板 B：本地 MD 定稿同步补问
+### 模板 B：飞书拆解定稿同步补问
 
 适用场景：
 
 - 初始化已完成
-- 但客户端方案拆解 MD 还未填写完成或用户未确认
+- 但客户端方案拆解飞书副本还未填写完成或用户未确认
 
 推荐字段：
 
 1. `client_breakdown_filled`
-   - 提示语：`请先填写 requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md，填写完成后告诉我继续。`
+   - 提示语：`请先填写飞书客户端方案拆解副本，填写完成后把副本 URL 交付给我继续。`
 
 使用规则：
 
 - 不索要飞书文档链接
-- 用户确认填写完成后，先读取本地客户端方案拆解 MD：
-  - `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`
+- 用户确认填写完成后，读取飞书客户端方案拆解副本
 - 再从 common 模板创建 / 回填：
   - `requirements/plugin_requirement.md`
   - `requirements/plugin_ui_requirement.md`
@@ -176,7 +175,7 @@ allowed-tools:
 
 适用场景：
 
-- 已完成站点调研 / 产品页、本地 MD、客户端三轮主要同步
+- 已完成站点调研 / 产品页、飞书拆解、客户端三轮主要同步
 - 当前仅剩关键归档字段未齐
 
 推荐字段池：
@@ -219,7 +218,7 @@ allowed-tools:
 确认项：
 
 - 插件目录是否已存在
-- 客户端方案拆解 Markdown 是否已存在
+- `plugin_differences.md` 是否已存在
 - 当前处于哪个完成度等级
 
 如果未初始化，返回给 `streamfab-plugin-init`。
@@ -227,7 +226,7 @@ allowed-tools:
 
 **确认完成后，必须主动检查本地工作文档：**
 
-> 初始化已确认。下一步请先提供目标站点链接和 / 或客户端产品页链接；我会先完成站点调研与产品页事实提取，再请你填写 `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`。
+> 初始化已确认。下一步请先提供目标站点链接和 / 或客户端产品页链接；我会先完成站点调研与产品页事实提取，并把差异摘要回填到 `plugin_differences.md`。客户端方案拆解继续走飞书副本。
 
 不要创建或读取飞书文档。用户确认填写完成前，不创建 / 回填 `plugin_requirement.md` 和 `plugin_ui_requirement.md`。
 
@@ -236,17 +235,13 @@ allowed-tools:
 当用户给出目标站点链接、客户端产品页或官网产品页链接时：
 
 1. 先将目标站点调研落到：
-   - `references/site_research_notes.md`
+   - `requirements/site_research_notes.md`
 2. 如有客户端产品页或官网产品页链接，再将产品页客观事实落到：
-   - `references/client_product_page_notes.md`
-3. 再按主题分发到主干文档：
-   - `01_product_brief.md`
-   - `02_functional_architecture.md`
-   - `03_page_structure.md`
-   - `06_business_rules.md`
-   - `07_technical_constraints.md`
+   - `requirements/product_page_facts.md` 或 `requirements/client_product_page_notes.md`
+3. 再把已确认的差异摘要回填到：
+   - `plugin_differences.md`
 
-如果 `requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md` 尚未生成，不在节点 2 提前创建；节点 2 只沉淀 `references/` 和必要的 01-07 核心事实。节点 3 从 common 模板创建需求 / UI 文档时，再把节点 2 的事实同步进去。
+如果 `requirements/plugin_requirement.md` 和 `requirements/plugin_ui_requirement.md` 尚未生成，不在节点 2 提前创建；节点 2 只沉淀 `requirements/` 下的调研事实和 `plugin_differences.md` 的差异摘要。节点 3 从 common 模板创建需求 / UI 文档时，再把节点 2 的事实同步进去。
 
 站点调研优先提取：
 
@@ -268,28 +263,27 @@ allowed-tools:
 
 不把产品页未写明的信息扩写成规则，也不把产品页营销文案当成站点技术结论。
 
-回填 `requirements/plugin_requirement.md` 的 `### 网站信息` 时，严格按模板要求只写五项简介内容：历史沿革、主要服务地区、内容形式、视频付费方式、调研笔记链接。每条正文最多 3 行、整节合计 ≤ 20 行；登录限制、播放协议、DRM、清晰度、对需求字段的影响、平台订阅档位等技术 / 商业细节一律不写入本节，留在 `references/site_research_notes.md`。产品页事实不参与本节回填。
+回填 `requirements/plugin_requirement.md` 的 `### 网站信息` 时，严格按模板要求只写五项简介内容：历史沿革、主要服务地区、内容形式、视频付费方式、调研笔记链接。每条正文最多 3 行、整节合计 ≤ 20 行；登录限制、播放协议、DRM、清晰度、对需求字段的影响、平台订阅档位等技术 / 商业细节一律不写入本节，留在 `requirements/site_research_notes.md`。产品页事实不参与本节回填。
 
-节点 2 完成后，下一步必须提示用户填写客户端方案拆解 MD：
+节点 2 完成后，下一步必须提示用户填写客户端方案拆解飞书副本：
 
-- `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`
-- 填写前可参考 `references/site_research_notes.md` 和 `references/client_product_page_notes.md`
+- 飞书客户端方案拆解副本
+- 填写前可参考 `requirements/site_research_notes.md` 和 `requirements/product_page_facts.md`
 
 如果目标站点或产品页链接缺失，使用 `AskUserQuestion` 直接收集：
 
 - `target_site_url`
 - 如有必要：`client_product_url`
 
-### 节点 3：本地 MD 定稿同步
+### 节点 3：飞书拆解定稿同步
 
 **文档获取方式：**
-- 直接读取插件目录下的本地 Markdown 文件
-- 若客户端方案拆解 MD 尚未填写，停在当前节点，请用户填写后再继续
+- 读取用户交付的飞书客户端方案拆解副本
+- 若飞书副本尚未填写，停在当前节点，请用户填写后再继续
 
-当用户确认客户端方案拆解 MD 已填写完成时：
+当用户确认客户端方案拆解飞书副本已填写完成时：
 
-1. 读取：
-   - `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`
+1. 读取用户交付的飞书客户端方案拆解副本
 2. 确认 / 创建：
    - 如果 `requirements/plugin_requirement.md` 不存在，从 `Extension/_common/templates/plugin_requirement_template.md` 创建
    - 如果 `requirements/plugin_ui_requirement.md` 不存在，从 `Extension/_common/templates/plugin_ui_requirement_template.md` 创建
@@ -306,7 +300,7 @@ allowed-tools:
    - 试用和付费规则
    - 状态说明
    - 商店素材要求
-4. 回填到 `requirements/plugin_requirement.md`、`requirements/plugin_ui_requirement.md` 和对应知识库文件
+4. 回填到 `requirements/plugin_requirement.md`、`requirements/plugin_ui_requirement.md` 和 `plugin_differences.md`
 
 **回填 plugin_requirement.md / plugin_ui_requirement.md 的硬约束（强制）：**
 
@@ -314,9 +308,9 @@ allowed-tools:
 
 - 模板已有的章节必须保留（如需求模板的 `### 网站信息` 是必填节）
 - `### 网站信息` 必须按需求模板定义写成站点调研摘要，覆盖主要服务地区、内容类型、账号权益、播放协议、加密/DRM 线索及其对插件需求的影响；不要从产品页营销文案反推站点技术结论
-- 不增加模板没有的章节（如 `## 数据上报`、`## 全局变量`、`## 相关文档`、`## 文档目的`、`## 设计需求拆分` 等都不属于模板章节，即使客户端方案拆解 MD 有，也不在正式文档里另立节，而是并入模板已有节或不写入）
+- 不增加模板没有的章节（如 `## 数据上报`、`## 全局变量`、`## 相关文档`、`## 文档目的`、`## 设计需求拆分` 等都不属于模板章节，即使客户端方案拆解飞书副本有，也不在正式文档里另立节，而是并入模板已有节或不写入）
 - 不删除模板的必填节
-- 占位符（`{SiteName}` / `{sitename}` / `{BannerContentEN}` / `{ThirdStoreProductImageCaption}` 等）替换为本地 MD 定稿值
+- 占位符（`{SiteName}` / `{sitename}` / `{BannerContentEN}` / `{ThirdStoreProductImageCaption}` 等）替换为飞书副本定稿值
 - `{SiteName}` 按需求文档「流媒体服务名」原始大小写填写，用于插件产品名、CoApp 安装程序名和正文文案
 - `{SiteNameMlink}` 用于 mlink 链接中的产品名片段，保留展示名大小写并将单词用 `_` 连接；例如 `StreamFab_Fandango_at_Home_Downloader_for_Browser`、`StreamFab_Fandango_at_Home_Coapp`
 - `{service_name}` 用于 app id，保持 snake_case；`{sitename}` 一律小写并使用连字符，用于跳转链接（产品页 URL、What's New、订阅 / 升级付费链接）；例如 `streamfab_for_browser_fandango_at_home`、`fandango-at-home-downloader-for-browser.htm`、`pid=fandango-at-home-downloader`
@@ -329,7 +323,7 @@ allowed-tools:
 
 **节点 3 附加步骤：从 pid 表格自动读取并回填 Client ID 和 pid**
 
-在本地 MD 定稿同步完成后，立即执行以下操作：
+在飞书拆解定稿同步完成后，立即执行以下操作：
 
 1. 用 `lark-cli sheets +read` 读取 pid 总表：
    - URL：`https://i6a1sqw3p2.feishu.cn/sheets/shtcnlXOVQicx407Qs5xWs8euqb`
@@ -359,21 +353,21 @@ allowed-tools:
 
 4. 如果表格中对应行不存在或值为空：在对话中告知用户哪项缺失，不编造数据，对应单元格留空。
 
-如果客户端方案拆解 MD 尚未填写，优先停下并提示用户：
+如果客户端方案拆解飞书副本尚未填写，优先停下并提示用户：
 
-- 请填写 `requirements/[StreamFab 浏览器插件] - [<SiteName>] - 客户端方案拆解.md`
-- 填写完成后告诉我继续
+- 请填写飞书客户端方案拆解副本
+- 填写完成后把副本 URL 交付给我继续
 
 ### 节点 4：客户端拆解回填
 
 当用户继续给截图、页面字段、观察结果时：
 
-- 页面结构 -> `03_page_structure.md`
-- 交互与状态 -> `04_interaction_details.md`
-- 模块关系 -> `02_functional_architecture.md`
-- 业务规则 -> `06_business_rules.md`
-- 技术参数 -> `07_technical_constraints.md`
-- UI 差异 -> `05_design_principles.md` / `requirements/plugin_ui_requirement.md`
+- 页面结构差异 -> `plugin_differences.md` / `requirements/plugin_requirement.md`
+- 交互与状态差异 -> `plugin_differences.md` / `requirements/plugin_requirement.md`
+- 模块关系差异 -> `plugin_differences.md` / `requirements/plugin_requirement.md`
+- 业务规则差异 -> `plugin_differences.md` / `requirements/plugin_requirement.md`
+- 技术参数差异 -> `plugin_differences.md` / `requirements/plugin_requirement.md`
+- UI 差异 -> `plugin_differences.md` / `requirements/plugin_ui_requirement.md`
 
 如果用户给的是最终定稿文案，直接按定稿回填。
 
@@ -384,21 +378,17 @@ allowed-tools:
 - 状态说明
 - 已定稿文案
 
-### 节点 4.5：context / patterns / constraints 回填
+### 节点 4.5：插件差异回填
 
-在核心文件 01–07 完成后，触发此节点：
+在 requirements 文档完成后，触发此节点：
 
-- `context/product_brief.md`：产品名、定位、加密/协议支持摘要
-- `context/business_rules.md`：Trial / Premium 规则摘要
-- `patterns/user_flows.md`：主流程 + 分支（不支持、分析失败、登录中断）
-- `patterns/error_handling.md`：各错误场景触发条件、展示形式、文案、可重试性
-- `patterns/settings_configuration_matrix.md`：下载区配置项 + Setting 配置项 + 与参考插件的差异
-- `constraints/tech_limits.md`：加密支持范围、超时、结构限制
-- `constraints/platform_diffs.md`：平台支持、CoApp 下载链接
+- `plugin_differences.md`：补齐逻辑差异、UI 差异、关键事实索引
+- `requirements/index.md`：补齐当前 requirements 下文件清单
+- `README.md`：必要时更新阅读导航
 
 规则：
-- 内容从已有 01–07 核心文件提炼，不额外收集新信息
-- 只写已确认事实，与核心文件保持一致，不重复展开
+- 内容从已有 `requirements/` 文档提炼，不额外收集新信息
+- 只写已确认事实，与 common 的 `_common/01-07` 保持一致，不重复展开 common 规则
 
 ### 节点 5：缺口检查
 
@@ -410,7 +400,7 @@ allowed-tools:
 
 ### 节点 6：收尾追问
 
-只在站点调研 / 产品页同步、本地 MD 定稿同步、客户端拆解回填都做完后再触发。
+只在站点调研 / 产品页同步、飞书拆解定稿同步、客户端拆解回填都做完后再触发。
 
 规则：
 
@@ -434,7 +424,7 @@ allowed-tools:
 
 当用户确认插件已上线（或即将封版发布）时触发，执行以下操作：
 
-**执行前加载：** `references/template_version_history.md` 和 `references/template_changelog_entry.md`，按模板填空。
+**执行前加载：** `_common/09_version_ledger.md` 和 `references/template_changelog_entry.md`，按模板填空。
 
 **上架前预检 `requirements/store_listing.md`：**
 
@@ -449,20 +439,20 @@ allowed-tools:
 
 **必须更新：**
 
-1. `version_history.md`（位于插件根目录）
-   - 新增版本行：版本号、CoApp 版本、发布日期、状态（已封版）、关键变更
-   - 如文件不存在，以 `references/template_version_history.md` 为基础创建
+1. `_common/09_version_ledger.md`
+   - 新增或更新该插件的版本行：插件版本、CoApp 版本、发布日期、状态（已封版 / 已上线）、关键变更
+   - 本地为飞书版本台账快照；如本次信息来自飞书同步，标注同步日期
 2. `CHANGELOG.md`（位于插件根目录）
    - 新增版本 section，包含本次发布所有变更项
 3. `Extension/index.md`
    - 将该插件状态从"产品准备中"改为"已上线"
-4. 插件 `00_overview.md`
-   - 更新发布状态描述（例如："首版（V1001）已于 YYYY-MM-DD 发布"）
+4. 插件 `plugin_differences.md`
+   - 更新上线状态、关键差异和最终索引
 5. 插件 `README.md`
    - 更新当前进度描述反映上线状态
 
 **条件触发：**
-- 如 context/ patterns/ constraints/ 目录尚未回填，同时完成节点 4.5
+- 同时完成节点 4.5，确保 `plugin_differences.md` 与 requirements 保持一致
 
 **版本号收集：**
 如用户未主动说明版本号，补问：
@@ -481,9 +471,9 @@ allowed-tools:
 
 再满足任一条件即可：
 
-- 用户明确说“客户端方案拆解 MD 已填完”
-- 用户明确说“本地 MD 已补完”
-- 用户要求“从本地 MD 定稿回填知识库”
+- 用户明确说“客户端方案拆解飞书副本已填完”
+- 用户明确说“requirements 和 plugin_differences 已补完”
+- 用户要求“从飞书拆解定稿回填知识库”
 
 ### 从节点 3 切到节点 4
 
@@ -502,7 +492,7 @@ allowed-tools:
 满足以下条件时进入收尾追问：
 
 - 已完成产品页事实同步
-- 已完成本地 MD 定稿同步
+- 已完成飞书拆解定稿同步
 - 已完成至少一轮客户端拆解回填
 - 当前剩余问题数量有限，且都属于关键归档字段
 
@@ -533,7 +523,7 @@ allowed-tools:
 
 - `初始化完成`
 - `产品页事实已同步`
-- `本地 MD 定稿已同步`
+- `飞书拆解定稿已同步`
 - `客户端拆解同步中`
 - `客户端拆解已同步`
 - `可进入收尾`
@@ -562,17 +552,17 @@ allowed-tools:
 ## 完成度定义
 
 - `L0 初始化`
-  - 目录、骨架文件和客户端方案拆解 Markdown 已建立
+  - 目录、骨架文件已建立；客户端方案拆解走飞书副本
 - `L1 站点调研 / 产品页同步`
   - 站点调研和产品页客观事实已按来源边界回填
-- `L2 本地 MD 定稿同步`
-  - 已从客户端方案拆解生成 / 回填需求文档和 UI 需求说明
+- `L2 飞书拆解定稿同步`
+  - 已从客户端方案拆解飞书副本生成 / 回填需求文档、UI 需求说明和插件差异
 - `L3 客户端拆解完善`
-  - 页面、交互、状态、参数已补齐；context / patterns / constraints 已回填
+  - 页面、交互、状态、参数已补齐；`plugin_differences.md` 已回填
 - `L4 收尾可归档`
   - 结构完整，剩余仅为非阻塞小缺口
 - `L5 已上线`
-  - version_history.md 已记录；CHANGELOG.md 已有发布 section；index.md 状态为"已上线"；00_overview.md / README.md 已更新
+  - `_common/09_version_ledger.md` 已记录；CHANGELOG.md 已有发布 section；index.md 状态为"已上线"；`plugin_differences.md` / README.md 已更新
 
 ## 提问规则
 

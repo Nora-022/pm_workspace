@@ -1,4 +1,4 @@
-﻿# 扩展共性规则
+# 扩展共性规则
 
 ## 规则 1：检测模式
 - ytdlp 类插件：预分析 + 多 Origin + 检测与下载可并行
@@ -15,15 +15,20 @@ M3U8 插件在 Netflix 模式基础上，增加了一段插件侧页面结构预
 其余逻辑（下载调度、登录中断、配额扣减）与 Netflix 模式一致。
 
 ## 规则 2：文档落位
-- 插件差异写到插件自己的 `04_interaction_details.md` 和 `06_business_rules.md`
-- 插件共性规则写到本文件
+- 通用主干写到 `_common/01_product_brief.md` 到 `_common/07_technical_constraints.md`
+- 不能合并进 01-07、但属于全产品线 common 的事实，从 `_common/08_*.md` 开始继续编号；现行规则必须写入 `_common/01+` 编号文件
+- `_common/references/` 只放原始调研、外部证据、历史方案和竞品分析，不放现行规则
+- 插件差异写到插件自己的 `plugin_differences.md`
+- 插件详细规格写到插件自己的 `requirements/`
+- 插件共性规则写到 `_common`，不在单插件目录重复维护
 - 原始资料写到各插件的 `requirements/`
+- 插件目录不使用 `08_`、`09_` 这类 common 编号，避免后续 common 扩展时冲突
 
 ## 规则 3：视觉规范边界
-- 产品线共用的颜色、字体、圆角、边框、阴影、间距、通用组件尺寸与状态，统一写在 `_common/references/visual_guidelines.md`
-- 产品线共用的界面结构、页面职责、交互模式、通知与阻断逻辑，统一写在 `_common/references/ux_patterns.md`
-- 产品线共用的页面骨架、布局比例、容器尺寸、关键控件尺寸参考，统一写在 `_common/references/layout_specs.md`
-- 各插件自己的 `05_design_principles.md` 只写插件特有的设计原则、页面策略、信息层级、内容表达、差异交互和例外约束
+- 产品线共用的颜色、字体、圆角、边框、阴影、间距、通用组件尺寸与状态，统一写在 `_common/12_ui_ux_visual_layout_specs.md`
+- 产品线共用的界面结构、页面职责、交互模式、通知与阻断逻辑，统一写在 `_common/12_ui_ux_visual_layout_specs.md`
+- 产品线共用的页面骨架、布局比例、容器尺寸、关键控件尺寸参考，统一写在 `_common/12_ui_ux_visual_layout_specs.md`
+- 各插件自己的 `plugin_differences.md` 只写插件特有的设计原则、页面策略、信息层级、内容表达、差异交互和例外约束
 - 插件文档不重复抄写 common 视觉令牌和通用组件规范；如需使用，直接引用共享规范
 - 某插件存在视觉例外时，只记录偏离点、适用范围和原因
 
@@ -40,8 +45,8 @@ M3U8 插件在 Netflix 模式基础上，增加了一段插件侧页面结构预
 
 ## 规则 5：阅读顺序
 - 先看 `_common/FRAMEWORK.md` 与 `_common/READING_MAP.md`
-- 再看本文件
-- 需要对齐通用视觉时，再看 `_common/references/visual_guidelines.md`
-- 需要对齐通用交互结构时，再看 `_common/references/ux_patterns.md`
-- 需要确认页面骨架和尺寸参考时，再看 `_common/references/layout_specs.md`
-- 再进入具体插件目录
+- 再看 `_common/01_product_brief.md` 到 `_common/07_technical_constraints.md`
+- 涉及需求池、版本、上线状态时，再看 `_common/08_backlog.md` 与 `_common/09_version_ledger.md`
+- 再看本文件和 `_common/10_detection_modes.md` 到 `_common/16_new_plugin_kickoff_checklist.md`
+- 需要对齐通用视觉、交互结构、页面骨架和尺寸参考时，看 `_common/12_ui_ux_visual_layout_specs.md`
+- 再进入具体插件目录，优先读取 `plugin_differences.md`

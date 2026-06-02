@@ -7,14 +7,15 @@
 
 ## 一、整体哲学
 
-**两类检测模式 + 三大区域 + 一份阅读地图**
+**Knowledge Manager 基线 + 两类检测模式 + 插件差异**
 
+- **Knowledge Manager 基线**：`_common/01_product_brief.md` 到 `_common/07_technical_constraints.md` 是所有插件共享的 01-07 主干入口。
 - **两类检测模式**：`netflix_mode`（无预分析，对应 StreamFab 客户端 VIP 服务）/ `ytdlp_mode`（有预分析，多 Origin 探测）。任何插件归属其一。
 - **三大区域**：
-  1. 通用基线（`_common/`） —— 跨插件共性内容
-  2. 插件差异化（`streamfab_<x>/`） —— 每个插件自己的差异
+  1. 通用基线与扩展（`_common/`） —— 跨插件共性内容，01-07 对齐 Knowledge Manager，08+ 留给 common 级扩展事实
+  2. 插件差异化（`streamfab_<x>/`） —— 每个插件用固定的 `plugin_differences.md` 记录自己的差异，不占用 common 编号
   3. 创建维护工具（`_common/templates/`、`scripts/`、`skills/`） —— 用于生产前两部分
-- **一份阅读地图**：`_common/READING_MAP.md` —— AI 查任意插件事实时的 3 步路线 + 插件检测模式归属表
+- **一份阅读地图**：`_common/READING_MAP.md` —— AI 查任意插件事实时的阅读路线 + 插件检测模式归属表
 
 ---
 
@@ -25,20 +26,29 @@ Extension/
 │
 ├── _common/                                      【非插件内容统一在这】
 │   │
-│   ├── references/                                通用规则文档
-│   │   ├── user_flows.md                            主流程 / 异常流程
-│   │   ├── error_handling.md                        错误处理基线
-│   │   ├── business_rules.md                        权益 / 配额 / 合规
-│   │   ├── settings_matrix.md                       通用 Setting 配置项
-│   │   ├── platform_diffs.md                        Win / Mac 平台差异
-│   │   ├── tech_limits.md                           通用能力边界
-│   │   ├── visual_guidelines.md                     视觉规范
-│   │   ├── ux_patterns.md                           交互模式
-│   │   ├── layout_specs.md                          页面骨架 / 布局尺寸
-│   │   ├── index.md                                 通用规则索引
-│   │   └── baselines/
-│   │       ├── netflix_mode.md                      Netflix 模式基线（含 M3U8 / MPD 变体小节）
-│   │       └── ytdlp_mode.md                        ytdlp 模式基线
+│   ├── README.md                                  _common 索引与使用指南
+│   ├── 01_product_brief.md                        产品线定位、核心能力、红线
+│   ├── 02_functional_architecture.md              浏览器扩展 + CoApp 架构、检测模式、模块结构
+│   ├── 03_page_structure.md                       Popup / Dashboard / Downloads / Modal / CoApp 安装流
+│   ├── 04_interaction_details.md                  主流程、状态反馈、错误处理、设置保存
+│   ├── 05_design_principles.md                    通用视觉、组件、布局、信息层级
+│   ├── 06_business_rules.md                       通用账号、授权、配额、订阅状态；不维护单插件定价
+│   ├── 07_technical_constraints.md                系统、浏览器、CoApp、DRM、并发、平台限制
+│   ├── 08_backlog.md                              需求池快照（飞书需求池快照）
+│   ├── 09_version_ledger.md                       全局版本台账（飞书版本台账快照，只含版本信息）
+│   ├── 10_detection_modes.md                      检测模式、下载调度、状态机、模式差异
+│   ├── 11_user_flows_and_error_handling.md        用户流程、异常分支、错误处理和反馈规则
+│   ├── 12_ui_ux_visual_layout_specs.md            UI / UX / 视觉 / 布局详细规范
+│   ├── 13_settings_matrix.md                      Setting 配置项矩阵
+│   ├── 14_platform_and_technical_limits.md        平台差异、渠道差异和技术限制
+│   ├── 15_glossary.md                             产品线术语表
+│   ├── 16_new_plugin_kickoff_checklist.md         新插件启动检查清单
+│   │
+│   ├── references/                                非规范参考资料：调研、证据、历史方案
+│   │   ├── README.md                               参考资料定位说明
+│   │   ├── index.md                                参考资料索引
+│   │   ├── vdh_v10_coapp_research_and_streamfab_options.md
+│   │   └── vdh_v10_competitor_strategy_research.md
 │   │
 │   ├── prototype/                                 通用原型 Demo
 │   │   └── index.html                               单一通用原型，不为单插件维护副本
@@ -58,8 +68,6 @@ Extension/
 │   │   ├── streamfab-extension-init-skill/
 │   │   └── streamfab-extension-workflow-skill/
 │   │
-│   ├── version_ledger.md                          全局版本台账（飞书版本台账快照，只含版本信息）
-│   ├── backlog.md                                 需求池快照（飞书需求池快照）
 │   ├── FRAMEWORK.md                               框架定稿（本文档）
 │   ├── READING_MAP.md                             AI 阅读路线 + 检测模式归属表
 │   └── plugin_rules.md                            跨插件规则总览
@@ -87,65 +95,18 @@ Extension/
 
 ## 三、各区域内容计划
 
-### A. `_common/references/`（通用规则）
+### A. `_common/references/`（非规范参考资料）
 
-| 文件 | 内容范围 | 不写什么 |
+`references/` 不维护现行规则，也不是 01+ 编号正文的详细规则源。现行规则必须写入 `_common/01+` 编号文件。
+
+| 文件 | 内容范围 | 使用方式 |
 | --- | --- | --- |
-| `user_flows.md` | 主流程：检测 → Detected → 下载 → 完成；异常分支（未登录 / 网络异常 / 被限流） | 站点专属流程 |
-| `error_handling.md` | 错误大类：登录中断 / 网络 / CoApp 异常 / 配额耗尽。每类的 UI 表现、可重试性、用户引导 | 站点专属错误码 |
-| `business_rules.md` | Trial（30 天 3 次 / 服务）、Premium（每日 100 / 每周 700 / 服务）、配额扣减时机、并发上限、退款基线 | 单插件价格 / 特殊套餐 |
-| `settings_matrix.md` | 通用 Setting 7 项默认顺序及含义（Language / Video Format / Resolution / Audio Lang / Channel / Subtitle Lang / Subtitle Action） | 单插件特殊配置项 |
-| `platform_diffs.md` | Win 11/10、macOS 11.0+ 系统门槛、CoApp 链接生成规则、Mac 限制 | 站点专属平台限制 |
-| `tech_limits.md` | 通用能力边界：最高 4K、H.264/265 编解码、字幕格式、批量下载上限 | 单插件分辨率 / 编码限制 |
-| `visual_guidelines.md` | 颜色、字体、圆角、边框、阴影、间距、组件状态 | 单插件视觉例外 |
-| `ux_patterns.md` | 界面结构、页面职责、通知 / 阻断逻辑 | 单插件交互例外 |
-| `layout_specs.md` | 页面骨架、布局比例、容器尺寸、关键控件尺寸 | 单插件布局例外 |
-| `baselines/netflix_mode.md` | netflix_mode 检测 / 下载流程 + M3U8 / MPD 协议变体小节 | ytdlp 模式逻辑 |
-| `baselines/ytdlp_mode.md` | ytdlp_mode 预分析 / 多 Origin / 检测下载并行 | netflix 模式逻辑 |
+| `README.md` | references 定位说明 | 说明本目录只放参考资料 |
+| `index.md` | 参考资料索引 | 查找调研 / 历史资料 |
+| `vdh_v10_coapp_research_and_streamfab_options.md` | VDH v10 CoApp 调研与 StreamFab 方案评估 | 作为方案背景，不直接当规则引用 |
+| `vdh_v10_competitor_strategy_research.md` | VDH v10 竞品策略调研 | 作为竞品背景，不直接当规则引用 |
 
-#### baselines 文档骨架（初版，后续完善）
-
-**`netflix_mode.md`**
-```
-一、模式定义
-   核心特征：不支持预分析
-   分析方式：直出分析（CoApp 直接对当前页 / 单 Origin 分析）
-   并行能力：下载与分析可并行
-   对应业务：StreamFab 客户端 VIP 服务
-
-二、检测 / 下载流程
-   （后续填）
-
-三、变体 - M3U8 协议特例
-   插件侧增加一段"页面结构预判断"：
-   1. 先从网页结构判断是否为视频页；非视频页直接不支持，不进 CoApp
-   2. 通过预判断后，进入标准 CoApp 分析流程（20 秒超时）
-   3. 超时或不支持时引导前往 StreamFab 客户端
-   其余逻辑同 netflix_mode
-
-四、变体 - MPD 协议特例
-   （后续填）
-```
-
-**`ytdlp_mode.md`**
-```
-一、模式定义
-   核心特征：支持预分析
-   分析方式：预分析（多 Origin 预探测）+ CoApp 分析
-   并行能力：检测与下载可并行
-   多站点：基于 yt-dlp 支持的站点池
-
-二、检测 / 下载流程
-   （后续填）
-
-三、与 netflix_mode 的核心区别
-   | 维度 | netflix_mode | ytdlp_mode |
-   | 预分析 | ❌ | ✅ |
-   | Origin | 单 Origin | 多 Origin 探测 |
-   | 内容覆盖 | 单站点 / 单协议（M3U8 / MPD 含多站点） | yt-dlp 站点池 |
-   | 业务对应 | VIP 服务 | 通用下载器 |
-```
-
+不应放入：检测模式基线、业务规则、UI / UX / 视觉 / 布局规范、技术限制、错误处理、Setting 矩阵等现行规则。这些内容已进入 `_common/10_detection_modes.md` 到 `_common/16_new_plugin_kickoff_checklist.md`。
 ### B. `_common/prototype/`
 
 | 文件 | 内容 |
@@ -178,10 +139,27 @@ Extension/
 | `streamfab-extension-init-skill/` | 接到"创建新插件" → 调用 `scaffold_plugin.py` → 输出飞书拆解模板 URL |
 | `streamfab-extension-workflow-skill/` | 接到"推进插件" → 站点调研 → 产品页事实提取 → 等飞书副本 → 回填 plugin_requirement.md |
 
-### F. `_common/` 顶层三份文档
+### F. `_common/` 顶层文档
 
 | 文件 | 内容 |
 | --- | --- |
+| `README.md` | `_common` 索引与 Knowledge Manager 读取说明 |
+| `01_product_brief.md` | 产品线定位、核心能力、红线 |
+| `02_functional_architecture.md` | 浏览器扩展 + CoApp 架构、检测模式、模块结构 |
+| `03_page_structure.md` | Popup / Dashboard / Downloads / Modal / CoApp 安装流 |
+| `04_interaction_details.md` | 主流程、状态反馈、错误处理、设置保存 |
+| `05_design_principles.md` | 通用视觉、组件、布局、信息层级 |
+| `06_business_rules.md` | 通用账号、授权、配额、订阅状态；不维护单插件定价 |
+| `07_technical_constraints.md` | 系统、浏览器、CoApp、DRM、并发、平台限制 |
+| `08_backlog.md` | Extension 需求池快照；飞书多维表格为权威源 |
+| `09_version_ledger.md` | 插件版本与 CoApp 版本台账快照；飞书多维表格为权威源 |
+| `10_detection_modes.md` | netflix_mode / ytdlp_mode 检测、下载、调度、状态机和模式差异 |
+| `11_user_flows_and_error_handling.md` | 用户主流程、异常分支、错误处理和反馈规则 |
+| `12_ui_ux_visual_layout_specs.md` | UI / UX / 视觉 / 布局详细规范 |
+| `13_settings_matrix.md` | Setting 配置项顺序、默认值和分区结构 |
+| `14_platform_and_technical_limits.md` | 平台差异、渠道差异、CoApp、DRM、并发和技术限制 |
+| `15_glossary.md` | 产品线术语表 |
+| `16_new_plugin_kickoff_checklist.md` | 新插件启动检查清单 |
 | `FRAMEWORK.md` | 本结构文档定稿，所有人 + 所有 skill 的唯一 source of truth |
 | `READING_MAP.md` | AI 查任意插件事实的 3 步路线 + 插件检测模式归属表 |
 | `plugin_rules.md` | 跨插件规则总览（检测模式 / 文档落位 / 视觉规范 / 大小写 / 阅读顺序） |
@@ -192,7 +170,7 @@ Extension/
 streamfab_<x>_downloader_for_browser/
 ├── README.md                         一句话定位 + 检测模式 + 文档导航
 ├── CHANGELOG.md                      该插件变更日志
-├── diff_summary.md                   差异总览：本插件 vs common 的所有差异点（AI 检索入口）
+├── plugin_differences.md                   差异总览：本插件 vs common 的所有差异点（AI 检索入口）
 └── requirements/
     ├── index.md                       requirements 内文档清单
     ├── plugin_requirement.md          需求文档（对外交付给开发 / PM）
@@ -201,7 +179,7 @@ streamfab_<x>_downloader_for_browser/
     └── site_research_notes.md         站点调研笔记（如果有调研产物）
 ```
 
-#### G.1 `diff_summary.md`（差异总览，AI 检索入口）
+#### G.1 `plugin_differences.md`（差异总览，AI 检索入口）
 
 **性质**：元文档，列出本插件相对 `_common/` 基线的所有差异点，每条带索引指向真正承载内容的文档章节。
 **受众**：AI 知识库、需要快速查"这个插件哪里不一样"的人。
@@ -265,7 +243,7 @@ streamfab_<x>_downloader_for_browser/
    - Setting - Extension 配置项（独立章节，差异时填）
 ```
 
-> 文档保持干净的 PRD 形态，不在顶部堆"基线参照"块。差异索引由 `diff_summary.md` 承担。
+> 文档保持干净的 PRD 形态，不在顶部堆"基线参照"块。差异索引由 `plugin_differences.md` 承担。
 
 #### G.3 `plugin_ui_requirement.md`（UI 需求说明）
 
@@ -279,15 +257,15 @@ streamfab_<x>_downloader_for_browser/
 
 | 数据 | 飞书权威源 | 类型 | 本地快照 | 同步规则 |
 | --- | --- | --- | --- | --- |
-| 需求池 | `base/VFZVb3aXfanWimsyb1EcY65On6c` | 多维表格 | `_common/backlog.md` | 飞书为准，本地定期快照，标注同步日期 |
+| 需求池 | `base/VFZVb3aXfanWimsyb1EcY65On6c` | 多维表格 | `_common/08_backlog.md` | 飞书为准，本地定期快照，标注同步日期 |
 | 插件 ID（client_id / pid / option_id） | `sheets/shtcnlXOVQicx407Qs5xWs8euqb`（Sheet `7JaGqO` StreamFab for Browser） | 电子表格 | 无本地快照 | workflow 实时查表（节点 3 已有逻辑），不存本地（ID 发布时才定） |
-| 版本台账 | `base/XmxhbAt1aaYDZWssW00cKRlSnzh` | 多维表格 | `_common/version_ledger.md` | 飞书为准，本地快照只含版本信息（插件版本 ↔ CoApp 版本），不含 URL |
+| 版本台账 | `base/XmxhbAt1aaYDZWssW00cKRlSnzh` | 多维表格 | `_common/09_version_ledger.md` | 飞书为准，本地快照只含版本信息（插件版本 ↔ CoApp 版本），不含 URL |
 | 客户端方案拆解 | 飞书文档副本（每插件一份，从通用模板复制） | 文档 | 无本地快照 | workflow 读飞书副本作为权威输入，不在本地落 MD |
 
 **插件 ID 表读取逻辑**（workflow 节点 3）：按产品名定位 4 行一组 —— Coapp-win / Coapp-macos / null / Downloader for Browser；列映射 B=pid C=option_id F=主站 client_id I=品牌站 client_id。
 
-> 各插件不再各存 `version_history.md`；版本统一看 `_common/version_ledger.md`。
-> 各插件需求不再各存需求池；统一看 `_common/backlog.md`。
+> 各插件不再各存 `version_history.md`；版本统一看 `_common/09_version_ledger.md`。
+> 各插件需求不再各存需求池；统一看 `_common/08_backlog.md`。
 > 客户端方案拆解走飞书文档副本，本地插件目录不存拆解 MD。
 
 ---
@@ -297,17 +275,24 @@ streamfab_<x>_downloader_for_browser/
 ```
 查任何插件的事实，按 4 步读取：
 
-【步骤 1：通用】 _common/references/
-   user_flows / error_handling / business_rules / settings_matrix /
-   platform_diffs / tech_limits / visual_guidelines / ux_patterns / layout_specs
+【步骤 1：通用 Knowledge Manager 基线】 _common/01-07
+   01_product_brief / 02_functional_architecture / 03_page_structure /
+   04_interaction_details / 05_design_principles / 06_business_rules /
+   07_technical_constraints
 
-【步骤 2：基线】 _common/references/baselines/<netflix_mode|ytdlp_mode>.md
-   按下方归属表选一份
+【按需：common 扩展事实】 _common/08+
+   08_backlog / 09_version_ledger / 10_detection_modes /
+   11_user_flows_and_error_handling / 12_ui_ux_visual_layout_specs /
+   13_settings_matrix / 14_platform_and_technical_limits /
+   15_glossary / 16_new_plugin_kickoff_checklist
 
-【步骤 3：差异总览】 streamfab_<plugin>_downloader_for_browser/diff_summary.md
+【步骤 2：检测模式基线】 _common/10_detection_modes.md
+   按下方归属表确认插件模式；字段级细节按插件差异下钻
+
+【步骤 3：差异总览】 streamfab_<plugin>_downloader_for_browser/plugin_differences.md
    一眼看清本插件的所有差异点和它们的文档位置
 
-【步骤 4：详细规格】 按 diff_summary.md 的索引，下钻到对应的：
+【步骤 4：详细规格】 按 plugin_differences.md 的索引，下钻到对应的：
    - requirements/plugin_requirement.md       逻辑细节
    - requirements/plugin_ui_requirement.md    UI 细节
    - requirements/store_listing.md            商店上架文案
@@ -345,7 +330,7 @@ streamfab_<x>_downloader_for_browser/
 | 规则 | 内容 |
 | --- | --- |
 | **共性 vs 差异判断** | 内容能写成"对所有插件都成立的句子" → 通用规则；写"X 插件相比基线不同" → 差异 |
-| **位置约束** | 通用规则只写在 `_common/references/`；差异只写在插件目录；模板只在 `_common/templates/` |
+| **位置约束** | 通用主干写在 `_common/01-07`；无法合并进 01-07 的 common 级事实从 `_common/08_*.md` 继续编号；现行规则只写在 `_common/01+` 编号文件；`references/` 只放非规范参考资料；插件差异只写在 `plugin_differences.md`；模板只在 `_common/templates/` |
 | **引用方式** | 跨文档引用用相对路径 markdown link；不复制粘贴 |
 | **检测模式归属** | 插件**不自己声明**检测模式，唯一权威是 `READING_MAP.md` 的归属表 |
 | **不写"待确认 / 后续优化"** | 已落实文档禁止开放性兜底句 |

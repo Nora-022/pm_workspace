@@ -1,4 +1,4 @@
-﻿# Plugin Research Template
+# Plugin Research Template
 
 ## 1. Research Overview
 - Plugin name:

@@ -1,8 +1,8 @@
 # StreamFab 浏览器扩展知识库
 
-StreamFab 浏览器扩展是面向主流流媒体平台的下载插件产品线，支持 **Chrome 和 Edge**，采用**浏览器扩展 + CoApp 本地服务**的两层架构：扩展负责页面注入与 UI 交互，CoApp 在本地执行实际下载与转封装。Video Downloader 是全线 UX 和技术基线（首个上线插件）；Netflix 是第一个 VIP 付费服务插件，承担了 DRM 授权与付费流程部分的基线角色。其他插件的需求文档只记录与基线的差异。
+StreamFab 浏览器扩展是面向主流流媒体平台的下载插件产品线，支持 **Chrome 和 Edge**，采用**浏览器扩展 + CoApp 本地服务**的两层架构：扩展负责页面注入与 UI 交互，CoApp 在本地执行实际下载与转封装。通用知识按 Knowledge Manager 标准沉淀在 [`_common/01_product_brief.md`](_common/01_product_brief.md) 到 [`_common/07_technical_constraints.md`](_common/07_technical_constraints.md)；无法合并进 01-07 的 common 级事实从 `_common/08_*.md` 继续编号；各插件目录只通过 `plugin_differences.md` 记录与通用基线的差异。
 
-本知识库统一维护各插件的产品定义、交互规则、技术约束与站点调研，供产品、设计、研发跨团队协作使用。单插件入口见各目录下的 `00_overview.md`，完整插件清单与目录路径见 [`index.md`](index.md)。
+本知识库统一维护各插件的产品定义、交互规则、技术约束与站点调研，供产品、设计、研发跨团队协作使用。单插件入口见各目录下的 `README.md` 和 `plugin_differences.md`，完整插件清单与目录路径见 [`index.md`](index.md)。
 
 ---
 
@@ -32,26 +32,31 @@ StreamFab 浏览器扩展是面向主流流媒体平台的下载插件产品线�
 
 | 角色 | 优先阅读入口 |
 |---|---|
-| 产品 | 各插件 `requirements/plugin_requirement.md` → 跨插件共用规则见 `_common/references/` |
-| 设计 | 各插件 `requirements/plugin_ui_requirement.md` → 共用视觉 / UX / 布局规范见 `_common/references/` |
-| 研发 | `_common/references/baselines/` 取检测模式基线 → 各插件 `diff_summary.md` 看差异 → 通用技术基线见 Video 插件，DRM / 付费流程基线见 Netflix 插件 |
+| 产品 | `_common/01-07` → `_common/08+`（按需） → 各插件 `plugin_differences.md` → `requirements/plugin_requirement.md` |
+| 设计 | `_common/03-05` → 各插件 `plugin_differences.md` → `requirements/plugin_ui_requirement.md` |
+| 研发 | `_common/02` / `_common/07` → `_common/10_detection_modes.md` / `_common/14_platform_and_technical_limits.md` → 各插件 `plugin_differences.md` |
 
-### _common/references 快查
+### _common 快查
 
 | 文件 | 内容 |
 |---|---|
-| `ux_patterns.md` | 跨插件通用交互模式 |
-| `visual_guidelines.md` | 共用视觉规范 |
-| `layout_specs.md` | 页面骨架与尺寸参考 |
-| `glossary.md` | 产品线术语表 |
-| `baselines/netflix_mode.md` / `baselines/ytdlp_mode.md` | 两类检测模式基线 |
+| `01_product_brief.md` - `07_technical_constraints.md` | Knowledge Manager 标准入口 |
+| `08_backlog.md` | Extension 需求池快照 |
+| `09_version_ledger.md` | 插件版本与 CoApp 版本台账快照 |
+| `10_detection_modes.md` | 两类检测模式基线 |
+| `11_user_flows_and_error_handling.md` | 用户流程与错误处理 |
+| `12_ui_ux_visual_layout_specs.md` | UI / UX / 视觉 / 布局规范 |
+| `13_settings_matrix.md` | Setting 配置项矩阵 |
+| `14_platform_and_technical_limits.md` | 平台差异与技术约束 |
+| `15_glossary.md` | 产品线术语表 |
 
 ---
 
 ## 维护规范
 
 - 框架与目录结构以 [`_common/FRAMEWORK.md`](_common/FRAMEWORK.md) 为唯一权威；阅读路线见 [`_common/READING_MAP.md`](_common/READING_MAP.md)
-- 跨插件通用规则沉淀到 `_common/references/`，不在各插件中重复维护
+- 跨插件通用规则沉淀到 `_common/01+` 编号文件；`_common/references/` 只保留调研、证据和历史资料，不维护现行规则
+- 插件目录不再维护 01-07 主干文件；插件差异固定写入 `plugin_differences.md`，不参与 common 编号
 - 检测模式归属由 `_common/READING_MAP.md` 的归属表决定，插件文档不自行声明
 - 工作流、Skills 速查、同步脚本说明见 [`../MAINTENANCE.md`](../MAINTENANCE.md)
 
@@ -59,6 +64,6 @@ StreamFab 浏览器扩展是面向主流流媒体平台的下载插件产品线�
 
 | 日期 | 更新内容 |
 |---|---|
-| 2026-06-01 | 修改 3 项，删除 1 项 |
+| 2026-06-02 | 新增 34 项，修改 17 项，删除 36 项 |
 
 > 完整更新记录见 [DAILY_CHANGELOG.md](DAILY_CHANGELOG.md)

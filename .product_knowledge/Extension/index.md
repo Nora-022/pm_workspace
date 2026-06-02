@@ -18,8 +18,9 @@
 │   ├── FRAMEWORK.md                               ## 框架定稿，结构与写作规则唯一权威
 │   ├── READING_MAP.md                             ## AI 阅读路线 + 检测模式归属表
 │   ├── plugin_rules.md                            ## 跨插件规则总览
-│   ├── backlog.md                                 ## 需求池快照（飞书为权威）
-│   ├── references/                                ## 通用规则文档（含 baselines/）
+│   ├── 08_backlog.md                              ## 需求池快照（飞书为权威）
+│   ├── 09_version_ledger.md                       ## 插件版本与 CoApp 版本台账快照（飞书为权威）
+│   ├── references/                                ## 非规范参考资料：调研、证据、历史方案
 │   ├── prototype/                                 ## 通用原型 Demo
 │   ├── templates/                                 ## 新插件模板
 │   ├── scripts/                                   ## 自动化脚本
@@ -65,9 +66,10 @@
 - 框架与目录结构（唯一权威）：`_common/FRAMEWORK.md`
 - AI 阅读路线 + 检测模式归属表：`_common/READING_MAP.md`
 - 产品线入口：`README.md`
-- 单插件入口：各插件目录下的 `README.md`，差异索引看 `diff_summary.md`
+- 单插件入口：各插件目录下的 `README.md`，差异索引看 `plugin_differences.md`
 - 需求入口：各插件目录下的 `requirements/`
-- 通用视觉规范：`_common/references/visual_guidelines.md`
-- 通用 UX 规范：`_common/references/ux_patterns.md`
-- 通用结构尺寸参考：`_common/references/layout_specs.md`
-- 检测模式基线：`_common/references/baselines/netflix_mode.md` / `ytdlp_mode.md`
+- 通用视觉规范：`_common/12_ui_ux_visual_layout_specs.md`
+- 通用 UX 规范：`_common/12_ui_ux_visual_layout_specs.md`
+- 通用结构尺寸参考：`_common/12_ui_ux_visual_layout_specs.md`
+- 检测模式基线：`_common/10_detection_modes.md`
+- 平台与技术约束：`_common/14_platform_and_technical_limits.md`

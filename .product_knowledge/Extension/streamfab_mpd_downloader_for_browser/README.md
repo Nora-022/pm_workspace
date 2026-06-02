@@ -24,7 +24,7 @@
 
 ## 文档导航
 
-- 差异索引：[`diff_summary.md`](diff_summary.md)
+- 差异索引：[`plugin_differences.md`](plugin_differences.md)
 - 需求文档：[`requirements/plugin_requirement.md`](requirements/plugin_requirement.md)
 - UI 需求：[`requirements/plugin_ui_requirement.md`](requirements/plugin_ui_requirement.md)
 - 客户端产品页笔记：[`requirements/client_product_page_notes.md`](requirements/client_product_page_notes.md)
@@ -34,7 +34,7 @@
 
 按 [`_common/READING_MAP.md`](../_common/READING_MAP.md) 4 步读取：
 
-1. 通用规则 → [`_common/references/`](../_common/references/)
-2. 检测模式基线 → [`_common/references/baselines/netflix_mode.md`](../_common/references/baselines/netflix_mode.md)（含第九节 MPD 变体）
-3. 差异总览 → [`diff_summary.md`](diff_summary.md)
+1. 通用基线 → [`_common/01-07`](../_common/README.md)
+2. 检测模式基线 → [`_common/10_detection_modes.md`](../_common/10_detection_modes.md)（含第九节 MPD 变体）
+3. 差异总览 → [`plugin_differences.md`](plugin_differences.md)
 4. 详细规格 → `requirements/`

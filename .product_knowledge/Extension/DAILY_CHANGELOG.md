@@ -1,5 +1,102 @@
 # 知识库每日更新记录
 
+## 2026-06-02
+
+### 新增
+- .product_knowledge/Extension/_common/01_product_brief.md
+- .product_knowledge/Extension/_common/02_functional_architecture.md
+- .product_knowledge/Extension/_common/03_page_structure.md
+- .product_knowledge/Extension/_common/04_interaction_details.md
+- .product_knowledge/Extension/_common/05_design_principles.md
+- .product_knowledge/Extension/_common/06_business_rules.md
+- .product_knowledge/Extension/_common/07_technical_constraints.md
+- .product_knowledge/Extension/_common/08_backlog.md
+- .product_knowledge/Extension/_common/09_version_ledger.md
+- .product_knowledge/Extension/_common/10_detection_modes.md
+- .product_knowledge/Extension/_common/11_user_flows_and_error_handling.md
+- .product_knowledge/Extension/_common/12_ui_ux_visual_layout_specs.md
+- .product_knowledge/Extension/_common/13_settings_matrix.md
+- .product_knowledge/Extension/_common/14_platform_and_technical_limits.md
+- .product_knowledge/Extension/_common/15_glossary.md
+- .product_knowledge/Extension/_common/16_new_plugin_kickoff_checklist.md
+- ".product_knowledge/Extension/_common/prototype/downloads tab.jpg"
+- .product_knowledge/Extension/_common/prototype/images/
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_plugin_differences.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_hulu_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_m3u8_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_mpd_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_myfans_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_tver_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_video_downloader_for_browser/plugin_differences.md
+- .product_knowledge/Extension/streamfab_video_downloader_for_browser/requirements/rating_prompt_PRD.md
+- ".product_knowledge/Planning/pm-workspace - \345\277\253\346\215\267\346\226\271\345\274\217.lnk"
+
+### 修改
+- .product_knowledge/Extension/_common/FRAMEWORK.md
+- .product_knowledge/Extension/_common/READING_MAP.md
+- .product_knowledge/Extension/_common/plugin_rules.md
+- .product_knowledge/Extension/_common/prototype/index.html
+- .product_knowledge/Extension/_common/references/index.md
+- .product_knowledge/Extension/_common/references/vdh_v10_coapp_research_and_streamfab_options.md
+- .product_knowledge/Extension/_common/scripts/scaffold_plugin.py
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/SKILL.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_readme.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/SKILL.md
+- .product_knowledge/Extension/_common/templates/plugin_requirement_template.md
+- .product_knowledge/Extension/_common/templates/plugin_research_template.md
+- .product_knowledge/Extension/index.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/requirements/plugin_ui_requirement.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/requirements/site_research_notes.md
+- .product_knowledge/Extension/streamfab_myfans_downloader_for_browser/store_listing.md
+- .product_knowledge/Extension/streamfab_video_downloader_for_browser/requirements/rating_prompt_requirement.md
+
+### 删除
+- .product_knowledge/Extension/_common/backlog.md
+- .product_knowledge/Extension/_common/references/baselines/netflix_mode.md
+- .product_knowledge/Extension/_common/references/baselines/ytdlp_mode.md
+- .product_knowledge/Extension/_common/references/business_rules.md
+- .product_knowledge/Extension/_common/references/error_handling.md
+- .product_knowledge/Extension/_common/references/glossary.md
+- .product_knowledge/Extension/_common/references/layout_specs.md
+- .product_knowledge/Extension/_common/references/new_plugin_kickoff_checklist.md
+- .product_knowledge/Extension/_common/references/platform_diffs.md
+- .product_knowledge/Extension/_common/references/settings_matrix.md
+- .product_knowledge/Extension/_common/references/tech_limits.md
+- .product_knowledge/Extension/_common/references/user_flows.md
+- .product_knowledge/Extension/_common/references/ux_patterns.md
+- .product_knowledge/Extension/_common/references/visual_guidelines.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_00_overview.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_01_product_brief.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_02_functional_architecture.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_03_page_structure.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_04_interaction_details.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_05_design_principles.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_06_business_rules.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_07_technical_constraints.md
+- .product_knowledge/Extension/_common/version_ledger.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_disney_plus_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_fandango_at_home_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_fanza_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_hulu_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_m3u8_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_mpd_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_myfans_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_tver_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_u_next_downloader_for_browser/diff_summary.md
+- .product_knowledge/Extension/streamfab_video_downloader_for_browser/diff_summary.md
+
+---
+
 ## 2026-06-01
 
 ### 修改
