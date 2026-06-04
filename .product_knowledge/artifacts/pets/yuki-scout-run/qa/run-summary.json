@@ -1,0 +1,12 @@
+﻿{
+    "ok":  true,
+    "visual_qa":  "pass",
+    "extraction":  "stable-slots promoted after visual review",
+    "run_dir":  "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run",
+    "spritesheet":  "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\final\\spritesheet.webp",
+    "validation":  "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\final\\validation.json",
+    "contact_sheet":  "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\qa\\contact-sheet.png",
+    "review":  "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\qa\\review.json",
+    "workspace_package":  "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-package",
+    "installed_package":  "C:\\Users\\fab\\.codex\\pets\\yuki-scout"
+}

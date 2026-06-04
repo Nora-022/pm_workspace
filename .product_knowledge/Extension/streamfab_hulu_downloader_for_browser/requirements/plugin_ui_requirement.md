@@ -38,7 +38,8 @@
 
 - 副标题改为：`Experience the highest quality 4k video. Full control in your hands.`
 - 下载配置项截图需替换为当前站点的实际配置项及选项示例
-  - 示例：`Video：1920 × 1080 (Bitrate 4000 kbps)`
+  - 示例：`Resolution：1920x1080 - 9373 kbps - 3.01 GB`
+  - 如 meta 分析结果返回 codec / audio / subtitle 多选项，同图中按实际可选项展示 `Video Codec` / `Audio Codec` / `Language` / `Subtitle`，不再使用旧的 `Video` 单配置项。
 
 ### Small Promo Tile
 

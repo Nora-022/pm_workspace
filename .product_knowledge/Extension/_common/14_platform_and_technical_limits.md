@@ -7,7 +7,7 @@
 ## 平台差异基线
 > 跨插件共用的 Win / Mac 差异、Chrome / Edge / 官网渠道差异、CoApp 链接生成规则
 > 站点专属平台限制写入插件 `plugin_differences.md`
-> 关联：[tech_limits.md](tech_limits.md)
+> 关联：[技术约束基线](#技术约束基线)
 
 ---
 
@@ -96,7 +96,7 @@ CoApp 安装包链接通过飞书 `StreamFab for Browser` 表格（Sheet `7JaGqO
 ## 技术约束基线
 > 跨插件共用的系统要求、浏览器兼容性、CoApp 依赖、DRM 边界、并发上限
 > 单插件特殊技术约束（如分辨率上限、特定编码）写入插件 `plugin_differences.md` + `requirements/`
-> 关联：[platform_diffs.md](platform_diffs.md)、[10_detection_modes.md](10_detection_modes.md)、[10_detection_modes.md](10_detection_modes.md)
+> 关联：[平台差异基线](#平台差异基线)、[10_detection_modes.md](10_detection_modes.md)
 
 ---
 
@@ -196,4 +196,4 @@ DRM 实现层：Widevine / PlayReady / FairPlay 由各站点 CoApp 处理，插�
 
 - 遵循浏览器商店政策与平台版权规则
 - DRM 受保护内容由 CoApp 处理，不做绕过
-- Chrome 商店版遵守 YouTube 相关政策限制（见 [platform_diffs.md](platform_diffs.md)）
+- Chrome 商店版遵守 YouTube 相关政策限制（见 [平台差异基线](#平台差异基线)）

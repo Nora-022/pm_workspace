@@ -6,6 +6,7 @@
 | --- | --- |
 | [`plugin_requirement.md`](plugin_requirement.md) | 主需求文档 |
 | [`plugin_ui_requirement.md`](plugin_ui_requirement.md) | UI 需求文档 |
+| [`hulu_coapp_api_documentation.md`](hulu_coapp_api_documentation.md) | Hulu CoApp 底层接口与 analyze_result 差异文档 |
 
 ## 调研与原始资料
 
@@ -14,3 +15,4 @@
 | [`site_research_notes.md`](site_research_notes.md) | 站点技术调研（hulu.com + hulu.jp） |
 | [`product_page_facts.md`](product_page_facts.md) | 产品页事实层 |
 | [`client_product_page_notes.md`](client_product_page_notes.md) | 客户端产品页笔记 |
+| [客户端方案拆解 PDF](<[StreamFab 浏览器插件] - [Hulu] - 客户端方案拆解 (1).pdf>) | Hulu 客户端流程和 meta 弹窗拆解 |

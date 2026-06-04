@@ -1,0 +1,32 @@
+:root {
+  --sf-sidebar-width: 480px;
+  --sf-sidebar-height: 1006px;
+  --sf-popup-height: 600px;
+  --sf-popup-expanded-height: 640px;
+
+  --sf-orange: #FA8A04;
+  --sf-orange-hover: #FF9B33;
+  --sf-orange-disabled: #FFBA72;
+  --sf-blue: #1E9CEB;
+  --sf-blue-hover: #4BB0EF;
+  --sf-text: #07151E;
+  --sf-border: #E5E5E5;
+  --sf-divider: #EAEAEA;
+  --sf-light-gray: #F5F5F5;
+  --sf-white: #FFFFFF;
+  --sf-error: #F94245;
+  --sf-success: #20A464;
+  --sf-warning: #C77A00;
+
+  --sf-radius-main: 8px;
+  --sf-radius-compact: 4px;
+  --sf-font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --sf-body-size: 14px;
+  --sf-body-line: 20px;
+  --sf-tab-size: 16px;
+  --sf-panel-padding: 16px;
+  --sf-tab-height: 48px;
+  --sf-checkbox-size: 16px;
+  --sf-select-width: 196px;
+  --sf-select-height: 28px;
+}

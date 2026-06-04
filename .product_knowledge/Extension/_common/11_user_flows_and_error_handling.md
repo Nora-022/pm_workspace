@@ -6,7 +6,7 @@
 
 ## 用户主流程基线
 > 跨插件共用的主流程与异常分支。站点专属流程写入插件 `requirements/plugin_requirement.md`。
-> 关联：[10_detection_modes.md](10_detection_modes.md)、[10_detection_modes.md](10_detection_modes.md)、[error_handling.md](error_handling.md)、[business_rules.md](business_rules.md)
+> 关联：[10_detection_modes.md](10_detection_modes.md)、[06_business_rules.md](06_business_rules.md)
 
 ---
 
@@ -96,7 +96,7 @@ Downloads 队列（Pending → Downloading → Completed）
 | 订阅当日额度满 | `You've reached today's download limit (100).` 阻断弹窗 |
 | 授权上限 | `Authorization Limit Reached`，引导 Member Center 解绑 |
 | 网络授权失败 | 允许手动重试 |
-| 登录中断 | 见 [business_rules.md § 五](business_rules.md#五登录中断后的业务规则) |
+| 登录中断 | 见 [06_business_rules.md § 五](06_business_rules.md#五登录中断后的业务规则) |
 
 ---
 
@@ -123,7 +123,7 @@ Downloads 队列（Pending → Downloading → Completed）
 ## 错误处理基线
 > 跨插件共用的错误大类、UI 表现、可重试性、用户引导
 > 站点专属错误码（如 Netflix `Error 330`）写入插件 `plugin_differences.md`
-> 关联：[user_flows.md](user_flows.md)、[business_rules.md](business_rules.md)
+> 关联：[用户主流程基线](#用户主流程基线)、[06_business_rules.md](06_business_rules.md)
 
 ---
 

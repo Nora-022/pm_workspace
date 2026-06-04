@@ -1,0 +1,990 @@
+{
+  "ok": true,
+  "frames_root": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable",
+  "errors": [],
+  "warnings": [
+    "idle used extraction method stable-slots; confirm motion playback remains stable and unclipped",
+    "running-right used extraction method stable-slots; confirm motion playback remains stable and unclipped",
+    "running-left used extraction method stable-slots; confirm motion playback remains stable and unclipped",
+    "waving used extraction method stable-slots; confirm motion playback remains stable and unclipped",
+    "jumping used extraction method stable-slots; confirm motion playback remains stable and unclipped",
+    "failed used extraction method stable-slots; confirm motion playback remains stable and unclipped",
+    "waiting used extraction method stable-slots; confirm motion playback remains stable and unclipped",
+    "running used extraction method stable-slots; confirm motion playback remains stable and unclipped",
+    "review used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+  ],
+  "rows": [
+    {
+      "state": "idle",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "stable-slots",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "idle used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\idle\\00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19566,
+          "bbox": [
+            16,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 137
+        },
+        {
+          "index": 1,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\idle\\01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18324,
+          "bbox": [
+            19,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 132
+        },
+        {
+          "index": 2,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\idle\\02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18505,
+          "bbox": [
+            17,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 110
+        },
+        {
+          "index": 3,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\idle\\03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18395,
+          "bbox": [
+            18,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 101
+        },
+        {
+          "index": 4,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\idle\\04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18526,
+          "bbox": [
+            17,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 122
+        },
+        {
+          "index": 5,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\idle\\05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18050,
+          "bbox": [
+            21,
+            7,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 116
+        }
+      ]
+    },
+    {
+      "state": "running-right",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "stable-slots",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "running-right used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-right\\00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17620,
+          "bbox": [
+            24,
+            5,
+            167,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 183
+        },
+        {
+          "index": 1,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-right\\01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16702,
+          "bbox": [
+            21,
+            10,
+            170,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 211
+        },
+        {
+          "index": 2,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-right\\02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 15643,
+          "bbox": [
+            19,
+            14,
+            171,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 204
+        },
+        {
+          "index": 3,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-right\\03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 15118,
+          "bbox": [
+            18,
+            21,
+            173,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 188
+        },
+        {
+          "index": 4,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-right\\04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16548,
+          "bbox": [
+            18,
+            16,
+            173,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 207
+        },
+        {
+          "index": 5,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-right\\05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 15792,
+          "bbox": [
+            22,
+            15,
+            168,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 190
+        },
+        {
+          "index": 6,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-right\\06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 15694,
+          "bbox": [
+            24,
+            13,
+            167,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 169
+        },
+        {
+          "index": 7,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-right\\07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 15614,
+          "bbox": [
+            19,
+            18,
+            171,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 172
+        }
+      ]
+    },
+    {
+      "state": "running-left",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "stable-slots",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "running-left used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-left\\00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18238,
+          "bbox": [
+            19,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 243
+        },
+        {
+          "index": 1,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-left\\01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18164,
+          "bbox": [
+            15,
+            6,
+            175,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 214
+        },
+        {
+          "index": 2,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-left\\02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17261,
+          "bbox": [
+            16,
+            12,
+            175,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 200
+        },
+        {
+          "index": 3,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-left\\03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17609,
+          "bbox": [
+            15,
+            9,
+            176,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 210
+        },
+        {
+          "index": 4,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-left\\04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 14965,
+          "bbox": [
+            29,
+            11,
+            162,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 203
+        },
+        {
+          "index": 5,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-left\\05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 14777,
+          "bbox": [
+            26,
+            16,
+            164,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 190
+        },
+        {
+          "index": 6,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-left\\06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 15398,
+          "bbox": [
+            25,
+            21,
+            165,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 203
+        },
+        {
+          "index": 7,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running-left\\07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 14842,
+          "bbox": [
+            29,
+            20,
+            162,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 204
+        }
+      ]
+    },
+    {
+      "state": "waving",
+      "expected_frames": 4,
+      "actual_frames": 4,
+      "extraction_method": "stable-slots",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "waving used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waving\\00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20255,
+          "bbox": [
+            19,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 100
+        },
+        {
+          "index": 1,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waving\\01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20434,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 98
+        },
+        {
+          "index": 2,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waving\\02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20068,
+          "bbox": [
+            20,
+            5,
+            171,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 64
+        },
+        {
+          "index": 3,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waving\\03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20219,
+          "bbox": [
+            20,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 57
+        }
+      ]
+    },
+    {
+      "state": "jumping",
+      "expected_frames": 5,
+      "actual_frames": 5,
+      "extraction_method": "stable-slots",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "jumping used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\jumping\\00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 8055,
+          "bbox": [
+            45,
+            80,
+            147,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 47
+        },
+        {
+          "index": 1,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\jumping\\01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 9004,
+          "bbox": [
+            42,
+            38,
+            149,
+            174
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 47
+        },
+        {
+          "index": 2,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\jumping\\02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 10245,
+          "bbox": [
+            38,
+            5,
+            154,
+            150
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 63
+        },
+        {
+          "index": 3,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\jumping\\03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 9158,
+          "bbox": [
+            42,
+            41,
+            150,
+            181
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 69
+        },
+        {
+          "index": 4,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\jumping\\04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 8876,
+          "bbox": [
+            42,
+            77,
+            150,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 48
+        }
+      ]
+    },
+    {
+      "state": "failed",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "stable-slots",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "failed used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\failed\\00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19047,
+          "bbox": [
+            29,
+            5,
+            162,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 193
+        },
+        {
+          "index": 1,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\failed\\01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18071,
+          "bbox": [
+            25,
+            22,
+            166,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 175
+        },
+        {
+          "index": 2,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\failed\\02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16615,
+          "bbox": [
+            15,
+            37,
+            176,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 158
+        },
+        {
+          "index": 3,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\failed\\03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 14935,
+          "bbox": [
+            18,
+            56,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 109
+        },
+        {
+          "index": 4,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\failed\\04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17343,
+          "bbox": [
+            32,
+            23,
+            158,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 127
+        },
+        {
+          "index": 5,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\failed\\05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17753,
+          "bbox": [
+            29,
+            15,
+            162,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 156
+        },
+        {
+          "index": 6,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\failed\\06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18004,
+          "bbox": [
+            30,
+            16,
+            161,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 162
+        },
+        {
+          "index": 7,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\failed\\07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19044,
+          "bbox": [
+            29,
+            8,
+            162,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 166
+        }
+      ]
+    },
+    {
+      "state": "waiting",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "stable-slots",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "waiting used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waiting\\00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17623,
+          "bbox": [
+            24,
+            5,
+            167,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 129
+        },
+        {
+          "index": 1,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waiting\\01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17475,
+          "bbox": [
+            25,
+            5,
+            166,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 154
+        },
+        {
+          "index": 2,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waiting\\02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16917,
+          "bbox": [
+            30,
+            5,
+            160,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 154
+        },
+        {
+          "index": 3,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waiting\\03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17451,
+          "bbox": [
+            24,
+            5,
+            167,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 133
+        },
+        {
+          "index": 4,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waiting\\04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17277,
+          "bbox": [
+            25,
+            5,
+            166,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 128
+        },
+        {
+          "index": 5,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\waiting\\05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17198,
+          "bbox": [
+            25,
+            5,
+            166,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 129
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "stable-slots",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "running used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running\\00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18095,
+          "bbox": [
+            26,
+            5,
+            166,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 182
+        },
+        {
+          "index": 1,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running\\01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17262,
+          "bbox": [
+            26,
+            11,
+            166,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 158
+        },
+        {
+          "index": 2,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running\\02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17597,
+          "bbox": [
+            28,
+            8,
+            164,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 154
+        },
+        {
+          "index": 3,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running\\03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17378,
+          "bbox": [
+            26,
+            10,
+            166,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 154
+        },
+        {
+          "index": 4,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running\\04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16708,
+          "bbox": [
+            29,
+            11,
+            163,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 166
+        },
+        {
+          "index": 5,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\running\\05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16699,
+          "bbox": [
+            27,
+            13,
+            165,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 158
+        }
+      ]
+    },
+    {
+      "state": "review",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "stable-slots",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "review used extraction method stable-slots; confirm motion playback remains stable and unclipped"
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\review\\00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17085,
+          "bbox": [
+            24,
+            5,
+            167,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 152
+        },
+        {
+          "index": 1,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\review\\01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16535,
+          "bbox": [
+            26,
+            6,
+            165,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 132
+        },
+        {
+          "index": 2,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\review\\02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16242,
+          "bbox": [
+            31,
+            7,
+            160,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 128
+        },
+        {
+          "index": 3,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\review\\03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16995,
+          "bbox": [
+            24,
+            9,
+            167,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 128
+        },
+        {
+          "index": 4,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\review\\04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16496,
+          "bbox": [
+            26,
+            5,
+            165,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 144
+        },
+        {
+          "index": 5,
+          "file": "C:\\Users\\fab\\yuki-studio-repo\\pm-workspace\\.product_knowledge\\artifacts\\pets\\yuki-scout-run\\frames-stable\\review\\05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 16577,
+          "bbox": [
+            28,
+            6,
+            163,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 146
+        }
+      ]
+    }
+  ]
+}

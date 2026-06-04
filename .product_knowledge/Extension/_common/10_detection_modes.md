@@ -8,7 +8,7 @@
 > 适用插件：Netflix / Disney+ / U-NEXT / Fandango at Home / Amazon / Hulu / Fanza / OnlyFans / MyFans / TVer / M3U8（变体）/ MPD（变体）
 > 检测模式归属表见 [../../READING_MAP.md](../../READING_MAP.md)
 > 字段级实现参考：Netflix 插件 `plugin_differences.md` + `requirements/`（活样例）
-> 关联：[ytdlp_mode.md](ytdlp_mode.md)、[../user_flows.md](../user_flows.md)、[../error_handling.md](../error_handling.md)、[../business_rules.md](../business_rules.md)
+> 关联：[ytdlp_mode](#ytdlp_mode)、[11_user_flows_and_error_handling.md](11_user_flows_and_error_handling.md)、[06_business_rules.md](06_business_rules.md)
 
 ---
 
@@ -120,7 +120,7 @@ Detected 列表展示视频卡片
 
 ## 七、配额扣减
 
-详见 [../business_rules.md](../business_rules.md)。基线规则：
+详见 [06_business_rules.md](06_business_rules.md)。基线规则：
 
 - 任务发起时进入**预扣减**流程
 - 任务 `Completed` → 扣减确认
@@ -162,7 +162,7 @@ MPD（MPEG-DASH manifest）插件覆盖跨站点的 MPD 协议视频。
 
 ## 十、错误处理（站点专属错误码示例）
 
-通用错误处理见 [../error_handling.md](../error_handling.md)。netflix_mode 下站点专属错误码举例：
+通用错误处理见 [11_user_flows_and_error_handling.md](11_user_flows_and_error_handling.md)。netflix_mode 下站点专属错误码举例：
 
 - **Error 330**（Netflix）：最近两个月缓存 key 视频对 Trial 用户受限
   - 由 CoApp 判定，固定文案走多语言包
@@ -177,7 +177,7 @@ MPD（MPEG-DASH manifest）插件覆盖跨站点的 MPD 协议视频。
 > 适用插件：Video（通用 yt-dlp 下载器）
 > 检测模式归属表见 [../../READING_MAP.md](../../READING_MAP.md)
 > 字段级实现参考：Video 插件 `plugin_differences.md` + `requirements/`（活样例）
-> 关联：[netflix_mode.md](netflix_mode.md)、[../user_flows.md](../user_flows.md)、[../error_handling.md](../error_handling.md)、[../business_rules.md](../business_rules.md)
+> 关联：[netflix_mode](#netflix_mode)、[11_user_flows_and_error_handling.md](11_user_flows_and_error_handling.md)、[06_business_rules.md](06_business_rules.md)
 
 ---
 

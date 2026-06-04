@@ -12,9 +12,9 @@
 | --- | --- | --- |
 | 双地区双站点 | 单插件同时覆盖 `hulu.com`（美国）+ `hulu.jp`（日本），但两站点内容库与套餐独立 | requirements/site_research_notes.md |
 | 价格与权益 | 1M $59.99 / Lifetime $109.99；Trial 3 次 / Premium 每日 100 | requirements/plugin_requirement.md § 价格与权益 |
-| 视频画质 | 最高 1080p / 4K（产品页口径） | requirements/plugin_requirement.md § 视频下载 - 配置参数 |
-| 视频编码 | H.264 / H.265 | requirements/plugin_requirement.md § 视频下载 - 配置参数 |
-| 音频 | **EAC3 5.1**（产品页明确口径，与多数 netflix_mode 插件不同） | requirements/plugin_requirement.md § 视频下载 - 配置参数 |
+| 视频画质 | 产品页口径最高 1080p / 4K；实际下载前配置项以 `analyze_result` 返回的 Resolution 列表为准 | requirements/plugin_requirement.md § 视频下载 - 配置参数 |
+| 视频编码 | H.264 / H.265；仅当 `listCodecInfo` 返回多个可选 codec 时展示 Video Codec | requirements/plugin_requirement.md § 视频下载 - 配置参数 |
+| 音频 | **EAC3 5.1**（产品页明确口径）；仅当 `lstSupportAudioCodec` 返回多个可选 codec 时展示 Audio Codec | requirements/plugin_requirement.md § 视频下载 - 配置参数 |
 | 输出格式 | MP4 / MKV | requirements/plugin_requirement.md § 视频下载 - 配置参数 |
 | Playlist 结构 | Season / Episode 树 + **字幕版 / 配音版分流**（同一 Episode 有 subtitled / dubbed / extras / bonus / trailers 多变体） | requirements/plugin_requirement.md § 视频下载 - 下载进度显示 |
 | 配额扣减 | **每个分流变体独立扣点**（subtitled / dubbed / bonus / extras / trailers 选中即各算 1） | requirements/plugin_requirement.md § 价格与权益 |
@@ -27,7 +27,7 @@
 
 | 维度 | 差异内容 | 详见 |
 | --- | --- | --- |
-| 右侧面板配置项 | 当前仅暴露 Video Quality（不含 codec / audio / subtitle 配置项） | requirements/plugin_ui_requirement.md |
+| 右侧面板配置项 | 按 Hulu meta 分析结果动态展示 Video Codec / Resolution / Audio Codec / Language / Subtitle；不可用维度不展示 | requirements/plugin_requirement.md § 视频下载 - 配置参数 |
 | Playlist 选集弹窗 | Season / Episode 之外有版本（字幕 / 配音 / 花絮）选择层 | requirements/plugin_ui_requirement.md |
 
 ---
@@ -36,9 +36,9 @@
 
 - 产品页：`https://streamfab.com/hulu-downloader.htm`
 - 站点：`hulu.com`（美国）+ `hulu.jp`（日本）
-- 视频画质上限：1080p / 4K
-- 编码：H.264 / H.265
-- 音频：EAC3 5.1
+- 视频画质上限：产品页口径 1080p / 4K；下载配置以 `analyze_result` 返回为准
+- 编码：H.264 / H.265；默认 H264，H265 仅在 CoApp 返回可选项时展示
+- 音频：EAC3 5.1；默认 AAC，EAC3 仅在 CoApp 返回可选项时展示
 - 输出格式：MP4 / MKV
 - 内容结构：Season / Episode + 字幕版 / 配音版 / Extras / Bonus / Trailers
 - region-agnostic：用户有权限的任意区域内容

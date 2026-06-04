@@ -19,7 +19,6 @@
 > - mlink 链接中的产品名片段使用 `{SiteNameMlink}`，即展示名单词用 `_` 连接。
 > - 示例：流媒体服务名为 `Fandango at Home` 时，安装程序写 `StreamFab Fandango at Home Coapp`，mlink 写 `StreamFab_Fandango_at_Home_Downloader_for_Browser` / `StreamFab_Fandango_at_Home_Coapp`，app id 写 `streamfab_for_browser_fandango_at_home`，跳转链接写 `fandango-at-home-downloader-for-browser.htm` / `pid=fandango-at-home-downloader`。
 
-- 原型链接：
 - 需求地址：
 - UI 需求说明：
 
@@ -27,6 +26,7 @@
 
 ## 文档更新记录
 
+<!-- colwidth:22.82%,43.49%,33.69% -->
 | 日期 | 更新内容 | 备注 |
 | --- | --- | --- |
 |  | 首次编辑 |  |
@@ -57,12 +57,12 @@
 
 | 类型 | 平台 | 渠道 | 链接 |
 | --- | --- | --- | --- |
-| 插件包 | — | 主站 | [https://www.dvdfab.cn/mlink/download.php?g=StreamFab_{SiteNameMlink}_Downloader_for_Browser](https://www.dvdfab.cn/mlink/download.php?g=StreamFab_%7BSiteNameMlink%7D_Downloader_for_Browser) |
-| 插件包 | — | 独立站 | [https://streamfab.com/mlink?p=StreamFab_{SiteNameMlink}_Downloader_for_Browser](https://streamfab.com/mlink?p=StreamFab_%7BSiteNameMlink%7D_Downloader_for_Browser) |
-| CoApp | Win | 主站 | [https://www.dvdfab.cn/mlink/download.php?g=StreamFab_{SiteNameMlink}_Coapp](https://www.dvdfab.cn/mlink/download.php?g=StreamFab_%7BSiteNameMlink%7D_Coapp) |
-| CoApp | Win | 独立站 | [https://streamfab.com/mlink?p=StreamFab_{SiteNameMlink}_Coapp](https://streamfab.com/mlink?p=StreamFab_%7BSiteNameMlink%7D_Coapp) |
-| CoApp | Mac | 主站 | [https://www.dvdfab.cn/mlink/download.php?g=StreamFab_{SiteNameMlink}_Coapp_for_Mac](https://www.dvdfab.cn/mlink/download.php?g=StreamFab_%7BSiteNameMlink%7D_Coapp_for_Mac) |
-| CoApp | Mac | 独立站 | [https://streamfab.com/mlink?p=StreamFab_{SiteNameMlink}_Coapp_for_Mac](https://streamfab.com/mlink?p=StreamFab_%7BSiteNameMlink%7D_Coapp_for_Mac) |
+| 插件包 | — | 主站 | <a href="https://www.dvdfab.cn/mlink/download.php?g=StreamFab_%7BSiteNameMlink%7D_Downloader_for_Browser" target="_blank" rel="noopener noreferrer nofollow">https://www.dvdfab.cn/mlink/download.php?g=StreamFab_{SiteNameMlink}_Downloader_for_Browser</a> |
+| 插件包 | — | 独立站 | <a href="https://streamfab.com/mlink?p=StreamFab_%7BSiteNameMlink%7D_Downloader_for_Browser" target="_blank" rel="noopener noreferrer nofollow">https://streamfab.com/mlink?p=StreamFab_{SiteNameMlink}_Downloader_for_Browser</a> |
+| CoApp | Win | 主站 | <a href="https://www.dvdfab.cn/mlink/download.php?g=StreamFab_%7BSiteNameMlink%7D_Coapp" target="_blank" rel="noopener noreferrer nofollow">https://www.dvdfab.cn/mlink/download.php?g=StreamFab_{SiteNameMlink}_Coapp</a> |
+| CoApp | Win | 独立站 | <a href="https://streamfab.com/mlink?p=StreamFab_%7BSiteNameMlink%7D_Coapp" target="_blank" rel="noopener noreferrer nofollow">https://streamfab.com/mlink?p=StreamFab_{SiteNameMlink}_Coapp</a> |
+| CoApp | Mac | 主站 | <a href="https://www.dvdfab.cn/mlink/download.php?g=StreamFab_%7BSiteNameMlink%7D_Coapp_for_Mac" target="_blank" rel="noopener noreferrer nofollow">https://www.dvdfab.cn/mlink/download.php?g=StreamFab_{SiteNameMlink}_Coapp_for_Mac</a> |
+| CoApp | Mac | 独立站 | <a href="https://streamfab.com/mlink?p=StreamFab_%7BSiteNameMlink%7D_Coapp_for_Mac" target="_blank" rel="noopener noreferrer nofollow">https://streamfab.com/mlink?p=StreamFab_{SiteNameMlink}_Coapp_for_Mac</a> |
 
 ### 网站信息
 
@@ -117,8 +117,7 @@
 | --- | --- | --- |
 | 登录 & 授权 | — | / |
 | 用户权益 | — | / |
-| 视频分析 | — | / |
-| 视频检测 | — | / |
+| 视频分析/检测 | — | / |
 | 视频下载 | — | 下载配置项（按需填写） |
 | Dashboard | — | Banner 文案、产品名 |
 | Dashboard | Setting | 按需填写差异化范围（如"common 之外新增两项"） |
@@ -133,19 +132,19 @@
 
 | 按钮 | 渠道 | 链接 |
 | --- | --- | --- |
-| 产品页 | 主站 | [https://streamfab.dvdfab.cn/{sitename}-downloader-for-browser.htm](https://streamfab.dvdfab.cn/%7Bsitename%7D-downloader-for-browser.htm) |
-| 产品页 | 独立站 | [https://streamfab.com/{sitename}-downloader-for-browser.htm](https://streamfab.com/%7Bsitename%7D-downloader-for-browser.htm) |
-| What's New | 主站 | [https://streamfab.dvdfab.cn/streamfab-for-browser-new.htm?pid={sitename}-downloader](https://streamfab.dvdfab.cn/streamfab-for-browser-new.htm?pid=%7Bsitename%7D-downloader) |
-| What's New | 独立站 | [https://streamfab.com/streamfab-for-browser-new.htm?pid={sitename}-downloader](https://streamfab.com/streamfab-for-browser-new.htm?pid=%7Bsitename%7D-downloader) |
-| 付费 / Upgrade | 主站 | [https://streamfab.dvdfab.cn/streamfab-for-browser.htm?open={pid}（pid](https://streamfab.dvdfab.cn/streamfab-for-browser.htm?open=%7Bpid%7D%EF%BC%88pid) 待补充） |
-| 付费 / Upgrade | 独立站 | [https://streamfab.com/streamfab-for-browser.htm?open={pid}（pid](https://streamfab.com/streamfab-for-browser.htm?open=%7Bpid%7D%EF%BC%88pid) 待补充） |
+| 产品页 | 主站 | <a href="https://streamfab.dvdfab.cn/%7Bsitename%7D-downloader-for-browser.htm" target="_blank" rel="noopener noreferrer nofollow">https://streamfab.dvdfab.cn/{sitename}-downloader-for-browser.htm</a> |
+| 产品页 | 独立站 | <a href="https://streamfab.com/%7Bsitename%7D-downloader-for-browser.htm" target="_blank" rel="noopener noreferrer nofollow">https://streamfab.com/{sitename}-downloader-for-browser.htm</a> |
+| What's New | 主站 | <a href="https://streamfab.dvdfab.cn/streamfab-for-browser-new.htm?pid=%7Bsitename%7D-downloader" target="_blank" rel="noopener noreferrer nofollow">https://streamfab.dvdfab.cn/streamfab-for-browser-new.htm?pid={sitename}-downloader</a> |
+| What's New | 独立站 | <a href="https://streamfab.com/streamfab-for-browser-new.htm?pid=%7Bsitename%7D-downloader" target="_blank" rel="noopener noreferrer nofollow">https://streamfab.com/streamfab-for-browser-new.htm?pid={sitename}-downloader</a> |
+| 付费 / Upgrade | 主站 | <a href="https://streamfab.dvdfab.cn/streamfab-for-browser.htm?open=%7Bpid%7D%EF%BC%88pid" target="_blank" rel="noopener noreferrer nofollow">https://streamfab.dvdfab.cn/streamfab-for-browser.htm?open={pid}（pid</a> 待补充） |
+| 付费 / Upgrade | 独立站 | <a href="https://streamfab.com/streamfab-for-browser.htm?open=%7Bpid%7D%EF%BC%88pid" target="_blank" rel="noopener noreferrer nofollow">https://streamfab.com/streamfab-for-browser.htm?open={pid}（pid</a> 待补充） |
 
 ### 安装器
 
 参见 UI 需求说明文档。调整项：
 
-- 安装器资源：([https://www.figma.com/design/71aG2GlU1BF5VDxKTbfSwd/%E3%80%90StreamFab%E3%80%91-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6?node-id=21-6761&p=f&m=dev](https://www.figma.com/design/71aG2GlU1BF5VDxKTbfSwd/%E3%80%90StreamFab%E3%80%91-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6?node-id=21-6761&p=f&m=dev))
-- 安装目录结构：参见「[https://i6a1sqw3p2.feishu.cn/docx/CfszdQRt2o91I7xX6IIc9rY0nVh](https://i6a1sqw3p2.feishu.cn/docx/CfszdQRt2o91I7xX6IIc9rY0nVh)」
+- 安装器资源：见 (<a href="https://www.figma.com/design/71aG2GlU1BF5VDxKTbfSwd/%E3%80%90StreamFab%E3%80%91-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6?node-id=21-6761&amp;p=f&amp;m=dev" target="_blank" rel="noopener noreferrer nofollow">https://www.figma.com/design/71aG2GlU1BF5VDxKTbfSwd/%E3%80%90StreamFab%E3%80%91-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6?node-id=21-6761&p=f&m=dev</a>)
+- 安装目录结构：见「<a href="https://i6a1sqw3p2.feishu.cn/docx/CfszdQRt2o91I7xX6IIc9rY0nVh" target="_blank" rel="noopener noreferrer nofollow">https://i6a1sqw3p2.feishu.cn/docx/CfszdQRt2o91I7xX6IIc9rY0nVh</a>」
 
 ### 视频下载 — 配置参数
 
@@ -165,7 +164,7 @@
 
 （根据站点实际情况选择，填写后删除另一行。）
 
-### Dashboard - Banner 文案
+### Dashboard
 
 > **范围**：本节只承载 Dashboard License Info 顶部 Banner 文案。Empty State / Tooltip / 其他提示语与基线一致，不在此节写；Setting 配置项见独立的「Setting — Extension 配置项」节。
 
@@ -176,9 +175,10 @@ License Info 产品名：`StreamFab {SiteName} Downloader for Browser`
 | EN | {BannerContentEN} |
 | ZH | {BannerContentZH} |
 
-### Setting — Extension 配置项
+### Setting 
 
 > **填写规则**：
+> 
 > - **无特殊配置项**：保留下方默认 7 项通用配置项顺序，不修改。
 > - **有特殊配置项**：按客户端方案拆解给出的「配置项顺序」**整节重写**——完整列出所有配置项（通用项 + 特殊项），特殊项按拆解指定位置插入（可在中间），并展开特殊项的枚举值。删除本说明块上方的"无特殊配置项"分支描述。
 > - 不沿用"common 配置项不再赘述"措辞；有特殊项时不要把特殊项硬塞到末尾。

@@ -158,10 +158,7 @@ Hulu CoApp 协议约束
   - 主视频字幕版
   - 主视频吹替版
   - 预告片
-- 下载队列里都成组展示，结构如下：
-
-  - エピソード(吹替)
-  - (吹)新感染ファイナル·エクスプレス
+  - 下载队列里都成组展示
 
 **TV Show 示例**：<a href="https://www.hulu.jp/fire-country" target="_blank" rel="noopener noreferrer nofollow">https://www.hulu.jp/fire-country</a>
 
