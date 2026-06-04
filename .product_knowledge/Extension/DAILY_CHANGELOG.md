@@ -1,5 +1,30 @@
 # 知识库每日更新记录
 
+## 2026-06-04
+
+### 新增
+- .product_knowledge/Extension/_common/prototype/.vite/
+- ".product_knowledge/Extension/_common/prototype/images/StreamFab logo@2x.png"
+- ".product_knowledge/Extension/_common/prototype/images/detected tab expand.jpg"
+- ".product_knowledge/Extension/_common/prototype/images/detected tab hover.jpg"
+- ".product_knowledge/Extension/_common/prototype/images/detected tab.jpg"
+- .product_knowledge/Extension/_common/prototype/images/detected-tab-render.png
+- ".product_knowledge/Extension/_common/prototype/images/downloads tab.jpg"
+- ".product_knowledge/Extension/_common/prototype/images/license info.jpg"
+- .product_knowledge/Extension/_common/prototype/images/setting.jpg
+
+### 删除
+- ".product_knowledge/Extension/_common/prototype/StreamFab logo@2x.png"
+- ".product_knowledge/Extension/_common/prototype/detected tab expand.jpg"
+- ".product_knowledge/Extension/_common/prototype/detected tab hover.jpg"
+- ".product_knowledge/Extension/_common/prototype/detected tab.jpg"
+- .product_knowledge/Extension/_common/prototype/detected-tab-render.png
+- ".product_knowledge/Extension/_common/prototype/downloads tab.jpg"
+- ".product_knowledge/Extension/_common/prototype/license info.jpg"
+- .product_knowledge/Extension/_common/prototype/setting.jpg
+
+---
+
 ## 2026-06-02
 
 ### 新增
