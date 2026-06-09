@@ -1,5 +1,110 @@
 # 知识库每日更新记录
 
+## 2026-06-07
+
+### 修改
+- .product_knowledge/Extension/_common/15_glossary.md
+- .product_knowledge/Extension/_common/16_new_plugin_kickoff_checklist.md
+- .product_knowledge/Extension/_common/FRAMEWORK.md
+- .product_knowledge/Extension/_common/prototype/.vite/deps/_metadata.json
+- .product_knowledge/Extension/_common/prototype/prototype-engineering-check.mjs
+- .product_knowledge/Extension/_common/prototype/src/styles/global.css
+- .product_knowledge/Extension/_common/prototype/src/styles/tokens.css
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/requirements/index.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/requirements/plugin_ui_requirement.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/requirements/index.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/requirements/index.md
+
+### 删除
+- .product_knowledge/Extension/_common/scripts/scaffold_plugin.py
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/SKILL.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/feishu_target.json
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_changelog.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_plugin_differences.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_readme.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_requirements_index.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/SKILL.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/checklist_gap_check.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/template_changelog_entry.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/template_version_history.md
+- .product_knowledge/Extension/_common/templates/index.md
+- .product_knowledge/Extension/_common/templates/plugin_requirement_template.md
+- .product_knowledge/Extension/_common/templates/plugin_research_template.md
+- .product_knowledge/Extension/_common/templates/plugin_store_listing_template.md
+- .product_knowledge/Extension/_common/templates/plugin_ui_requirement_template.md
+
+---
+
+## 2026-06-06
+
+### 修改
+- .product_knowledge/Extension/_common/15_glossary.md
+- .product_knowledge/Extension/_common/16_new_plugin_kickoff_checklist.md
+- .product_knowledge/Extension/_common/FRAMEWORK.md
+- .product_knowledge/Extension/_common/prototype/.vite/deps/_metadata.json
+- .product_knowledge/Extension/_common/prototype/prototype-engineering-check.mjs
+- .product_knowledge/Extension/_common/prototype/src/styles/global.css
+- .product_knowledge/Extension/_common/prototype/src/styles/tokens.css
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/requirements/index.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/requirements/plugin_ui_requirement.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/requirements/index.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/requirements/index.md
+
+### 删除
+- .product_knowledge/Extension/_common/scripts/scaffold_plugin.py
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/SKILL.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/feishu_target.json
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_changelog.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_plugin_differences.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_readme.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_requirements_index.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/SKILL.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/checklist_gap_check.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/template_changelog_entry.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/template_version_history.md
+- .product_knowledge/Extension/_common/templates/index.md
+- .product_knowledge/Extension/_common/templates/plugin_requirement_template.md
+- .product_knowledge/Extension/_common/templates/plugin_research_template.md
+- .product_knowledge/Extension/_common/templates/plugin_store_listing_template.md
+- .product_knowledge/Extension/_common/templates/plugin_ui_requirement_template.md
+
+---
+
+## 2026-06-05
+
+### 修改
+- .product_knowledge/Extension/_common/15_glossary.md
+- .product_knowledge/Extension/_common/16_new_plugin_kickoff_checklist.md
+- .product_knowledge/Extension/_common/FRAMEWORK.md
+- .product_knowledge/Extension/_common/prototype/.vite/deps/_metadata.json
+- .product_knowledge/Extension/_common/prototype/prototype-engineering-check.mjs
+- .product_knowledge/Extension/_common/prototype/src/styles/global.css
+- .product_knowledge/Extension/_common/prototype/src/styles/tokens.css
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/requirements/index.md
+- .product_knowledge/Extension/streamfab_amazon_downloader_for_browser/requirements/plugin_ui_requirement.md
+- .product_knowledge/Extension/streamfab_netflix_downloader_for_browser/requirements/index.md
+- .product_knowledge/Extension/streamfab_onlyfans_downloader_for_browser/requirements/index.md
+
+### 删除
+- .product_knowledge/Extension/_common/scripts/scaffold_plugin.py
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/SKILL.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/feishu_target.json
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_changelog.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_plugin_differences.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_readme.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-init-skill/references/skeleton_requirements_index.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/SKILL.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/checklist_gap_check.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/template_changelog_entry.md
+- .product_knowledge/Extension/_common/skills/streamfab-extension-workflow-skill/references/template_version_history.md
+- .product_knowledge/Extension/_common/templates/index.md
+- .product_knowledge/Extension/_common/templates/plugin_requirement_template.md
+- .product_knowledge/Extension/_common/templates/plugin_research_template.md
+- .product_knowledge/Extension/_common/templates/plugin_store_listing_template.md
+- .product_knowledge/Extension/_common/templates/plugin_ui_requirement_template.md
+
+---
+
 ## 2026-06-04
 
 ### 新增

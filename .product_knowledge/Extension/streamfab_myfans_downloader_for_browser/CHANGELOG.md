@@ -4,7 +4,7 @@
 
 ## 版本历史
 
-### 2026-06-02 | 已发布 | MyFans V1001
+### 2026-06-02 | 已发布 | MyFans V1001 + CoApp V1001
 
 - 新增：支持 Chrome 与 Edge，全面适配主流 Chromium 内核环境，更多信息：https://streamfab.dvdfab.cn/myfans-downloader-for-browser.htm
 - 新增：下载 myfans 站点的视频。

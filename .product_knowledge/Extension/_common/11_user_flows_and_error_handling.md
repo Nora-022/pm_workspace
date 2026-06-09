@@ -17,7 +17,7 @@
     ↓
 [前置条件检查]   ※ netflix_mode：站点 + 登录 + 播放；ytdlp_mode：登录 + CoApp 可用
     ↓
-[检测流程]      ※ 见对应 baselines
+[检测流程]      ※ 非 ytdlp_mode：后台刷新 CoApp 结果；ytdlp_mode：预分析检测
     ↓
 Detected 列表（视频卡片 + 下载前配置）
     ↓
@@ -86,6 +86,7 @@ Downloads 队列（Pending → Downloading → Completed）
 | 非目标站点 | Detected 区显示前置引导态 |
 | 未登录 | 引导登录；Login Notice 在受限页面（chrome://* 等）引导去官网登录 |
 | 未播放（netflix_mode） | Detected 引导用户播放视频 |
+| 非视频页 / 无视频页（非 ytdlp_mode） | 无旧结果时保持 `No videos detected`；有旧结果时保留现有视频卡片 |
 | 未安装 CoApp | 引导安装 |
 | CoApp 有更新 | 提示更新 |
 | 站点不支持 DRM（ytdlp_mode） | `Protected Video Content`，引导桌面客户端 |
@@ -104,7 +105,9 @@ Downloads 队列（Pending → Downloading → Completed）
 
 | 状态 | 展示 |
 | --- | --- |
-| 加载中 | `Detecting videos...` 动画 |
+| 页面空态（非 ytdlp_mode URL 变化后默认） | `No videos detected` / "暂未检测到视频"，后台静默刷新 CoApp 结果 |
+| 已有结果刷新中（非 ytdlp_mode） | 保留现有视频卡片，不用主区域 loading 打断用户 |
+| 加载中（ytdlp_mode） | `Detecting videos...` 动画 |
 | 新增内容加载中 | 在现有结果基础上继续补充，不打断浏览 |
 | 成功 | 任务状态实时变更并给出进度 |
 | 失败 | 任务卡片展示错误码与可恢复动作（`Retry`） |

@@ -46,6 +46,20 @@ assert.match(tokens, /--sf-sidebar-width:\s*480px/);
 assert.match(tokens, /--sf-orange:\s*#FA8A04/);
 assert.match(tokens, /--sf-blue:\s*#1E9CEB/);
 assert.match(tokens, /--sf-radius-main:\s*8px/);
+assert.match(tokens, /--sf-surface-accent:\s*#FFF8EF/);
+assert.match(tokens, /--sf-shadow-shell:/);
+
+const globalStyles = read('src/styles/global.css');
+const tokenNames = new Set([...tokens.matchAll(/--[\w-]+(?=\s*:)/g)].map(([name]) => name));
+const missingCssVars = [...globalStyles.matchAll(/var\((--[\w-]+)/g)]
+  .map(([, name]) => name)
+  .filter((name) => !tokenNames.has(name));
+assert.deepEqual(missingCssVars, [], 'global.css should only use defined CSS tokens');
+assert.match(globalStyles, /background:\s*var\(--sf-browser-backdrop\)/);
+assert.match(globalStyles, /box-shadow:\s*var\(--sf-shadow-shell\)/);
+assert.match(globalStyles, /background:\s*var\(--sf-surface-accent\)/);
+const rawGlobalColors = [...globalStyles.matchAll(/#[0-9a-fA-F]{3,8}|rgba?\([^)]*\)/g)].map(([value]) => value);
+assert.deepEqual(rawGlobalColors, [], 'global.css should use CSS tokens for shared colors');
 
 const types = read('src/types.ts');
 assert.match(types, /export type PreviewState/);

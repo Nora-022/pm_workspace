@@ -4,7 +4,7 @@
 
 ## 版本历史
 
-### U-NEXT 1001 + CoApp 1001 | 已发布
+### 2026-05-25 | 已发布 | U-NEXT V1002 + CoApp V1002
 
 - 新增：支持 Chrome 与 Edge，全面适配主流 Chromium 内核环境，更多信息：https://streamfab.dvdfab.cn/u-next-downloader-for-browser.htm
 - 新增：下载 U-NEXT 站点的视频。

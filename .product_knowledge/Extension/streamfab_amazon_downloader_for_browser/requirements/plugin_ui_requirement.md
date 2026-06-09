@@ -12,7 +12,7 @@
 - 原型链接：
 - 需求来源：
 - 相关文档：`requirements/plugin_requirement.md`、`requirements/product_page_facts.md`、`requirements/site_research_notes.md`
-- 初始化说明：本文档基于 `_common/templates/plugin_ui_requirement_template.md` 创建，并在 `streamfab-plugin-init` create mode 中完成首轮回填。
+- 初始化说明：本文档基于 `streamfab-extension` skill 的 UI 需求模板创建，并在 init 阶段完成首轮回填。
 
 ## 1. 当前 UI 基线
 - License Info banner 使用 Amazon 产品页已明确的能力文案

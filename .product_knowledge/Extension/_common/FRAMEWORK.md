@@ -14,7 +14,7 @@
 - **三大区域**：
   1. 通用基线与扩展（`_common/`） —— 跨插件共性内容，01-07 对齐 Knowledge Manager，08+ 留给 common 级扩展事实
   2. 插件差异化（`streamfab_<x>/`） —— 每个插件用固定的 `plugin_differences.md` 记录自己的差异，不占用 common 编号
-  3. 创建维护工具（`_common/templates/`、`scripts/`、`skills/`） —— 用于生产前两部分
+  3. 创建维护工具 —— 已整体迁入自包含 skill `streamfab-extension`（模板、脚手架脚本、缺口清单都在 skill 包内，知识库不再存放）
 - **一份阅读地图**：`_common/READING_MAP.md` —— AI 查任意插件事实时的阅读路线 + 插件检测模式归属表
 
 ---
@@ -53,20 +53,8 @@ Extension/
 │   ├── prototype/                                 通用原型 Demo
 │   │   └── index.html                               单一通用原型，不为单插件维护副本
 │   │
-│   ├── templates/                                 创建新插件用的模板
-│   │   ├── plugin_requirement.md                    11 项差异维度模板
-│   │   ├── plugin_ui_requirement.md                 UI 差异模板
-│   │   ├── plugin_store_listing.md                  商店上架文案模板
-│   │   ├── plugin_research.md                       站点调研笔记模板
-│   │   └── index.md                                 模板索引
-│   │
 │   ├── scripts/                                   自动化脚本
-│   │   ├── scaffold_plugin.py                       新插件 init 脚手架
-│   │   └── audit_links.py                           broken link / 孤儿文档校验
-│   │
-│   ├── skills/                                    AI Skill 定义
-│   │   ├── streamfab-extension-init-skill/
-│   │   └── streamfab-extension-workflow-skill/
+│   │   └── create_feishu_plugin_docs.py             已废弃（init 不再创建飞书文档）
 │   │
 │   ├── FRAMEWORK.md                               框架定稿（本文档）
 │   ├── READING_MAP.md                             AI 阅读路线 + 检测模式归属表
@@ -113,31 +101,24 @@ Extension/
 | --- | --- |
 | `index.html` | 全产品线通用原型（Dashboard / Setting / Detected / Downloading / Downloaded 等界面 demo），不为单插件维护副本 |
 
-### C. `_common/templates/`（创建新插件的模板）
+### C. 创建维护工具（已迁入 `streamfab-extension` skill）
 
-| 文件 | 内容 | 占位符 |
-| --- | --- | --- |
-| `plugin_requirement.md` | 11 项差异维度模板（含"价格与权益"块、明确化的"Dashboard - Banner 文案"） | `{SiteName}` / `{service_name}` / `{SiteNameMlink}` / `{sitename}` / `{BannerContentEN}` / `{BannerContentZH}` |
-| `plugin_ui_requirement.md` | UI 差异模板 | 同上 |
-| `plugin_store_listing.md` | Chrome / Edge 商店上架文案模板 | 同上 + Search terms 占位 |
-| `plugin_research.md` | 站点调研笔记模板 | 同上 |
-| `index.md` | 模板索引 + 每个模板用途说明 | — |
+2026-06-05 起，新插件的全部创建维护工具迁入自包含 skill `streamfab-extension`（安装于各自机器的 `.claude/skills/`），知识库内不再存放模板、脚手架脚本和 skill 定义：
 
-> `plugin_client_plan_template.md` 已废弃，客户端方案拆解走飞书副本，不在本地落地。
+| skill 内位置 | 内容 |
+| --- | --- |
+| `SKILL.md` | 单一工作流：初始化 → 站点调研 / 产品页事实提取 → 拆解同步生成需求文档 → 缺口检查 → 上线收尾 |
+| `scripts/scaffold_plugin.py` | 新插件 init 脚手架：复制骨架 + 替换占位符（`--ext-root` 指向本 Extension 目录） |
+| `assets/` | 骨架（README / plugin_differences / CHANGELOG / requirements_index）+ 需求 / UI / 商店模板 |
+| `references/` | 缺口检查清单（含 Netflix 基线豁免）、changelog 条目模板、pid 表自动回填说明 |
+
+需要模板或工作流的同事直接安装该 skill 包，不从知识库取。
 
 ### D. `_common/scripts/`
 
 | 文件 | 职责 |
 | --- | --- |
-| `scaffold_plugin.py` | 新插件 init：复制模板 + 替换占位符 + 创建空目录 |
-| `audit_links.py` | 周期性校验：broken link / 孤儿文档 / 插件未引用 common / 内容片段复制粘贴检测 |
-
-### E. `_common/skills/`
-
-| Skill | 职责 |
-| --- | --- |
-| `streamfab-extension-init-skill/` | 接到"创建新插件" → 调用 `scaffold_plugin.py` → 输出飞书拆解模板 URL |
-| `streamfab-extension-workflow-skill/` | 接到"推进插件" → 站点调研 → 产品页事实提取 → 等飞书副本 → 回填 plugin_requirement.md |
+| `create_feishu_plugin_docs.py` | 已废弃（init 不再创建飞书文档），仅留档 |
 
 ### F. `_common/` 顶层文档
 
@@ -216,7 +197,7 @@ streamfab_<x>_downloader_for_browser/
 #### G.2 `plugin_requirement.md`（需求文档）
 
 **性质**：标准 PRD，对外交付给开发 / PM。
-**结构**（参考 `_common/templates/plugin_requirement.md` 模板）：
+**结构**（参考 `streamfab-extension` skill 内 `assets/plugin_requirement_template.md`）：
 
 ```
 ## 产品信息（必填）
@@ -330,7 +311,7 @@ streamfab_<x>_downloader_for_browser/
 | 规则 | 内容 |
 | --- | --- |
 | **共性 vs 差异判断** | 内容能写成"对所有插件都成立的句子" → 通用规则；写"X 插件相比基线不同" → 差异 |
-| **位置约束** | 通用主干写在 `_common/01-07`；无法合并进 01-07 的 common 级事实从 `_common/08_*.md` 继续编号；现行规则只写在 `_common/01+` 编号文件；`references/` 只放非规范参考资料；插件差异只写在 `plugin_differences.md`；模板只在 `_common/templates/` |
+| **位置约束** | 通用主干写在 `_common/01-07`；无法合并进 01-07 的 common 级事实从 `_common/08_*.md` 继续编号；现行规则只写在 `_common/01+` 编号文件；`references/` 只放非规范参考资料；插件差异只写在 `plugin_differences.md`；模板只在 `streamfab-extension` skill 包内 |
 | **引用方式** | 跨文档引用用相对路径 markdown link；不复制粘贴 |
 | **检测模式归属** | 插件**不自己声明**检测模式，唯一权威是 `READING_MAP.md` 的归属表 |
 | **不写"待确认 / 后续优化"** | 已落实文档禁止开放性兜底句 |
@@ -361,6 +342,7 @@ streamfab_<x>_downloader_for_browser/
 | `skills/` → `_common/skills/` | skill `SKILL.md` 中模板路径引用 | 改 skill |
 | `streamfab-extension-prototype/` → `_common/prototype/` | 如有外部引用 | 全局搜索修复 |
 | `common_plugin_rules.md` → `_common/plugin_rules.md` | 各文档引用 | 全局替换 |
+| `_common/templates/` + `_common/skills/` + `scaffold_plugin.py` → `streamfab-extension` skill（2026-06-05） | 知识库不再存放模板 / skill / 脚手架 | 已全局清理引用；需要工具的同事安装 skill 包 |
 
 ---
 

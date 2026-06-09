@@ -17,7 +17,9 @@
 
 | 状态 | 反馈 |
 | --- | --- |
-| 检测中 | `Detecting videos...` 动画 |
+| 页面空态（非 ytdlp_mode URL 变化后默认） | `No videos detected` / "暂未检测到视频"，后台静默刷新 CoApp 结果 |
+| 已有结果刷新中（非 ytdlp_mode） | 保留现有视频卡片，不用主区域 loading 打断用户 |
+| 检测中（ytdlp_mode） | `Detecting videos...` 动画 |
 | 分析中 | 独立分析状态，不伪装成检测成功或失败 |
 | 空状态 | `No videos detected` + `Force Refresh` |
 | 下载中 | 进度条、速度、剩余时间、任务状态 |

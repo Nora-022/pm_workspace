@@ -14,7 +14,7 @@
 
 | 模式 | 核心特征 | 适用 |
 | --- | --- | --- |
-| `netflix_mode` | 无预分析、单 Origin、CoApp 直出分析、下载与分析可并行 | Netflix 类 VIP 服务插件；M3U8 / MPD 为变体 |
+| `netflix_mode` | 无 ytdlp 式预分析、单 Origin、URL 变化后后台询问 CoApp 并刷新结果、下载与分析可并行 | Netflix 类 VIP 服务插件；M3U8 / MPD 为变体 |
 | `ytdlp_mode` | 预分析、多 Origin 探测、检测与下载可并行 | Video 通用下载器 |
 
 检测模式归属表见 [READING_MAP.md](READING_MAP.md#检测模式归属表唯一权威)。
@@ -24,7 +24,7 @@
 | 模块 | 输入 | 处理 | 输出 | 异常 |
 | --- | --- | --- | --- | --- |
 | 站点识别 | 当前 tab URL、页面状态 | 判断目标站点 / 非目标站点 / 受限页面 | 前置引导或进入检测 | 非目标站点、受限页面 |
-| 视频检测 | 页面上下文、播放状态、Origin 信息 | 按 `netflix_mode` 或 `ytdlp_mode` 分析 | Detected 视频列表 | 未登录、未播放、未检测到视频、分析失败 |
+| 视频检测 | 页面上下文、播放状态、Origin 信息 | 按 `netflix_mode` 或 `ytdlp_mode` 分析；非 `ytdlp_mode` 下 URL 变化后后台刷新，不强制进入可见 loading | Detected 视频列表 | 未登录、未播放、未检测到视频、分析失败 |
 | 下载配置 | 视频分析结果、用户设置 | 展示资源绑定配置项 | 下载任务参数 | 字段缺失时隐藏可变 tag，不显示占位 |
 | 权益校验 | 账号、订阅、配额、设备授权 | 阻断式校验 + 配额预占 | 允许创建任务或阻断弹窗 | Trial 耗尽、订阅过期、设备上限 |
 | 下载队列 | 任务参数、CoApp 状态 | Pending / Downloading / Completed 状态机 | Downloads 列表和通知 | CoApp 不可用、网络失败、磁盘或授权失败 |

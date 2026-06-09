@@ -41,8 +41,8 @@
 ```
 
 ## 当前阶段
-- 已上线：Video、Amazon、Netflix、Disney Plus、M3U8、OnlyFans
-- 集成中：U-NEXT、FANZA、myfans
+- 已上线：Video、Amazon、Netflix、Disney Plus、M3U8、OnlyFans、U-NEXT、myfans
+- 集成中：FANZA
 - 待研发：Hulu、TVer、Fandango at Home、DRM MPD
 
 ## 插件清单
@@ -53,12 +53,12 @@
 | `streamfab_netflix_downloader_for_browser` | 已上线 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_netflix_downloader_for_browser` |
 | `streamfab_disney_plus_downloader_for_browser` | 已上线 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_disney_plus_downloader_for_browser` |
 | `streamfab_onlyfans_downloader_for_browser` | 已上线 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_onlyfans_downloader_for_browser` |
-| `streamfab_u_next_downloader_for_browser` | 集成中 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_u_next_downloader_for_browser` |
+| `streamfab_u_next_downloader_for_browser` | 已上线 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_u_next_downloader_for_browser` |
 | `streamfab_hulu_downloader_for_browser` | 待研发 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_hulu_downloader_for_browser` |
 | `streamfab_tver_downloader_for_browser` | 待研发 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_tver_downloader_for_browser` |
 | `streamfab_fanza_downloader_for_browser` | 集成中 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_fanza_downloader_for_browser` |
 | `streamfab_fandango_at_home_downloader_for_browser` | 待研发 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_fandango_at_home_downloader_for_browser` |
-| `streamfab_myfans_downloader_for_browser` | 集成中 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_myfans_downloader_for_browser` |
+| `streamfab_myfans_downloader_for_browser` | 已上线 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_myfans_downloader_for_browser` |
 | `streamfab_mpd_downloader_for_browser` | 待研发 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_mpd_downloader_for_browser` |
 | `streamfab_m3u8_downloader_for_browser` | 已上线 | `C:\Users\fab\yuki-studio-repo\pm-workspace\.product_knowledge\Extension\streamfab_m3u8_downloader_for_browser` |
 

@@ -24,7 +24,7 @@
 - 在 `plugin_differences.md` 中记录差异摘要和关键事实索引
 
 4. 准备共享输入
-- 按需读取 `_common/templates/` 下的模板
+- 按需读取 `streamfab-extension` skill 包 `assets/` 下的模板
 - 按需读取 `_common/10_detection_modes.md` 到 `_common/15_glossary.md` 下的正式 common 规则
 
 5. 生成插件本地研究资料

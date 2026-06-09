@@ -2,7 +2,7 @@
   "hash": "6b4d8c00",
   "configHash": "b98535f2",
   "lockfileHash": "70da9d9c",
-  "browserHash": "4f0f541d",
+  "browserHash": "f5368e6c",
   "optimized": {
     "lucide-react": {
       "src": "../../node_modules/lucide-react/dist/esm/lucide-react.mjs",
